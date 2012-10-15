@@ -1,0 +1,49 @@
+{
+  "candidatos": [
+    {
+      "nome": "Candidato 1",
+      "foto": "",
+      "partido": "PT",
+      "numeroDeObras": "10",
+      "numeroDeProcessos": "2",
+      "vezesEleito": "3",
+      "fichaLimpa": "false"
+    },
+    {
+      "nome": "Candidato 2",
+      "foto": "",
+      "partido": "PT",
+      "numeroDeObras": "15",
+      "numeroDeProcessos": "5",
+      "vezesEleito": "3",
+      "fichaLimpa": "false"
+    },
+    {
+      "nome": "Candidato 3",
+      "foto": "",
+      "partido": "PT",
+      "numeroDeObras": "15",
+      "numeroDeProcessos": "5",
+      "vezesEleito": "3",
+      "fichaLimpa": "true"
+    },
+    {
+      "nome": "Candidato 4",
+      "foto": "",
+      "partido": "PT",
+      "numeroDeObras": "15",
+      "numeroDeProcessos": "5",
+      "vezesEleito": "3",
+      "fichaLimpa": "false"
+    },
+    {
+      "nome": "Candidato 5",
+      "foto": "",
+      "partido": "PT",
+      "numeroDeObras": "15",
+      "numeroDeProcessos": "5",
+      "vezesEleito": "3",
+      "fichaLimpa": "false"
+    }
+  ]
+}
