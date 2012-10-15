@@ -185,8 +185,37 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         return {
 
             init: function(){
+
+                var candidato = new SUPERTRUNFO.APPS.Candidato();
+                candidato.init();
+
                 bind();
                 novaRodada();
+
+            }
+
+        };
+    };
+
+    SUPERTRUNFO.APPS.Candidato = function(options){
+
+        // cache de variáveis privadas
+        var listaCandidatos = [];
+
+        var carrega = function() {
+
+            $.getJSON("data/candidatos.json",function(result){
+                $.each(result.project, function(i, field){
+                    console.log(field.nome);
+                });
+            });
+
+        };
+
+        return {
+
+            init: function(){
+                carrega();
             }
 
         };
