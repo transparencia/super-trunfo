@@ -7,7 +7,7 @@
       "numeroDeObras": "10",
       "numeroDeProcessos": "2",
       "vezesEleito": "3",
-      "fichaLimpa": "false"
+      "fichaLimpa": "sim"
     },
     {
       "nome": "Candidato 2",
@@ -16,7 +16,7 @@
       "numeroDeObras": "15",
       "numeroDeProcessos": "5",
       "vezesEleito": "3",
-      "fichaLimpa": "false"
+      "fichaLimpa": "não"
     },
     {
       "nome": "Candidato 3",
@@ -25,7 +25,7 @@
       "numeroDeObras": "15",
       "numeroDeProcessos": "5",
       "vezesEleito": "3",
-      "fichaLimpa": "true"
+      "fichaLimpa": "sim"
     },
     {
       "nome": "Candidato 4",
@@ -34,7 +34,7 @@
       "numeroDeObras": "15",
       "numeroDeProcessos": "5",
       "vezesEleito": "3",
-      "fichaLimpa": "false"
+      "fichaLimpa": "não"
     },
     {
       "nome": "Candidato 5",
@@ -43,7 +43,7 @@
       "numeroDeObras": "15",
       "numeroDeProcessos": "5",
       "vezesEleito": "3",
-      "fichaLimpa": "false"
+      "fichaLimpa": "sim"
     }
   ]
 }
