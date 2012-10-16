@@ -35,7 +35,13 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             opcaoOponente,
 
             listaCandidatos = [],
-            pontuacaoLimite;
+            listaCandidatosJogador = [],
+            listaCandidatosOponente = [],
+
+            pontuacaoLimite,
+
+            cartaAtualJogador,
+            cartaAtualOponente;
 
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
@@ -54,9 +60,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         var carregaCandidatos = function() {
 
             $.getJSON('data/candidatos.json',function(result){
-                listaCandidatos = result.candidatos;
+
+                // bagunça a ordem da lista de candidatos carregados
+                listaCandidatos = shuffle(result.candidatos);
+
+                // distribui os candidatos para os jogadores
+                listaCandidatosJogador = listaCandidatos.slice(0, listaCandidatos.length / 2);
+                listaCandidatosOponente = listaCandidatos.slice(listaCandidatos.length / 2, listaCandidatos.length);
+
                 bind();
                 novaRodada();
+
             });
 
         },
@@ -157,8 +171,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         jogadorVenceu = function() {
 
+            // itera o placar
             settings.placarJogador++;
             settings.placarOponente--;
+
+            // coloca a carta do oponente perdedor no fim do bolo do jogador vencedor
+            listaCandidatosOponente.shift();
+            listaCandidatosJogador.push(cartaAtualOponente);
+
+            // coloca a carta jogador vencedor no fim do bolo dele
+            listaCandidatosJogador.shift();
+            listaCandidatosJogador.push(cartaAtualJogador);
 
             atualizaPlacar();
 
@@ -168,8 +191,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         jogadorPerdeu = function() {
 
+            // itera o placar
             settings.placarOponente++;
             settings.placarJogador--;
+
+            // coloca a carta do jogador perdedor no fim do bolo do oponente vencedor
+            listaCandidatosOponente.push(cartaAtualJogador);
+            listaCandidatosJogador.shift();
+
+            // coloca a carta oponente vencedor no fim do bolo dele
+            listaCandidatosOponente.shift();
+            listaCandidatosOponente.push(cartaAtualJogador);
 
             atualizaPlacar();
 
@@ -207,36 +239,52 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $rodada.html(settings.rodada);
 
             console.log('\ncomeça nova rodada\n');
+
+            console.log(listaCandidatosJogador);
+            console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
 
-            // escolhe um candidato aleatório dentre os demais
-            var jogador = listaCandidatos[random(0, listaCandidatos.length)];
+            cartaAtualJogador = listaCandidatosJogador[0];
 
-            $numCartaJogador.text(jogador.carta);
-            $partidoJogador.text('(' + jogador.partido + ')');
-            $numeroObrasJogador.text(jogador.numeroDeObras);
-            $numeroProcessosJogador.text(jogador.numeroDeProcessos);
-            $fichaLimpaJogador.text(jogador.fichaLimpa);
+            $numCartaJogador.text(cartaAtualJogador.carta);
+            $partidoJogador.text('(' + cartaAtualJogador.partido + ')');
+            $numeroObrasJogador.text(cartaAtualJogador.numeroDeObras);
+            $numeroProcessosJogador.text(cartaAtualJogador.numeroDeProcessos);
+            $fichaLimpaJogador.text(cartaAtualJogador.fichaLimpa);
 
         },
 
         montaCartaOponente = function(i) {
 
-            // escolhe um candidato aleatório dentre os demais
-            var oponente = listaCandidatos[random(0, listaCandidatos.length)];
+            cartaAtualOponente = listaCandidatosOponente[0];
 
-            $numCartaOponente.text(oponente.carta);
-            $partidoOponente.text('(' + oponente.partido + ')');
-            $numeroObrasOponente.text(oponente.numeroDeObras);
-            $numeroProcessosOponente.text(oponente.numeroDeProcessos);
-            $fichaLimpaOponente.text(oponente.fichaLimpa);
+            $numCartaOponente.text(cartaAtualOponente.carta);
+            $partidoOponente.text('(' + cartaAtualOponente.partido + ')');
+            $numeroObrasOponente.text(cartaAtualOponente.numeroDeObras);
+            $numeroProcessosOponente.text(cartaAtualOponente.numeroDeProcessos);
+            $fichaLimpaOponente.text(cartaAtualOponente.fichaLimpa);
 
         },
 
         random = function(min, max) {
             return parseInt(Math.random() * (max - min) + min, 10);
+        },
+
+        shuffle = function(array) {
+
+            var tmp, current, top = array.length;
+
+            if(top) while(--top) {
+                current = Math.floor(Math.random() * (top + 1));
+                tmp = array[current];
+                array[current] = array[top];
+                array[top] = tmp;
+            }
+
+            return array;
+
         };
 
         return {
