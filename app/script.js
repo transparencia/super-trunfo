@@ -24,7 +24,9 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $fichaLimpaOponente = $('.oponente .ficha-limpa'),
 
             opcaoJogador,
-            opcaoOponente;
+            opcaoOponente,
+
+            listaCandidatos = [];
 
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
@@ -40,7 +42,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         // console.log(defaults);
         // console.log(settings);
 
-        var bind = function() {
+        var carregaCandidatos = function() {
+
+            $.getJSON("data/candidatos.json",function(result){
+                listaCandidatos = result.candidatos;
+                bind();
+                novaRodada();
+            });
+
+        },
+
+        bind = function() {
 
             // armazena a opção escolhida pelo usuário e sua opção respectiva no oponente
             $('a').on('click', function(e) {
@@ -145,14 +157,11 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $feedback.fadeIn();
         },
 
-        random = function(min, max) {
-            return parseInt(Math.random() * (max - min) + min, 10);
-        },
-
         novaRodada = function() {
 
             $feedback.hide();
-            geraValoresAleatorios();
+            montaCartaJogador();
+            montaCartaOponente();
 
             settings.rodada++;
             $rodada.html(settings.rodada);
@@ -160,62 +169,36 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // console.log('Começa nova rodada');
         },
 
-        geraValoresAleatorios = function() {
+        montaCartaJogador = function(i) {
 
-            $numeroObrasJogador.text(random(1, 100));
-            $numeroProcessosJogador.text(random(1, 100));
+            // escolhe um candidato aleatório dentre os demais
+            var jogador = listaCandidatos[random(0, listaCandidatos.length)];
 
-            if (random(0, 2) == 0) {
-                $fichaLimpaJogador.text('não');
-            } else {
-                $fichaLimpaJogador.text('sim');
-            }
+            $numeroObrasJogador.text(jogador.numeroDeObras);
+            $numeroProcessosJogador.text(jogador.numeroDeProcessos);
+            $fichaLimpaJogador.text(jogador.fichaLimpa);
 
-            $numeroObrasOponente.text(random(1, 100));
-            $numeroProcessosOponente.text(random(1, 100));
+        },
 
-            if (random(0, 2) == 0) {
-                $fichaLimpaOponente.text('não');
-            } else {
-                $fichaLimpaOponente.text('sim');
-            }
+        montaCartaOponente = function(i) {
 
+            // escolhe um candidato aleatório dentre os demais
+            var oponente = listaCandidatos[random(0, listaCandidatos.length)];
+
+            $numeroObrasOponente.text(oponente.numeroDeObras);
+            $numeroProcessosOponente.text(oponente.numeroDeProcessos);
+            $fichaLimpaOponente.text(oponente.fichaLimpa);
+
+        },
+
+        random = function(min, max) {
+            return parseInt(Math.random() * (max - min) + min, 10);
         };
 
         return {
 
             init: function(){
-
-                var candidato = new SUPERTRUNFO.APPS.Candidato();
-                candidato.init();
-
-                bind();
-                novaRodada();
-
-            }
-
-        };
-    };
-
-    SUPERTRUNFO.APPS.Candidato = function(options){
-
-        // cache de variáveis privadas
-        var listaCandidatos = [];
-
-        var carrega = function() {
-
-            $.getJSON("data/candidatos.json",function(result){
-                $.each(result.project, function(i, field){
-                    console.log(field.nome);
-                });
-            });
-
-        };
-
-        return {
-
-            init: function(){
-                carrega();
+                carregaCandidatos();
             }
 
         };
