@@ -34,7 +34,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             opcaoJogador,
             opcaoOponente,
 
-            listaCandidatos = [];
+            listaCandidatos = [],
+            pontuacaoLimite;
 
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
@@ -87,7 +88,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                     });
 
                     // se for um número, converter para base numérica
-                    if ($self.hasClass('.vence-boolean') == 'false'){
+                    if ($self.hasClass('vence-boolean') == 'false'){
                         opcaoJogador = parseInt(opcaoJogador, 10);
                         opcaoOponente = parseInt(opcaoOponente, 10);
                     }
@@ -183,6 +184,12 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         atualizaPlacar = function() {
             $placarJogador.html(settings.placarJogador + '<i class="ic-card"></i>');
             $placarOponente.html('<i class="ic-card"></i>' + settings.placarOponente);
+
+            if (settings.placarJogador == pontuacaoLimite) {
+                alert('Você VENCEU o jogo inteiro!');
+            } else if (settings.placarOponente == pontuacaoLimite) {
+                alert('Você PERDEU o jogo inteiro!');
+            }
         },
 
         feedback = function(msg) {
@@ -235,6 +242,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         return {
 
             init: function(){
+                pontuacaoLimite = settings.placarJogador + settings.placarOponente;
                 atualizaPlacar();
                 carregaCandidatos();
             }
