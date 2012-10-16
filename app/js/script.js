@@ -210,6 +210,15 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         },
 
         empate = function() {
+
+            // coloca a carta do jogador no fim do bolo dele
+            listaCandidatosJogador.shift();
+            listaCandidatosJogador.push(cartaAtualJogador);
+
+            // coloca a carta do oponente no fim do bolo dele
+            listaCandidatosOponente.shift();
+            listaCandidatosOponente.push(cartaAtualOponente);
+
             feedback('Deu empate');
         },
 
