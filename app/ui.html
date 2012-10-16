@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/theme.css" />
+	<style type="text/css">
+.screen {
+	height:480px;
+	width:320px;
+	background:#e7e7e7;
+	border:1px solid #2b2b2b;
+	border-radius: 4px;
+	overflow: hidden;
+	position:relative;
+	margin:50px;
+	float:left;
+}
+.screen-turn {
+	background: #777;
+}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			// set up click/tap panels
+			$('.view-info').click(function(){
+				$('.card').addClass('flip');
+			});
+			$('.back').click(function(){
+				$('.card').removeClass('flip');
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+	<div class="screen">
+		<header class="header" role="header">
+			<hgroup class="page-title">
+				<h1>Super Trunfo da Política</h1>
+			</hgroup>
+			<a href="#" title="Configurações" class="link-admin"><i class="ic-admin"></i></a>
+		</header>
+		<section class="content" id="content" role="content">
+			<!-- your turn -->
+			<section class="games games-yourturn">
+				<hgroup class="section-title">
+					<h2>Sua vez</h2>
+				</hgroup>
+				<ol class="games-list">
+					<li class="games-item">
+						<div class="game">
+							<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+							<span class="user-name">Luciana Silveira <span class="user-ranking">(3°)</span></span>
+							<span class="score-opponent winning"><i class="ic-card"></i>80</span>
+
+							<i class="ic-arrow"></i>
+						</div>
+					</li>
+					<li class="games-item">
+						<div class="game">
+							<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+							<span class="user-name">Igor Silva <span class="user-ranking">(13°)</span></span>
+							<span class="score-opponent losing"><i class="ic-card"></i>40</span>
+
+							<i class="ic-arrow"></i>
+						</div>
+					</li>
+					<li class="games-item">
+						<div class="game">
+							<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+							<span class="user-name">Ryan Bell <span class="user-ranking">(5°)</span></span>
+							<span class="score-opponent drawing"><i class="ic-card"></i>50</span>
+
+							<i class="ic-arrow"></i>
+						</div>
+					</li>
+					<li class="games-item">
+						<div class="new-game">
+							<a href="#" class="btn btn-primary btn-new">Criar novo jogo!</a>
+						</div>
+					</li>
+				</ol>
+			</section>
+			<!-- /your turn -->
+
+			<!-- opponent's turn -->
+			<section class="games games-opponentsturn">
+				<hgroup class="section-title">
+					<h2>Vez dos seus amigos</h2>
+				</hgroup>
+				<ol class="games-list">
+					<li class="games-item">
+						<div class="game">
+							<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+							<span class="user-name">Alessandra Groehn <span class="user-ranking">(10°)</span></span>
+							<span class="score-opponent winning"><i class="ic-card"></i>74</span>
+
+							<i class="ic-arrow"></i>
+						</div>
+					</li>
+					<li class="games-item">
+						<div class="game">
+							<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+							<span class="user-name">Bruna Figueira <span class="user-ranking">(21°)</span></span>
+							<span class="score-opponent losing"><i class="ic-card"></i>10</span>
+
+							<i class="ic-arrow"></i>
+						</div>
+					</li>
+					<li class="games-item">
+						<div class="game">
+							<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+							<span class="user-name">Bruna Figueira <span class="user-ranking">(21°)</span></span>
+							<span class="score-opponent losing"><i class="ic-card"></i>10</span>
+
+							<i class="ic-arrow"></i>
+						</div>
+					</li>
+				</ol>
+			</section>
+			<!-- /opponent's turn -->
+		</section>
+	</div>
+
+	<div class="screen screen-turn">
+		<section class="card front">
+			<span class="card-number">1A</span>
+			<span class="card-photo"><img src="img/bombril.jpg" alt="bombril"></span>
+			<span class="card-name">Nome do candidato <span class="card-party">(PPPP)</span> <a href="javascript:void(0);" class="view-info" title="ver info">ver info</a></span>
+			<div class="card-data">
+				<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet consectetur adipisicing elit</span></div>
+				<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet consectetur adipisicing elit</span></div>
+				<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet div adipisicing elit</span></div>
+				<div class="card-label last"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet consectetur adipisicing elit</span></div>
+			</div>
+		</section>
+		<section class="card back">
+			<span class="card-number">1A</span>
+			<span class="card-photo"><img src="img/bombril.jpg" alt="bombril"></span>
+			<span class="card-name">Nome do candidato <span class="card-party">(PPPP)</span></span>
+			<div class="card-bio">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</section>
+		<footer class="footer" role="footer">
+			<section class="score">
+				<span class="score-me losing">40<i class="ic-card"></i></span>
+				<span class="score-versus"><i class="ic-versus"></i></span>
+				<span class="score-opponent winning"><i class="ic-card"></i>60</span>
+			</section>
+			<a href="#" title="Configurações" class="link-quit"><i class="ic-quit"></i></a>
+		</footer>
+	</div>
+
+
+	<div class="screen">
+		<div class="modal modal-quit">
+				<h2>Sair do jogo</h2>
+				<p>Você poderá voltar depois ao jogo nesse mesmo turno. Deseja mesmo sair?</p>
+				<div class="btn-area">
+					<a href="#" class="btn btn-primary btn-no" title="Não">Não</a><a href="#" class="btn btn-yes" title="Sim">Sim</a>
+				</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
