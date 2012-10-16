@@ -13,15 +13,23 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $feedbackRodada = $('.feedback-rodada'),
             $novaRodada = $('.nova-rodada'),
 
-            $placarJogador = $('.placar-jogador'),
-            $placarOponente = $('.placar-oponente'),
+            $placarJogador = $('.score-me'),
+            $placarOponente = $('.score-opponent'),
 
-            $numeroObrasJogador = $('.jogador .numero-obras'),
-            $numeroObrasOponente = $('.oponente .numero-obras'),
-            $numeroProcessosJogador = $('.jogador .numero-processos'),
-            $numeroProcessosOponente = $('.oponente .numero-processos'),
-            $fichaLimpaJogador = $('.jogador .ficha-limpa'),
-            $fichaLimpaOponente = $('.oponente .ficha-limpa'),
+            $numCartaJogador = $('.jogador .card-number'),
+            $numCartaOponente = $('.oponente .card-number'),
+
+            $partidoJogador = $('.jogador .card-party .card-label-value'),
+            $partidoOponente = $('.oponente .card-party .card-label-value'),
+
+            $numeroObrasJogador = $('.jogador .numero-obras .card-label-value'),
+            $numeroObrasOponente = $('.oponente .numero-obras .card-label-value'),
+
+            $numeroProcessosJogador = $('.jogador .numero-processos .card-label-value'),
+            $numeroProcessosOponente = $('.oponente .numero-processos .card-label-value'),
+
+            $fichaLimpaJogador = $('.jogador .ficha-limpa .card-label-value'),
+            $fichaLimpaOponente = $('.oponente .ficha-limpa .card-label-value'),
 
             opcaoJogador,
             opcaoOponente,
@@ -31,8 +39,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
             'rodada': 0,
-            'placarJogador': 50,
-            'placarOponente': 50
+            'placarJogador': 5,
+            'placarOponente': 5
         };
 
         // mescla do conteúdo dos dois objetos
@@ -44,7 +52,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         var carregaCandidatos = function() {
 
-            $.getJSON("data/candidatos.json",function(result){
+            $.getJSON('data/candidatos.json',function(result){
                 listaCandidatos = result.candidatos;
                 bind();
                 novaRodada();
@@ -55,32 +63,54 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         bind = function() {
 
             // armazena a opção escolhida pelo usuário e sua opção respectiva no oponente
-            $('a').on('click', function(e) {
+            $('.card-label').on('click', function(e) {
 
-                classeAtual = $(this).attr('class');
+                var $self = $(this);
 
-                opcaoJogador = $(this).find('.atributo').text();
-                opcaoOponente = $('li.' + classeAtual).find('.atributo').text();
+                // interação válida apenas se o clique for no jogador e não no oponente
+                if ($self.parent().parent().parent().hasClass('jogador')) {
 
-                // se for um número
-                if ($(this).hasClass('.vence-boolean') == 'false'){
-                    opcaoJogador = parseInt(opcaoJogador, 10);
-                    opcaoOponente = parseInt(opcaoOponente, 10);
+                    atributoEscolhido = $self.data('attribute');
+                    console.log(atributoEscolhido);
+
+                    opcaoJogador = $self.find('.card-label-value').text();
+                    // console.log(opcaoJogador);
+
+                    // percorre todos os campos do oponente até encontrar aquele escolhido pelo jogador
+                    $('.oponente .card-label').each(function (i, field) {
+
+                        if ($(field).data('attribute') == atributoEscolhido) {
+                            opcaoOponente = $(field).find('.card-label-value').text();
+                            // console.log(opcaoOponente);
+                        }
+
+                    });
+
+                    // se for um número, converter para base numérica
+                    if ($self.hasClass('.vence-boolean') == 'false'){
+                        opcaoJogador = parseInt(opcaoJogador, 10);
+                        opcaoOponente = parseInt(opcaoOponente, 10);
+                    }
+
                 }
 
                 e.preventDefault();
 
             });
 
-            $('a.vence-maior').on('click', venceMaior);
-            $('a.vence-menor').on('click', venceMenor);
-            $('a.vence-boolean').on('click', venceBoolean);
+            $('.vence-maior').on('click', venceMaior);
+            $('.vence-menor').on('click', venceMenor);
+            $('.vence-boolean').on('click', venceBoolean);
 
             $novaRodada.on('click', novaRodada);
 
         },
 
         venceMaior = function() {
+
+            console.log('vence maior');
+            console.log(opcaoJogador);
+            console.log(opcaoOponente);
 
             if (opcaoJogador > opcaoOponente) {
                 jogadorVenceu();
@@ -94,9 +124,9 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         venceMenor = function() {
 
-            // console.log('vence menor');
-            // console.log(opcaoJogador);
-            // console.log(opcaoOponente);
+            console.log('vence menor');
+            console.log(opcaoJogador);
+            console.log(opcaoOponente);
 
             if (opcaoJogador < opcaoOponente) {
                 jogadorVenceu();
@@ -110,9 +140,9 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         venceBoolean = function() {
 
-            // console.log('venceBoolean');
-            // console.log(opcaoJogador);
-            // console.log(opcaoOponente);
+            console.log('venceBoolean');
+            console.log(opcaoJogador);
+            console.log(opcaoOponente);
 
             if (opcaoJogador == 'sim' && opcaoOponente == 'não') {
                 jogadorVenceu();
@@ -129,8 +159,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.placarJogador++;
             settings.placarOponente--;
 
-            $placarJogador.html(settings.placarJogador);
-            $placarOponente.html(settings.placarOponente);
+            atualizaPlacar();
 
             feedback('Você venceu =D');
 
@@ -141,8 +170,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.placarOponente++;
             settings.placarJogador--;
 
-            $placarOponente.html(settings.placarOponente);
-            $placarJogador.html(settings.placarJogador);
+            atualizaPlacar();
 
             feedback('Você perdeu =(');
 
@@ -150,6 +178,11 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         empate = function() {
             feedback('Deu empate');
+        },
+
+        atualizaPlacar = function() {
+            $placarJogador.html(settings.placarJogador + '<i class="ic-card"></i>');
+            $placarOponente.html('<i class="ic-card"></i>' + settings.placarOponente);
         },
 
         feedback = function(msg) {
@@ -166,7 +199,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.rodada++;
             $rodada.html(settings.rodada);
 
-            // console.log('Começa nova rodada');
+            console.log('\ncomeça nova rodada\n');
         },
 
         montaCartaJogador = function(i) {
@@ -174,6 +207,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // escolhe um candidato aleatório dentre os demais
             var jogador = listaCandidatos[random(0, listaCandidatos.length)];
 
+            $numCartaJogador.text(jogador.carta);
+            $partidoJogador.text('(' + jogador.partido + ')');
             $numeroObrasJogador.text(jogador.numeroDeObras);
             $numeroProcessosJogador.text(jogador.numeroDeProcessos);
             $fichaLimpaJogador.text(jogador.fichaLimpa);
@@ -185,6 +220,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // escolhe um candidato aleatório dentre os demais
             var oponente = listaCandidatos[random(0, listaCandidatos.length)];
 
+            $numCartaOponente.text(oponente.carta);
+            $partidoOponente.text('(' + oponente.partido + ')');
             $numeroObrasOponente.text(oponente.numeroDeObras);
             $numeroProcessosOponente.text(oponente.numeroDeProcessos);
             $fichaLimpaOponente.text(oponente.fichaLimpa);
@@ -198,6 +235,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         return {
 
             init: function(){
+                atualizaPlacar();
                 carregaCandidatos();
             }
 
