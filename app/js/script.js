@@ -96,7 +96,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // armazena a opção escolhida pelo usuário e sua opção respectiva no oponente
             $('.card-label').on('click', function(e) {
 
-                console.log(isFeedbackTime);
+                // console.log(isFeedbackTime);
 
                 // caso não esteja exibindo o resultado da jogada passada
                 if (!isFeedbackTime) {
@@ -108,17 +108,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                     if ($self.parent().parent().parent().hasClass('cards-yourturn')) {
 
                         atributoEscolhido = $self.data('attribute');
-                        console.log('atributoEscolhido: ' + atributoEscolhido);
+                        // console.log('atributoEscolhido: ' + atributoEscolhido);
 
                         opcaoJogador = $self.find('.card-label-value').text();
-                        console.log('opcaoJogador: ' + opcaoJogador);
+                        // console.log('opcaoJogador: ' + opcaoJogador);
 
                         // percorre todos os campos do oponente até encontrar aquele escolhido pelo jogador
                         $('.cards-opponentsturn .card-label').each(function (i, field) {
 
                             if ($(field).data('attribute') == atributoEscolhido) {
                                 opcaoOponente = $(field).find('.card-label-value').text();
-                                console.log('opcaoOponente: ' + opcaoOponente);
+                                // console.log('opcaoOponente: ' + opcaoOponente);
                             }
 
                         });
@@ -324,10 +324,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.rodada++;
             // $rodada.html(settings.rodada);
 
-            console.log('\ncomeça nova rodada\n');
+            // console.log('\ncomeça nova rodada\n');
 
-            console.log(listaCandidatosJogador);
-            console.log(listaCandidatosOponente);
+            // console.log(listaCandidatosJogador);
+            // console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
