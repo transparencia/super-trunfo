@@ -75,12 +75,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             $.getJSON('data/candidatos.json',function(result){
 
-                // bagunça a ordem da lista de candidatos carregados
-                listaCandidatos = shuffle(result.candidatos);
-
-                // distribui os candidatos para os jogadores
-                listaCandidatosJogador = listaCandidatos.slice(0, listaCandidatos.length / 2);
-                listaCandidatosOponente = listaCandidatos.slice(listaCandidatos.length / 2, listaCandidatos.length);
+                listaCandidatos = result.candidatos;
+                embaralhaCandidatos(listaCandidatos);
 
                 // libera tela de entrada
                 $screen.addClass('ready');
@@ -91,6 +87,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             });
 
         },
+
+        embaralhaCandidatos = function(candidatos) {
+
+            // bagunça a ordem da lista de candidatos carregados
+            listaCandidatos = shuffle(candidatos);
+
+            // distribui os candidatos para os jogadores
+            listaCandidatosJogador = listaCandidatos.slice(0, listaCandidatos.length / 2);
+            listaCandidatosOponente = listaCandidatos.slice(listaCandidatos.length / 2, listaCandidatos.length);
+
+        }
 
         bind = function() {
 
@@ -371,11 +378,41 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $placarJogador.html('(' + settings.placarJogador + ')');
             $placarOponente.html('(' + settings.placarOponente + ')');
 
+            // fim de jogo
             if (settings.placarJogador == pontuacaoLimite) {
-                alert('Você VENCEU o jogo inteiro!');
+
+                // exibe mensagem de vitória
+                $('.ui-final').addClass('ui-final-won');
+                $('.final').css("z-index", "10");
+
+                // aguarda 5 segundos até recomeçar o jogo
+                setTimeout(function() {
+                    novoJogo();
+                }, 5000);
+
             } else if (settings.placarOponente == pontuacaoLimite) {
-                alert('Você PERDEU o jogo inteiro!');
+
+                // exibe mensagem de derrota
+                $('.ui-final').addClass('ui-final-lose');
+                $('.final').css("z-index", "10");
+
+                // aguarda 5 segundos até recomeçar o jogo
+                setTimeout(function() {
+                    novoJogo();
+                }, 5000);
+
             }
+        },
+
+        novoJogo = function() {
+
+            settings.placarJogador = 5;
+            settings.placarOponente = 5;
+            atualizaPlacar();
+            embaralhaCandidatos(listaCandidatos);
+            novaRodada();
+            $('.final').css("z-index", "1");
+
         },
 
         novaRodada = function(resultRodadaPassada) {
@@ -401,7 +438,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 montaCartaOponente();
             }
 
-            settings.rodada++;
+            // settings.rodada++;
             // $rodada.html(settings.rodada);
 
             // console.log('\ncomeça nova rodada\n');
