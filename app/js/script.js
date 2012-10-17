@@ -49,7 +49,9 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             pontuacaoLimite,
 
             cartaAtualJogador,
-            cartaAtualOponente;
+            cartaAtualOponente,
+
+            isFeedbackTime;
 
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
@@ -91,32 +93,39 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // armazena a opção escolhida pelo usuário e sua opção respectiva no oponente
             $('.card-label').on('click', function(e) {
 
-                var $self = $(this);
-                $self.addClass('selected');
+                console.log(isFeedbackTime);
 
-                // interação válida apenas se o clique for no jogador e não no oponente
-                if ($self.parent().parent().parent().hasClass('cards-yourturn')) {
+                // caso não esteja exibindo o resultado da jogada passada
+                if (!isFeedbackTime) {
 
-                    atributoEscolhido = $self.data('attribute');
-                    // console.log(atributoEscolhido);
+                    var $self = $(this);
+                    $self.addClass('selected');
 
-                    opcaoJogador = $self.find('.card-label-value').text();
-                    // console.log(opcaoJogador);
+                    // interação válida apenas se o clique for no jogador e não no oponente
+                    if ($self.parent().parent().parent().hasClass('cards-yourturn')) {
 
-                    // percorre todos os campos do oponente até encontrar aquele escolhido pelo jogador
-                    $('.cards-opponentsturn .card-label').each(function (i, field) {
+                        atributoEscolhido = $self.data('attribute');
+                        console.log('atributoEscolhido: ' + atributoEscolhido);
 
-                        if ($(field).data('attribute') == atributoEscolhido) {
-                            opcaoOponente = $(field).find('.card-label-value').text();
-                            // console.log(opcaoOponente);
+                        opcaoJogador = $self.find('.card-label-value').text();
+                        console.log('opcaoJogador: ' + opcaoJogador);
+
+                        // percorre todos os campos do oponente até encontrar aquele escolhido pelo jogador
+                        $('.cards-opponentsturn .card-label').each(function (i, field) {
+
+                            if ($(field).data('attribute') == atributoEscolhido) {
+                                opcaoOponente = $(field).find('.card-label-value').text();
+                                console.log('opcaoOponente: ' + opcaoOponente);
+                            }
+
+                        });
+
+                        // se for um número, converter para base numérica
+                        if ($self.hasClass('vence-boolean') == 'false'){
+                            opcaoJogador = parseInt(opcaoJogador, 10);
+                            opcaoOponente = parseInt(opcaoOponente, 10);
                         }
 
-                    });
-
-                    // se for um número, converter para base numérica
-                    if ($self.hasClass('vence-boolean') == 'false'){
-                        opcaoJogador = parseInt(opcaoJogador, 10);
-                        opcaoOponente = parseInt(opcaoOponente, 10);
                     }
 
                 }
@@ -125,6 +134,11 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             });
 
+            $('.vence-maior').on('click', venceMaior);
+            $('.vence-menor').on('click', venceMenor);
+            $('.vence-boolean').on('click', venceBoolean);
+
+            // ao clicar no botão de novo jogo
             $('.btn-new').on('click', function(e) {
 
                 // libera tela de jogo
@@ -138,6 +152,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             });
 
+            // ao clicar no botão de informações
             $('.view-info').on('click', function(e) {
                 $(this).parent().parent().toggleClass('card-info');
                 e.preventDefault();
@@ -147,10 +162,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 e.preventDefault();
             });
 
-            $('.vence-maior').on('click', venceMaior);
-            $('.vence-menor').on('click', venceMenor);
-            $('.vence-boolean').on('click', venceBoolean);
-
         },
 
         venceMaior = function() {
@@ -159,12 +170,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // console.log(opcaoJogador);
             // console.log(opcaoOponente);
 
-            if (opcaoJogador > opcaoOponente) {
-                jogadorVenceu();
-            } else if (opcaoJogador == opcaoOponente) {
-                empate();
-            } else {
-                jogadorPerdeu();
+            // caso não esteja exibindo o resultado da jogada passada
+            if (!isFeedbackTime) {
+
+                if (opcaoJogador > opcaoOponente) {
+                    jogadorVenceu();
+                } else if (opcaoJogador == opcaoOponente) {
+                    empate();
+                } else {
+                    jogadorPerdeu();
+                }
+
             }
 
         },
@@ -175,12 +191,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // console.log(opcaoJogador);
             // console.log(opcaoOponente);
 
-            if (opcaoJogador < opcaoOponente) {
-                jogadorVenceu();
-            } else if (opcaoJogador == opcaoOponente) {
-                empate();
-            } else {
-                jogadorPerdeu();
+            // caso não esteja exibindo o resultado da jogada passada
+            if (!isFeedbackTime) {
+
+                if (opcaoJogador < opcaoOponente) {
+                    jogadorVenceu();
+                } else if (opcaoJogador == opcaoOponente) {
+                    empate();
+                } else {
+                    jogadorPerdeu();
+                }
+
             }
 
         },
@@ -191,12 +212,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // console.log(opcaoJogador);
             // console.log(opcaoOponente);
 
-            if (opcaoJogador == 'sim' && opcaoOponente == 'não') {
-                jogadorVenceu();
-            } else if ((opcaoJogador == 'sim' && opcaoOponente == 'sim') || (opcaoJogador == 'não' && opcaoOponente == 'não')) {
-                empate();
-            } else {
-                jogadorPerdeu();
+            // caso não esteja exibindo o resultado da jogada passada
+            if (!isFeedbackTime) {
+
+                if (opcaoJogador == 'sim' && opcaoOponente == 'não') {
+                    jogadorVenceu();
+                } else if ((opcaoJogador == 'sim' && opcaoOponente == 'sim') || (opcaoJogador == 'não' && opcaoOponente == 'não')) {
+                    empate();
+                } else {
+                    jogadorPerdeu();
+                }
+
             }
 
         },
@@ -267,16 +293,20 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         feedback = function(msg, result) {
 
+            isFeedbackTime = true;
+
             $('.ui-turns').append(msg);
             $('.cards-yourturn .card').addClass(result);
 
             setTimeout(function() {
               novaRodada(result);
-            }, 3000);
+            }, 2000);
 
         },
 
         novaRodada = function(resultRodadaPassada) {
+
+            isFeedbackTime = false;
 
             // apaga feedback da rodada passada
             $('.msg').remove();
@@ -291,10 +321,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.rodada++;
             // $rodada.html(settings.rodada);
 
-            // console.log('\ncomeça nova rodada\n');
+            console.log('\ncomeça nova rodada\n');
 
-            // console.log(listaCandidatosJogador);
-            // console.log(listaCandidatosOponente);
+            console.log(listaCandidatosJogador);
+            console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
