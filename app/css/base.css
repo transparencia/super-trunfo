@@ -120,7 +120,7 @@ p {
    ========================================================================== */
 .score {
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:60px;
 }
 .score-me, .score-opponent, .score-versus {
   margin:0;
@@ -150,13 +150,19 @@ p {
    PATTERNS
    ========================================================================== */
 /* admin */
-.link-admin, .link-quit {
+.link-admin, .link-quit, .link-about {
   display: inline-block;
   position:absolute;
   right: 0;
   top: 20px;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 50%;
+}
+.link-about {
+  width: 16px;
+  height:16px;
+  padding:5px;
+  top:-40px;
 }
 
 /* games list */
@@ -234,17 +240,23 @@ p {
 
 /* MODAL */
 .modal {
-  width:200px;
   position:absolute;
   z-index:10;
-  top:50px;
-  left:50%;
-  padding:20px;
-  margin-left:-120px;
-  border-radius: 12px;
-  box-shadow: 1px 2px 3px 0 rgba(0,0,0,.6);
+  top:170px;
+  left:140px;
+  right:140px;
+  padding: 30px;
+  max-height: 600px;
+  overflow-y:auto;
+  border-radius: 6px;
+  box-shadow: 1px 2px 3px 0 rgba(0,0,0,.6), 0 0 30px 10px rgba(0,0,0,.2);
   background:#fff;
 }
+.modal h2 {
+  color:#1673bd;
+  font-size:3em;
+}
+.modal strong {color:#2b2b2b;}
 
 /* =============================================================================
    CARD
@@ -258,6 +270,7 @@ p {
 .cards-yourturn {margin-right:30px;}
 
 .card {
+  overflow: hidden;
   position: absolute;
   z-index:3;
   width: 320px;
@@ -273,6 +286,53 @@ p {
   background-color:#e7e7e7;
   background-image: -webkit-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
 }
+.card-won {
+  box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;
+  -webkit-animation: card-won .8s linear 0 1 normal forwards;
+     -moz-animation: card-won .8s linear 0 1 normal forwards;
+       -o-animation: card-won .8s linear 0 1 normal forwards;
+          animation: card-won .8s linear 0 1 normal forwards;
+}
+@-webkit-keyframes card-won {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #afff50;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;}
+}
+@-moz-keyframes card-won {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #afff50;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;}
+}
+@-o-keyframes card-won {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #afff50;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;}
+}
+@keyframes card-won {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #afff50;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;}
+}
+.card-lose {
+  box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;
+  -webkit-animation: card-lose .8s linear 0 1 normal forwards;
+     -moz-animation: card-lose .8s linear 0 1 normal forwards;
+       -o-animation: card-lose .8s linear 0 1 normal forwards;
+          animation: card-lose .8s linear 0 1 normal forwards;
+}
+@-webkit-keyframes card-lose {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
+}
+@-moz-keyframes card-lose {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
+}
+@-o-keyframes card-lose {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
+}
+@keyframes card-lose {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
+}
+
 .cards-deck:before {
   content: "";
   display: block;
@@ -282,7 +342,7 @@ p {
   z-index:1;
   width: 320px;
   height: 420px;
-  background:#333;
+  background:#e7e7e7;
   box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), -2px 2px 0 1px #fff, -4px 2px 2px 2px rgba(0,0,0,.6);
   border-radius: 6px;
 }
@@ -311,6 +371,7 @@ p {
 }
 .card-number {
   position:absolute;
+  z-index:3;
   left:0px;
   top:0px;
   display: block;
@@ -320,33 +381,37 @@ p {
   line-height:1em;
   letter-spacing: -0.06em;
   color:#2b2b2b;
-  border-radius: 0 0 6px 0;
+  border-radius: 6px 0 6px 0;
   background:#fff;
 }
 .card-photo {
   position:absolute;
-  right:20px;
-  top:20px;
+  z-index:3;
+  right:10px;
+  top:10px;
   overflow: hidden;
   display: block;
-  width:72px;
-  border-radius: 6px;
+  width:80px;
+  height: 77px;
+  background:#fff;
 }
 .card-photo img {width:100%;}
 .card-name {
   margin: 10px 10px 0;
   padding:10px 94px 10px 50px;
+  height: 84px;
   display: block;
+  position:relative;
   z-index:2;
-  font-size:1.8em;
-  line-height:1em;
+  font-size:2.2em;
+  letter-spacing: -0.06em;
+  line-height:1.2em;
   color:#fff;
   font-weight: normal;
   background:#1f75bd;
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 60%, rgba(0,0,0,0.3) 150%);
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 60%, rgba(0,0,0,0.3) 150%);
   background-image: linear-gradient(top, rgba(0,0,0,0) 60%, rgba(0,0,0,0.3) 150%);
-  box-shadow: inset 0 1px 0 0 rgba(255,255,255,.4), 0 2px 1px 0 rgba(0,0,0,.3);
 }
 .card-party {
   position:relative;
@@ -355,6 +420,7 @@ p {
   margin-top:5px;
   height:auto;
   font-weight: lighter;
+  letter-spacing: +0.06em;
   font-size:14px;
   color:#2b2b2b;
 }
@@ -362,44 +428,143 @@ p {
   font-weight: bolder;
   color:#fff;
 }
+.view-info {
+  display: inline-block;
+  padding:3px 0;
+  width: 80px;
+  font-size:14px;
+  text-align:center;
+  background:#2b2b2b;
+  letter-spacing: +0.06em;
+  color:#fff;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+.view-info:hover, .view-info:focus {color:#dee528;}
 .card-data {
   position:absolute;
   bottom: 10px;
   left: 10px;
   right: 10px;
   z-index:1;
-  background:#e7e7e7;
+  background:#f5f5f5;
 }
 .card-label {
   clear:both;
   display: block;
   overflow: hidden;
-  padding:15px 10px;
-  height:44px;
+  padding:15px 10px 15px 10px;
+  height:43px;
   border-bottom:1px solid rgba(0,0,0,.3);
-}
-.card-label.selected {
   position:relative;
-  background:#dee528;
+  background:#e7e7e7;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
+.card-label:hover, .card-label:focus {background-color:#f8f3c7;}
+.card-label.selected {background:#dee528;}
+.card-label.last {border-bottom:none;}
 .card-label-item {
   display: block;
-  width:36%;
+  width:56%;
   float:left;
   margin-right: 4%;
-  text-align: right;
-  font-size:1.2em;
-  line-height:1em;
+  text-align: left;
+  font-size:1.6em;
+  line-height:43px;
   color:#2b2b2b;
   font-weight: bolder;
 }
 .card-label-value {
   display: block;
-  width:60%;
+  width:40%;
   float:left;
   color:#2b2b2b;
-  font-size:1.2em;
+  font-size:3.6em;
+  font-weight: bolder;
+  letter-spacing: -.06em;
+  text-align: center;
+  text-transform: uppercase;
   line-height:1.2em;
+}
+.card-bio {
+  height:64px;
+  position:absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index:1;
+  padding:20px;
+  overflow: hidden;
+  background:#2b2b2b;
+  box-shadow: inset 0 0 30px -15px rgba(0,0,0,.7);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.card-bio p {
+  line-height: 1.6em;
+  color:#f5f5f5;
+}
+.card-info .card-bio {
+  top: 114px;
+  height:254px;
+}
+
+.cards-opponentsturn .card-back {
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+  -moz-transform: rotateX(0deg) rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.cards-opponentsturn .card-front {
+  background-color:#333;
+  -webkit-transform: rotateY(-45deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+  -moz-transform: rotateY(-45deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.cards-opponentsturn .card-back {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+}
+.cards-opponentsturn.cards-flip .card-back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+.cards-opponentsturn .card-front {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+}
+.cards-opponentsturn.cards-flip .card-front {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
 }
 
 /* =============================================================================
@@ -565,13 +730,32 @@ p {
 /* =============================================================================
    TURN
    ========================================================================== */
+.ui-turns {position:relative;}
 .turn .games, .turn .user {display: none;}
+.msg {
+  position:absolute;
+  z-index:0;
+  top:55px;
+  left:20px;
+  width: 240px;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 4px 4px 0 0;
+  background:#2b2b2b;
+  color:#fff;
+  font-size:1.8em;
+  line-height:1em;
+  text-align:center;
+}
+.msg-won {background:#87c241;}
+.msg-draw {background:#D4C332;}
+.msg-lose {background:#c24141;}
 
 
 /* =============================================================================
    SPRITE
    ========================================================================== */
-.ic-card, .ic-versus, .ic-admin, .ic-arrow, .ic-quit {
+.ic-card, .ic-versus, .ic-admin, .ic-arrow, .ic-quit, .ic-about {
   display: inline-block;
   height:32px;
   width:32px;
@@ -590,3 +774,5 @@ p {
 .ic-admin {background-position: -96px 0;}
 .ic-arrow {background-position: -128px 0;}
 .ic-quit {background-position: -160px 0;}
+.ic-about {background-position: -16px -32px;}
+

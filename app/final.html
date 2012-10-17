@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <!--
 	#SOBRE O GAME
-	A primeira tag após o BODY tem a seguinte estrutura: 
-	
+	A primeira tag após o BODY tem a seguinte estrutura:
+
 	<div class="screen ready turn">
 
 	screen = classe padrão, nunca mexer
@@ -18,6 +18,8 @@
 	cards-one = classe colocada quando o jogador tiver apenas 2 cartas no jogo
 	= quando o jogador tiver apenas 1 carta, não tem nenhuma das duas
 
+	cards-flip em cards do oponente = classe colocada quando o usuário escolhe o item, fazendo a carta do oponente virar e revelar a marcada
+
 -->
 <html lang="en-US">
 <head>
@@ -31,15 +33,23 @@
 
 		$(document).ready(function(){
 			// set up click/tap panels
+			// $('.view-info').click(function(){
+			// 	$('.card').addClass('flip');
+			// });
+			// $('.back').click(function(){
+			// 	$('.card').removeClass('flip');
+			// });
+
+			$('.modal-about').hide();
 			$('.view-info').click(function(){
-				$('.card').addClass('flip');
+				$(this).parent().parent().toggleClass('card-info');
 			});
-			$('.back').click(function(){
-				$('.card').removeClass('flip');
+			$('.link-about, .modal-about').click(function(){
+				$('.modal-about').slideToggle(300);
 			});
-			
+
 		});
-	
+
 	</script>
 	<style type="text/css">
 .screen {float:left;}
@@ -48,7 +58,7 @@
 <body>
 <div class="screen ready turn">
 
-<div class="introduction-logo"><img src="img/logo-super-trunfo.png" alt="Super Trunfo - Política de São Paulo"></div>	
+<div class="introduction-logo"><img src="img/logo-super-trunfo.png" alt="Super Trunfo - Política de São Paulo"></div>
 
 
 <div class="ui-games">
@@ -57,10 +67,11 @@
 		<hgroup class="page-title">
 			<h1><img src="img/logo-super-trunfo-small.png" alt="Super Trunfo - Política de São Paulo"></h1>
 		</hgroup>
-		<a href="#" title="Configurações" class="link-admin"><i class="ic-admin"></i></a>
+		<a href="#" title="Sobre" class="link-about"><i class="ic-about"></i></a>
+		<!-- <a href="#" title="Configurações" class="link-admin"><i class="ic-admin"></i></a> -->
 	</header>
 	<!-- /header -->
-	
+
 	<!-- user -->
 	<section class="user">
 		<span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span>
@@ -68,7 +79,7 @@
 		<p>você já disputou <strong>300</strong> jogos. Ganhou <strong>247</strong>, perdeu <strong>53</strong> e ocupa a <strong>4°</strong> posição entre seus amigos.</p>
 	</section>
 	<!-- /user -->
-	
+
 	<!-- games -->
 		<!-- your turn -->
 		<section class="games games-yourturn">
@@ -81,7 +92,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Luciana Silveira <span class="user-ranking">(3°)</span></span>
 						<span class="score-opponent winning"><i class="ic-card"></i>80</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -90,7 +101,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Igor Silva <span class="user-ranking">(13°)</span></span>
 						<span class="score-opponent losing"><i class="ic-card"></i>40</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -99,7 +110,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Igor Silva <span class="user-ranking">(13°)</span></span>
 						<span class="score-opponent losing"><i class="ic-card"></i>40</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -108,7 +119,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Ryan Bell <span class="user-ranking">(5°)</span></span>
 						<span class="score-opponent drawing"><i class="ic-card"></i>50</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -117,7 +128,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Igor Silva <span class="user-ranking">(13°)</span></span>
 						<span class="score-opponent losing"><i class="ic-card"></i>40</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -126,7 +137,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Ryan Bell <span class="user-ranking">(5°)</span></span>
 						<span class="score-opponent drawing"><i class="ic-card"></i>50</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -136,7 +147,7 @@
 			</div>
 		</section>
 		<!-- /your turn -->
-	
+
 		<!-- opponent's turn -->
 		<section class="games games-opponentsturn">
 			<hgroup class="section-title">
@@ -148,7 +159,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Alessandra Groehn <span class="user-ranking">(10°)</span></span>
 						<span class="score-opponent winning"><i class="ic-card"></i>74</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -157,7 +168,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Bruna Figueira <span class="user-ranking">(21°)</span></span>
 						<span class="score-opponent losing"><i class="ic-card"></i>10</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -166,7 +177,7 @@
 						<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
 						<span class="user-name">Bruna Figueira <span class="user-ranking">(21°)</span></span>
 						<span class="score-opponent losing"><i class="ic-card"></i>10</span>
-	
+
 						<i class="ic-arrow"></i>
 					</a>
 				</li>
@@ -187,30 +198,64 @@
 		</section>
 
 		<section class="cards cards-yourturn cards-deck">
-			<div class="card card-front">
+			<div class="card card-front card-won">
 				<span class="card-number">1A</span>
-				<span class="card-photo"><img src="img/user-photo.jpg" alt="user" /></span>
-				<span class="card-name">Bernard De Luna F F Bittencourt <span class="card-party">Partido: <strong>PPPP</strong></span> <a href="javascript:void(0);" class="view-info" title="ver info">ver info</a></span>
+				<span class="card-photo"><img src="http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg" alt="user" /></span>
+				<span class="card-name">Tripoli 43666 <span class="card-party">Partido: <strong>PV</strong></span> <a href="javascript:void(0);" class="view-info" title="ver info">ver info</a></span>
 				<div class="card-data">
-					<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet consectetur adipisicing elit</span></div>
-					<div class="card-label selected"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet consectetur adipisicing elit</span></div>
-					<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet div adipisicing elit</span></div>
-					<div class="card-label last"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Lorem ipsum dolor sit amet consectetur adipisicing elit</span></div>
+					<div class="card-label"><span class="card-label-item">Qt. de projetos aprovados:</span> <span class="card-label-value">68</span></div>
+					<div class="card-label selected"><span class="card-label-item">Qt. de projetos vetados:</span> <span class="card-label-value">62</span></div>
+					<div class="card-label"><span class="card-label-item">Tem ficha limpa:</span> <span class="card-label-value">Sim</span></div>
+					<div class="card-label last"><span class="card-label-item">Qt. de votos:</span> <span class="card-label-value">189.900</span></div>
+				</div>
+				<div class="card-bio">
+					<p><span class="legenda">Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br>
+<span class="legenda">Idade: </span>58 anos (18/09/1954)<br><span class="legenda">Naturalidade: </span>Sao Paulo/SP<br><span class="legenda">Estado Civil: </span>Casado(A)<br><span class="legenda">Ocupação: </span>Vereador<br><span class="legenda">Escolaridade: </span>Ensino Médio Completo<br></p>
 				</div>
 			</div>
 		</section>
 		<section class="cards cards-opponentsturn cards-one">
+			<div class="card card-front">
+				<span class="card-number">1A</span>
+				<span class="card-photo"><img src="img/user-photo.jpg" alt="user" /></span>
+				<span class="card-name">Tripoli 43666 <span class="card-party">Partido: <strong>PV</strong></span> <a href="javascript:void(0);" class="view-info" title="ver info">ver info</a></span>
+				<div class="card-data">
+					<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">68</span></div>
+					<div class="card-label selected"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">62</span></div>
+					<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">40</span></div>
+					<div class="card-label last"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Sim</span></div>
+				</div>
+				<div class="card-bio">
+					<p><span class="legenda">Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br>
+<span class="legenda">Idade: </span>58 anos (18/09/1954)<br><span class="legenda">Naturalidade: </span>Sao Paulo/SP<br><span class="legenda">Estado Civil: </span>Casado(A)<br><span class="legenda">Ocupação: </span>Vereador<br><span class="legenda">Escolaridade: </span>Ensino Médio Completo<br></p>
+				</div>
+			</div>
 			<div class="card card-back">
 				<figure class="card-logo"></figure>
 			</div>
 		</section>
+
+		<!-- messages -->
+		<!-- <span class="msg msg-won">Você ganhou!</span>
+		<span class="msg msg-draw">Deu empate!</span>
+		<span class="msg msg-lose">Você perdeu!</span> -->
+
+		<!-- / messages -->
 	</div>
 	<!-- / turn -->
 
+	<footer class="footer">
+		<p>Esse jogo foi criado por <a href="#" title="">Bernard De Luna</a>, <a href="#" title="">João Neto</a> e <a href="#" title="">Zeno Rocha</a>, utilizando dados abertos cedidos pelo governo brasileiro com o objetivo de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.</p>
+	</footer>
 
-
-
-<footer class="footer"><p>Esse jogo foi criado por <a href="#" title="">Bernard De Luna</a>, <a href="#" title="">João Neto</a> e <a href="#" title="">Zeno Rocha</a>, utilizando dados abertos cedidos pelo governo brasileiro com o objetivo de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.</p></footer>
+	<!-- modal -->
+	<div class="modal modal-about">
+		<h2>Sobre o Super Trunfo</h2>
+		<p>Esse jogo foi criado para incentivar a transparência e colaboração em cima dos dados abertos, mostrando o que é possível fazer com as informações cedidas pelo governo brasileiro, seguindo as definições do W3C.</p>
+		<p>Desde a Lei da Transparência(131/2009) em 2010, o Brasil vem se destacando quanto a obrigação dos estados a documentarem sua contabilidade na internet, e assim resolvemos criar um jogo famoso que consome através de um webservice os dados abertos do estado de São Paulo.</p>
+		<p>Qualquer informação, divulgação ou dúvidas sobre o Super Trunfo - Política de São Paulo, entre em contato através do email XXXX.</p>
+	</div>
+	<!-- / modal -->
 </div>
 </body>
 </html>
