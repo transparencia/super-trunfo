@@ -391,7 +391,7 @@ p {
   z-index:1;
   width: 320px;
   height: 420px;
-  background:#333;
+  background:#e7e7e7;
   box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6);
   border-radius: 6px;
 }
