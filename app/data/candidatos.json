@@ -2,18 +2,19 @@
   "candidatos": [
     {
       "id": "1A",
-      "nome": "João1",
-      "numero": "11111",
+      "nome": "KASSAB",
+      "numero": "11",
       "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PT",
-      "numeroDeObras": "10",
-      "numeroDeProcessos": "2",
-      "vezesEleito": "3",
+      "numeroDeObras": "30",
+      "numeroDeProcessos": "12",
+      "vezesEleito": "5",
       "fichaLimpa": "sim",
+      "supertrunfo": "true",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "id": "2A",
+      "id": "2B",
       "nome": "João2",
       "numero": "22222",
       "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
@@ -22,6 +23,7 @@
       "numeroDeProcessos": "5",
       "vezesEleito": "3",
       "fichaLimpa": "não",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
@@ -34,10 +36,11 @@
       "numeroDeProcessos": "25",
       "vezesEleito": "10",
       "fichaLimpa": "sim",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "id": "4A",
+      "id": "4C",
       "nome": "João4",
       "numero": "44444",
       "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
@@ -46,6 +49,7 @@
       "numeroDeProcessos": "0",
       "vezesEleito": "6",
       "fichaLimpa": "não",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
@@ -58,10 +62,11 @@
       "numeroDeProcessos": "22",
       "vezesEleito": "90",
       "fichaLimpa": "sim",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "id": "6A",
+      "id": "6D",
       "nome": "João6",
       "numero": "66666",
       "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
@@ -70,6 +75,7 @@
       "numeroDeProcessos": "1",
       "vezesEleito": "1",
       "fichaLimpa": "sim",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
@@ -82,10 +88,11 @@
       "numeroDeProcessos": "55",
       "vezesEleito": "33",
       "fichaLimpa": "sim",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "id": "8A",
+      "id": "8B",
       "nome": "João8",
       "numero": "88888",
       "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
@@ -94,6 +101,7 @@
       "numeroDeProcessos": "70",
       "vezesEleito": "10",
       "fichaLimpa": "não",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
@@ -106,6 +114,7 @@
       "numeroDeProcessos": "51",
       "vezesEleito": "33",
       "fichaLimpa": "não",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
@@ -118,6 +127,7 @@
       "numeroDeProcessos": "2",
       "vezesEleito": "5",
       "fichaLimpa": "sim",
+      "supertrunfo": "false",
       "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     }
   ]
