@@ -50,6 +50,7 @@ class SuperTrunfo
                     $part2 = array_slice($politicians, $offset);
 
                     $politician->id = '8B';
+                    $politician->superTrunfo = true;
 
                     $politicians = array_merge($part1, array($politician), $part2);
                     ++$offset;
