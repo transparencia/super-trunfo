@@ -26,7 +26,7 @@ class PoliticianInfoBuilder
 
         if ($processosNode !== null) {
             $processos = preg_replace('/\\n|\\r|\\t|\s*/', null, $processosNode->nodeValue);
-            $politician->fichaLimpa = empty($processos);
+            $politician->fichaLimpa = empty($processos) ? 'SIM': 'NÃO';
         }
 
         $aprovados = 0;

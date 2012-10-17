@@ -11,8 +11,8 @@ class Politician
     public $foto;
     public $partido;
     public $coligacao;
-    public $projetosAprovados;
-    public $projetosVetados;
+    public $projetosAprovados = '0';
+    public $projetosVetados = '0';
     public $fichaLimpa = true;
     public $quantidadeVotos;
     public $superTrunfo = false;

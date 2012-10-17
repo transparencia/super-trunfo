@@ -1,9 +1,9 @@
 <?php
 namespace SuperTrunfo;
 
-use SuperTrunfo\Entity\Politician;
-
+use \stdClass;
 use \RuntimeException;
+use SuperTrunfo\Entity\Politician;
 use SuperTrunfo\Eleicoes2012\PoliticianAggregate;
 use SuperTrunfo\Excelencias\PoliticianAggregateDecorator;
 
@@ -98,7 +98,8 @@ class SuperTrunfo
     public function saveCardsTo($path)
     {
         $path = $this->getRealPath($path, 'candidatos.json');
-        $politicians = $this->getCards();
+        $politicians = new stdClass();
+        $politicians->candidatos = $this->getCards();
 
         file_put_contents($path, json_encode($politicians));
     }
