@@ -40,6 +40,8 @@ class PoliticianInfo
         $politician->cargo = trim($xpath->query('.//span[contains(text(), "Cargo")]/following-sibling::text()', $paragraphs->item(2))->item(0)->nodeValue);
         $politician->numero = trim($xpath->query('.//span[contains(text(), "Número")]/following-sibling::text()', $paragraphs->item(2))->item(0)->nodeValue);
         $politician->partido = trim($xpath->query('.//span[contains(text(), "Partido")]/following-sibling::text()', $paragraphs->item(2))->item(0)->nodeValue);
+        $politician->partido = preg_replace('/[^-]+(\s*-\s*)(.*)/', '$2', $politician->partido);
+        $politician->nome = trim(str_replace($politician->numero, null, $politician->nome));
 
         $coligacao = $xpath->query('.//span[contains(text(), "Coligação")]/following-sibling::text()', $paragraphs->item(2));
 
