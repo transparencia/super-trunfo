@@ -361,8 +361,9 @@ p {
   content: "";
   display: block;
   position:absolute;
-  top:40px;
-  left:-2px;
+  z-index: 3;
+  top: 70px;
+  left: 0;
   width:64px;
   height:64px;
   background:transparent url(../img/sprite.png) no-repeat -192px 0;
