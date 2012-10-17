@@ -334,7 +334,6 @@ p {
   0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
 }
-
 .card-draw {
   box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #D4C332;
   -webkit-animation: card-draw .8s linear 0 1 normal forwards;
@@ -357,6 +356,16 @@ p {
 @keyframes card-draw {
   0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #D4C332;}
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #D4C332;}
+}
+.card-supertrunfo:before {
+  content: "";
+  display: block;
+  position:absolute;
+  top:40px;
+  left:-2px;
+  width:64px;
+  height:64px;
+  background:transparent url(../img/sprite.png) no-repeat -192px 0;
 }
 
 .cards-deck:before {
@@ -777,6 +786,67 @@ p {
 .msg-won {background:#87c241;}
 .msg-draw {background:#D4C332;}
 .msg-lose {background:#c24141;}
+
+
+/* =============================================================================
+   FINAL
+   ========================================================================== */
+.final {
+  position: absolute;
+  z-index:10;
+  top:15%;
+  left:50%;
+  margin-left: -212px;
+  opacity:0;
+}
+
+.ui-final-won .final-won, .ui-final-lose .final-lose {
+  -webkit-animation: final 5s linear 0 1 normal forwards;
+     -moz-animation: final 5s linear 0 1 normal forwards;
+       -o-animation: final 5s linear 0 1 normal forwards;
+          animation: final 5s linear 0 1 normal forwards;
+}
+
+@-webkit-keyframes final {
+  0%, 100%   {
+    opacity: 0;
+    top:15%;
+  }
+  12%, 88% {
+    opacity: 1;
+    top:25%;
+  }
+}
+@-moz-keyframes final {
+  0%, 100%   {
+    opacity: 0;
+    top:15%;
+  }
+  12%, 88% {
+    opacity: 1;
+    top:25%;
+  }
+}
+@-o-keyframes final {
+  0%, 100%   {
+    opacity: 0;
+    top:15%;
+  }
+  12%, 88% {
+    opacity: 1;
+    top:25%;
+  }
+}
+@keyframes final {
+  0%, 100%   {
+    opacity: 0;
+    top:15%;
+  }
+  12%, 88% {
+    opacity: 1;
+    top:25%;
+  }
+}
 
 
 /* =============================================================================
