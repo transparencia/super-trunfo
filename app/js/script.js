@@ -119,6 +119,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                             if ($(field).data('attribute') == atributoEscolhido) {
                                 opcaoOponente = $(field).find('.card-label-value').text();
+                                $(field).addClass('selected');
                                 // console.log('opcaoOponente: ' + opcaoOponente);
                             }
 
@@ -353,12 +354,18 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             isFeedbackTime = true;
 
-            $('.ui-turns').append(msg);
-            $('.cards-yourturn .card').addClass(result);
+            // vira carta do oponente
+            $('.cards-opponentsturn').addClass('cards-flip');
+
+            // tempo para terminar a animação de virar a carta
+            setTimeout(function() {
+                $('.ui-turns').append(msg);
+                $('.cards-yourturn .card').addClass(result);
+            }, 1000);
 
             setTimeout(function() {
               novaRodada(result);
-            }, 2000);
+            }, 3000);
 
         },
 
@@ -367,14 +374,23 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             isFeedbackTime = false;
 
             // apaga feedback da rodada passada
-            $('.msg').remove();
-            $('.card-label').removeClass('selected');
             if (resultRodadaPassada != undefined) {
-                $('.cards-yourturn .card').removeClass(resultRodadaPassada);
-            }
 
-            montaCartaJogador();
-            montaCartaOponente();
+                $('.cards-opponentsturn').removeClass('cards-flip');
+                $('.msg').remove();
+                $('.card-label').removeClass('selected');
+                $('.cards-yourturn .card').removeClass(resultRodadaPassada);
+
+                // tempo para terminar a animação de virar a carta
+                setTimeout(function() {
+                    montaCartaJogador();
+                    montaCartaOponente();
+                }, 300);
+
+            } else {
+                montaCartaJogador();
+                montaCartaOponente();
+            }
 
             settings.rodada++;
             // $rodada.html(settings.rodada);
