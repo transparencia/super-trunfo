@@ -126,41 +126,14 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                         });
 
                         // se for um número, converter para base numérica
-                        if ($self.hasClass('vence-boolean') == 'false'){
+                        if ($self.hasClass('vence-boolean') == false){
                             opcaoJogador = parseInt(opcaoJogador, 10);
                             opcaoOponente = parseInt(opcaoOponente, 10);
                         }
 
                     }
 
-                    // se o jogador estiver com o super trunfo
-                    if (cartaAtualJogador.supertrunfo == "true") {
-
-                        isSuperTrunfo = true;
-
-                        // se o oponente estiver com uma carta A
-                        if (cartaAtualOponente.id.indexOf('A') != -1) {
-                            jogadorPerdeu();
-                        } else {
-                            jogadorVenceu();
-                        }
-
-                    } // se o oponente estiver com o super trunfo
-                    else if (cartaAtualOponente.supertrunfo == "true") {
-
-                        isSuperTrunfo = true;
-
-                        // se o jogador estiver com uma carta A
-                        if (cartaAtualJogador.id.indexOf('A') != -1) {
-                            jogadorVenceu();
-                        } else {
-                            jogadorPerdeu();
-                        }
-
-                    } // se ninguém estiver com o super trunfo
-                    else {
-                        isSuperTrunfo = false;
-                    }
+                    superTrunfo();
 
                 }
 
@@ -198,6 +171,39 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         },
 
+        superTrunfo = function() {
+
+            // se o jogador estiver com o super trunfo
+            if (cartaAtualJogador.supertrunfo == "true") {
+
+                isSuperTrunfo = true;
+
+                // se o oponente estiver com uma carta A
+                if (cartaAtualOponente.id.indexOf('A') != -1) {
+                    jogadorPerdeu();
+                } else {
+                    jogadorVenceu();
+                }
+
+            } // se o oponente estiver com o super trunfo
+            else if (cartaAtualOponente.supertrunfo == "true") {
+
+                isSuperTrunfo = true;
+
+                // se o jogador estiver com uma carta A
+                if (cartaAtualJogador.id.indexOf('A') != -1) {
+                    jogadorVenceu();
+                } else {
+                    jogadorPerdeu();
+                }
+
+            } // se ninguém estiver com o super trunfo
+            else {
+                isSuperTrunfo = false;
+            }
+
+        },
+
         venceMaior = function() {
 
             // console.log('vence maior');
@@ -211,10 +217,13 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 if (!isSuperTrunfo) {
 
                     if (opcaoJogador > opcaoOponente) {
+                        // console.log('opcaoJogador > opcaoOponente');
                         jogadorVenceu();
                     } else if (opcaoJogador == opcaoOponente) {
+                        // console.log('opcaoJogador == opcaoOponente');
                         empate();
                     } else {
+                        // console.log('opcaoJogador < opcaoOponente');
                         jogadorPerdeu();
                     }
 
@@ -237,10 +246,13 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 if (!isSuperTrunfo) {
 
                     if (opcaoJogador < opcaoOponente) {
+                        // console.log('opcaoJogador < opcaoOponente');
                         jogadorVenceu();
                     } else if (opcaoJogador == opcaoOponente) {
+                        // console.log('opcaoJogador == opcaoOponente');
                         empate();
                     } else {
+                        // console.log('opcaoJogador > opcaoOponente');
                         jogadorPerdeu();
                     }
 
@@ -290,8 +302,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             listaCandidatosJogador.shift();
             listaCandidatosJogador.push(cartaAtualJogador);
 
-            atualizaPlacar();
-
             // se não for super trunfo
             if (!isSuperTrunfo) {
                 feedback('<span class="msg msg-won">Você ganhou!</span>', 'card-won');
@@ -308,14 +318,12 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.placarJogador--;
 
             // coloca a carta do jogador perdedor no fim do bolo do oponente vencedor
-            listaCandidatosOponente.push(cartaAtualJogador);
             listaCandidatosJogador.shift();
+            listaCandidatosOponente.push(cartaAtualJogador);
 
             // coloca a carta oponente vencedor no fim do bolo dele
             listaCandidatosOponente.shift();
-            listaCandidatosOponente.push(cartaAtualJogador);
-
-            atualizaPlacar();
+            listaCandidatosOponente.push(cartaAtualOponente);
 
             // se não for super trunfo
             if (!isSuperTrunfo) {
@@ -339,17 +347,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             feedback('<span class="msg msg-draw">Deu empate!</span>', 'card-draw');
         },
 
-        atualizaPlacar = function() {
-            $placarJogador.html('(' + settings.placarJogador + ')');
-            $placarOponente.html('(' + settings.placarOponente + ')');
-
-            if (settings.placarJogador == pontuacaoLimite) {
-                alert('Você VENCEU o jogo inteiro!');
-            } else if (settings.placarOponente == pontuacaoLimite) {
-                alert('Você PERDEU o jogo inteiro!');
-            }
-        },
-
         feedback = function(msg, result) {
 
             isFeedbackTime = true;
@@ -364,9 +361,21 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             }, 1000);
 
             setTimeout(function() {
-              novaRodada(result);
+                atualizaPlacar();
+                novaRodada(result);
             }, 3000);
 
+        },
+
+        atualizaPlacar = function() {
+            $placarJogador.html('(' + settings.placarJogador + ')');
+            $placarOponente.html('(' + settings.placarOponente + ')');
+
+            if (settings.placarJogador == pontuacaoLimite) {
+                alert('Você VENCEU o jogo inteiro!');
+            } else if (settings.placarOponente == pontuacaoLimite) {
+                alert('Você PERDEU o jogo inteiro!');
+            }
         },
 
         novaRodada = function(resultRodadaPassada) {
@@ -404,6 +413,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         montaCartaJogador = function(i) {
 
             cartaAtualJogador = listaCandidatosJogador[0];
+            // console.log(cartaAtualJogador);
 
             $idCartaJogador.text(cartaAtualJogador.id);
             $nomeCartaJogador.text(cartaAtualJogador.nome);
@@ -421,6 +431,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         montaCartaOponente = function(i) {
 
             cartaAtualOponente = listaCandidatosOponente[0];
+            // console.log(cartaAtualOponente);
 
             $idCartaOponente.text(cartaAtualOponente.id);
             $nomeCartaOponente.text(cartaAtualOponente.nome);
