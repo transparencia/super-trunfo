@@ -27,17 +27,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $partidoJogador = $('.cards-yourturn .card-party strong'),
             $partidoOponente = $('.cards-opponentsturn .card-party strong'),
 
-            $projetosAprovadosJogador = $('.cards-yourturn .projs-aprovados .card-label-value'),
-            $projetosAprovadosOponente = $('.cards-opponentsturn .projs-aprovados .card-label-value'),
+            $projetosAprovadosJogador = $('.cards-yourturn [data-attribute="projs-aprovados"] .card-label-value'),
+            $projetosAprovadosOponente = $('.cards-opponentsturn [data-attribute="projs-aprovados"] .card-label-value'),
 
-            $projetosVetadosJogador = $('.cards-yourturn .projs-vetados .card-label-value'),
-            $projetosVetadosOponente = $('.cards-opponentsturn .projs-vetados .card-label-value'),
+            $projetosVetadosJogador = $('.cards-yourturn [data-attribute="projs-vetados"] .card-label-value'),
+            $projetosVetadosOponente = $('.cards-opponentsturn [data-attribute="projs-vetados"] .card-label-value'),
 
-            $fichaLimpaJogador = $('.cards-yourturn .ficha-limpa .card-label-value'),
-            $fichaLimpaOponente = $('.cards-opponentsturn .ficha-limpa .card-label-value'),
+            $fichaLimpaJogador = $('.cards-yourturn [data-attribute="ficha-limpa"] .card-label-value'),
+            $fichaLimpaOponente = $('.cards-opponentsturn [data-attribute="ficha-limpa"] .card-label-value'),
 
-            $quantidadeVotosJogador = $('.cards-yourturn .qt-votos .card-label-value'),
-            $quantidadeVotosOponente = $('.cards-opponentsturn .qt-votos .card-label-value'),
+            $quantidadeVotosJogador = $('.cards-yourturn [data-attribute="qt-votos"] .card-label-value'),
+            $quantidadeVotosOponente = $('.cards-opponentsturn [data-attribute="qt-votos"] .card-label-value'),
 
             $bioCartaJogador = $('.cards-yourturn .card-bio'),
             $bioCartaOponente = $('.cards-opponentsturn .card-bio'),
@@ -54,7 +54,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             cartaAtualJogador,
             cartaAtualOponente,
 
-            isFeedbackTime;
+            isFeedbackTime,
+            isSuperTrunfo;
 
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
@@ -131,6 +132,16 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                     }
 
+                    if (cartaAtualJogador.supertrunfo == "true") {
+                        isSuperTrunfo = true;
+                        jogadorVenceu();
+                    } else if (cartaAtualOponente.supertrunfo == "true") {
+                        isSuperTrunfo = true;
+                        jogadorPerdeu();
+                    } else {
+                        isSuperTrunfo = false;
+                    }
+
                 }
 
                 e.preventDefault();
@@ -176,12 +187,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // caso não esteja exibindo o resultado da jogada passada
             if (!isFeedbackTime) {
 
-                if (opcaoJogador > opcaoOponente) {
-                    jogadorVenceu();
-                } else if (opcaoJogador == opcaoOponente) {
-                    empate();
-                } else {
-                    jogadorPerdeu();
+                // se não for super trunfo
+                if (!isSuperTrunfo) {
+
+                    if (opcaoJogador > opcaoOponente) {
+                        jogadorVenceu();
+                    } else if (opcaoJogador == opcaoOponente) {
+                        empate();
+                    } else {
+                        jogadorPerdeu();
+                    }
+
                 }
 
             }
@@ -197,12 +213,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // caso não esteja exibindo o resultado da jogada passada
             if (!isFeedbackTime) {
 
-                if (opcaoJogador < opcaoOponente) {
-                    jogadorVenceu();
-                } else if (opcaoJogador == opcaoOponente) {
-                    empate();
-                } else {
-                    jogadorPerdeu();
+                // se não for super trunfo
+                if (!isSuperTrunfo) {
+
+                    if (opcaoJogador < opcaoOponente) {
+                        jogadorVenceu();
+                    } else if (opcaoJogador == opcaoOponente) {
+                        empate();
+                    } else {
+                        jogadorPerdeu();
+                    }
+
                 }
 
             }
@@ -218,12 +239,17 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // caso não esteja exibindo o resultado da jogada passada
             if (!isFeedbackTime) {
 
-                if (opcaoJogador == 'sim' && opcaoOponente == 'não') {
-                    jogadorVenceu();
-                } else if ((opcaoJogador == 'sim' && opcaoOponente == 'sim') || (opcaoJogador == 'não' && opcaoOponente == 'não')) {
-                    empate();
-                } else {
-                    jogadorPerdeu();
+                // se não for super trunfo
+                if (!isSuperTrunfo) {
+
+                    if (opcaoJogador == 'sim' && opcaoOponente == 'não') {
+                        jogadorVenceu();
+                    } else if ((opcaoJogador == 'sim' && opcaoOponente == 'sim') || (opcaoJogador == 'não' && opcaoOponente == 'não')) {
+                        empate();
+                    } else {
+                        jogadorPerdeu();
+                    }
+
                 }
 
             }
@@ -246,7 +272,12 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             atualizaPlacar();
 
-            feedback('<span class="msg msg-won">Você ganhou!</span>', 'card-won');
+            // se não for super trunfo
+            if (!isSuperTrunfo) {
+                feedback('<span class="msg msg-won">Você ganhou!</span>', 'card-won');
+            } else {
+                feedback('<span class="msg msg-won">Super trunfo! Você ganhou!</span>', 'card-won');
+            }
 
         },
 
@@ -266,7 +297,12 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             atualizaPlacar();
 
-            feedback('<span class="msg msg-lose">Você perdeu!</span>', 'card-lose');
+            // se não for super trunfo
+            if (!isSuperTrunfo) {
+                feedback('<span class="msg msg-lose">Você perdeu!</span>', 'card-lose');
+            }  else {
+                feedback('<span class="msg msg-lose">Super trunfo! Você perdeu!</span>', 'card-won');
+            }
 
         },
 
@@ -324,10 +360,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.rodada++;
             // $rodada.html(settings.rodada);
 
-            // console.log('\ncomeça nova rodada\n');
+            console.log('\ncomeça nova rodada\n');
 
-            // console.log(listaCandidatosJogador);
-            // console.log(listaCandidatosOponente);
+            console.log(listaCandidatosJogador);
+            console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
