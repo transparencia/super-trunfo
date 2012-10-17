@@ -504,6 +504,8 @@ p {
 }
 .card-label:hover, .card-label:focus {background-color:#f8f3c7;}
 .card-label.selected {background:#dee528;}
+.card-won .card-label.selected {background:#87c241;}
+.card-lose .card-label.selected {background:#c24141;}
 .card-label.last {border-bottom:none;}
 .card-label-item {
   display: block;
