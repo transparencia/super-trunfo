@@ -1,114 +1,124 @@
 {
   "candidatos": [
     {
-      "nome": "Candidato 1",
+      "id": "1A",
+      "nome": "João1",
       "numero": "11111",
-      "carta": "1A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PT",
       "numeroDeObras": "10",
       "numeroDeProcessos": "2",
       "vezesEleito": "3",
-      "fichaLimpa": "sim"
+      "fichaLimpa": "sim",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 2",
+      "id": "2A",
+      "nome": "João2",
       "numero": "22222",
-      "carta": "2A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PMDB",
       "numeroDeObras": "15",
       "numeroDeProcessos": "5",
       "vezesEleito": "3",
-      "fichaLimpa": "não"
+      "fichaLimpa": "não",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 3",
+      "id": "3A",
+      "nome": "João3",
       "numero": "33333",
-      "carta": "3A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PV",
       "numeroDeObras": "80",
       "numeroDeProcessos": "25",
       "vezesEleito": "10",
-      "fichaLimpa": "sim"
+      "fichaLimpa": "sim",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 4",
+      "id": "4A",
+      "nome": "João4",
       "numero": "44444",
-      "carta": "4A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PSD",
       "numeroDeObras": "2",
       "numeroDeProcessos": "0",
       "vezesEleito": "6",
-      "fichaLimpa": "não"
+      "fichaLimpa": "não",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 5",
+      "id": "5A",
+      "nome": "João5",
       "numero": "55555",
-      "carta": "5A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PT",
       "numeroDeObras": "70",
       "numeroDeProcessos": "22",
       "vezesEleito": "90",
-      "fichaLimpa": "sim"
+      "fichaLimpa": "sim",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 6",
+      "id": "6A",
+      "nome": "João6",
       "numero": "66666",
-      "carta": "6A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PT",
       "numeroDeObras": "1",
       "numeroDeProcessos": "1",
       "vezesEleito": "1",
-      "fichaLimpa": "sim"
+      "fichaLimpa": "sim",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 7",
+      "id": "7A",
+      "nome": "João7",
       "numero": "77777",
-      "carta": "7A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PSD",
       "numeroDeObras": "4",
       "numeroDeProcessos": "55",
       "vezesEleito": "33",
-      "fichaLimpa": "sim"
+      "fichaLimpa": "sim",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 8",
+      "id": "8A",
+      "nome": "João8",
       "numero": "88888",
-      "carta": "8A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PT",
       "numeroDeObras": "32",
       "numeroDeProcessos": "70",
       "vezesEleito": "10",
-      "fichaLimpa": "não"
+      "fichaLimpa": "não",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 9",
+      "id": "9A",
+      "nome": "João9",
       "numero": "99999",
-      "carta": "9A",
-      "foto": "img/bombril.jpg",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PMDB",
       "numeroDeObras": "30",
       "numeroDeProcessos": "51",
       "vezesEleito": "33",
-      "fichaLimpa": "não"
+      "fichaLimpa": "não",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     },
     {
-      "nome": "Candidato 10",
+      "nome": "João10",
       "numero": "10101",
-      "carta": "10A",
-      "foto": "img/bombril.jpg",
+      "id": "10A",
+      "foto": "http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg",
       "partido": "PV",
       "numeroDeObras": "85",
       "numeroDeProcessos": "2",
       "vezesEleito": "5",
-      "fichaLimpa": "sim"
+      "fichaLimpa": "sim",
+      "bio": "<p><span class='legenda'>Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br><span class='legenda'>Idade: </span>58 anos (18/09/1954)<br><span class='legenda'>Naturalidade: </span>Sao Paulo/SP<br><span class='legenda'>Estado Civil: </span>Casado(A)<br><span class='legenda'>Ocupação: </span>Vereador<br><span class='legenda'>Escolaridade: </span>Ensino Médio Completo<br></p>"
     }
   ]
 }

@@ -7,29 +7,37 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
     SUPERTRUNFO.APPS.Jogo = function(options){
 
         // cache de variáveis privadas
-        var $rodada = $('.rodada'),
+        var $screen = $('.screen'),
 
-            $feedback = $('.feedback'),
-            $feedbackRodada = $('.feedback-rodada'),
-            $novaRodada = $('.nova-rodada'),
+            $placarJogador = $('.score-me .score-number'),
+            $placarOponente = $('.score-opponent .score-number'),
 
-            $placarJogador = $('.score-me'),
-            $placarOponente = $('.score-opponent'),
+            $idCartaJogador = $('.cards-yourturn .card-id'),
+            $idCartaOponente = $('.cards-opponentsturn .card-id'),
 
-            $numCartaJogador = $('.jogador .card-number'),
-            $numCartaOponente = $('.oponente .card-number'),
+            $nomeCartaJogador = $('.cards-yourturn .card-name'),
+            $nomeCartaOponente = $('.cards-opponentsturn .card-name'),
 
-            $partidoJogador = $('.jogador .card-party .card-label-value'),
-            $partidoOponente = $('.oponente .card-party .card-label-value'),
+            $numCartaJogador = $('.cards-yourturn .card-number'),
+            $numCartaOponente = $('.cards-opponentsturn .card-number'),
 
-            $numeroObrasJogador = $('.jogador .numero-obras .card-label-value'),
-            $numeroObrasOponente = $('.oponente .numero-obras .card-label-value'),
+            $fotoCartaJogador = $('.cards-yourturn .card-photo'),
+            $fotoCartaOponente = $('.cards-opponentsturn .card-photo'),
 
-            $numeroProcessosJogador = $('.jogador .numero-processos .card-label-value'),
-            $numeroProcessosOponente = $('.oponente .numero-processos .card-label-value'),
+            $partidoJogador = $('.cards-yourturn .card-party strong'),
+            $partidoOponente = $('.cards-opponentsturn .card-party strong'),
 
-            $fichaLimpaJogador = $('.jogador .ficha-limpa .card-label-value'),
-            $fichaLimpaOponente = $('.oponente .ficha-limpa .card-label-value'),
+            $numeroObrasJogador = $('.cards-yourturn .numero-obras .card-label-value'),
+            $numeroObrasOponente = $('.cards-opponentsturn .numero-obras .card-label-value'),
+
+            $numeroProcessosJogador = $('.cards-yourturn .numero-processos .card-label-value'),
+            $numeroProcessosOponente = $('.cards-opponentsturn .numero-processos .card-label-value'),
+
+            $bioCartaJogador = $('.cards-yourturn .card-bio'),
+            $bioCartaOponente = $('.cards-opponentsturn .card-bio'),
+
+            $fichaLimpaJogador = $('.cards-yourturn .ficha-limpa .card-label-value'),
+            $fichaLimpaOponente = $('.cards-opponentsturn .ficha-limpa .card-label-value'),
 
             opcaoJogador,
             opcaoOponente,
@@ -68,8 +76,11 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 listaCandidatosJogador = listaCandidatos.slice(0, listaCandidatos.length / 2);
                 listaCandidatosOponente = listaCandidatos.slice(listaCandidatos.length / 2, listaCandidatos.length);
 
+                // libera tela de entrada
+                $screen.addClass('ready');
+
+                // libera eventos de clique
                 bind();
-                novaRodada();
 
             });
 
@@ -81,22 +92,23 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $('.card-label').on('click', function(e) {
 
                 var $self = $(this);
+                $self.addClass('selected');
 
                 // interação válida apenas se o clique for no jogador e não no oponente
-                if ($self.parent().parent().parent().hasClass('jogador')) {
+                if ($self.parent().parent().parent().hasClass('cards-yourturn')) {
 
                     atributoEscolhido = $self.data('attribute');
-                    // console.log(atributoEscolhido);
+                    console.log(atributoEscolhido);
 
                     opcaoJogador = $self.find('.card-label-value').text();
-                    // console.log(opcaoJogador);
+                    console.log(opcaoJogador);
 
                     // percorre todos os campos do oponente até encontrar aquele escolhido pelo jogador
-                    $('.oponente .card-label').each(function (i, field) {
+                    $('.cards-opponentsturn .card-label').each(function (i, field) {
 
                         if ($(field).data('attribute') == atributoEscolhido) {
                             opcaoOponente = $(field).find('.card-label-value').text();
-                            // console.log(opcaoOponente);
+                            console.log(opcaoOponente);
                         }
 
                     });
@@ -113,11 +125,31 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             });
 
+            $('.btn-new').on('click', function(e) {
+
+                // libera tela de jogo
+                $('.ui-turns').fadeIn();
+                $screen.addClass('turn');
+
+                // povoa cartas
+                novaRodada();
+
+                e.preventDefault();
+
+            });
+
+            $('.view-info').on('click', function(e) {
+                $(this).parent().parent().toggleClass('card-info');
+                e.preventDefault();
+            });
+            $('.link-about, .modal-about').on('click', function(e) {
+                $('.modal-about').slideToggle(300);
+                e.preventDefault();
+            });
+
             $('.vence-maior').on('click', venceMaior);
             $('.vence-menor').on('click', venceMenor);
             $('.vence-boolean').on('click', venceBoolean);
-
-            $novaRodada.on('click', novaRodada);
 
         },
 
@@ -185,7 +217,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             atualizaPlacar();
 
-            feedback('Você venceu =D');
+            feedback('<span class="msg msg-won">Você ganhou!</span>', 'card-won');
 
         },
 
@@ -205,7 +237,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             atualizaPlacar();
 
-            feedback('Você perdeu =(');
+            feedback('<span class="msg msg-lose">Você perdeu!</span>', 'card-lose');
 
         },
 
@@ -219,12 +251,12 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             listaCandidatosOponente.shift();
             listaCandidatosOponente.push(cartaAtualOponente);
 
-            feedback('Deu empate');
+            feedback('<span class="msg msg-draw">Deu empate!</span>', 'card-draw');
         },
 
         atualizaPlacar = function() {
-            $placarJogador.html(settings.placarJogador + '<i class="ic-card"></i>');
-            $placarOponente.html('<i class="ic-card"></i>' + settings.placarOponente);
+            $placarJogador.html('(' + settings.placarJogador + ')');
+            $placarOponente.html('(' + settings.placarOponente + ')');
 
             if (settings.placarJogador == pontuacaoLimite) {
                 alert('Você VENCEU o jogo inteiro!');
@@ -233,35 +265,51 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             }
         },
 
-        feedback = function(msg) {
-            $feedbackRodada.text(msg);
-            $feedback.fadeIn();
+        feedback = function(msg, result) {
+
+            $('.ui-turns').append(msg);
+            $('.cards-yourturn .card').addClass(result);
+
+            setTimeout(function() {
+              novaRodada(result);
+            }, 3000);
+
         },
 
-        novaRodada = function() {
+        novaRodada = function(resultRodadaPassada) {
 
-            $feedback.hide();
+            // apaga feedback da rodada passada
+            $('.msg').remove();
+            $('.card-label').removeClass('selected');
+            if (resultRodadaPassada != undefined) {
+                $('.cards-yourturn .card').removeClass(resultRodadaPassada);
+            }
+
             montaCartaJogador();
             montaCartaOponente();
 
             settings.rodada++;
-            $rodada.html(settings.rodada);
+            // $rodada.html(settings.rodada);
 
-            // console.log('\ncomeça nova rodada\n');
+            console.log('\ncomeça nova rodada\n');
 
-            // console.log(listaCandidatosJogador);
-            // console.log(listaCandidatosOponente);
+            console.log(listaCandidatosJogador);
+            console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
 
             cartaAtualJogador = listaCandidatosJogador[0];
 
-            $numCartaJogador.text(cartaAtualJogador.carta);
-            $partidoJogador.text('(' + cartaAtualJogador.partido + ')');
+            $idCartaJogador.text(cartaAtualJogador.id);
+            $nomeCartaJogador.text(cartaAtualJogador.nome);
+            $numCartaJogador.text(cartaAtualJogador.numero);
+            $fotoCartaJogador.html('<img src="' + cartaAtualJogador.foto + '" alt="' + cartaAtualJogador.nome + '" />');
+            $partidoJogador.text(cartaAtualJogador.partido);
             $numeroObrasJogador.text(cartaAtualJogador.numeroDeObras);
             $numeroProcessosJogador.text(cartaAtualJogador.numeroDeProcessos);
             $fichaLimpaJogador.text(cartaAtualJogador.fichaLimpa);
+            $bioCartaJogador.html(cartaAtualJogador.bio);
 
         },
 
@@ -269,11 +317,15 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             cartaAtualOponente = listaCandidatosOponente[0];
 
-            $numCartaOponente.text(cartaAtualOponente.carta);
-            $partidoOponente.text('(' + cartaAtualOponente.partido + ')');
+            $idCartaOponente.text(cartaAtualOponente.id);
+            $nomeCartaOponente.text(cartaAtualOponente.nome);
+            $numCartaOponente.text(cartaAtualOponente.numero);
+            $fotoCartaOponente.html('<img src="' + cartaAtualOponente.foto + '" alt="' + cartaAtualOponente.nome + '" />');
+            $partidoOponente.text(cartaAtualOponente.partido);
             $numeroObrasOponente.text(cartaAtualOponente.numeroDeObras);
             $numeroProcessosOponente.text(cartaAtualOponente.numeroDeProcessos);
             $fichaLimpaOponente.text(cartaAtualOponente.fichaLimpa);
+            $bioCartaOponente.html(cartaAtualOponente.bio);
 
         },
 

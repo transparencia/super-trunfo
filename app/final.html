@@ -23,40 +23,22 @@
 -->
 <html lang="en-US">
 <head>
+
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Super Trunfo da Política de São Paulo</title>
+
 	<link rel="stylesheet" href="css/reset.css" />
 	<link rel="stylesheet" href="css/base.css" />
 	<link rel="stylesheet" href="css/theme.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-	<script type="text/javascript">
 
-		$(document).ready(function(){
-			// set up click/tap panels
-			// $('.view-info').click(function(){
-			// 	$('.card').addClass('flip');
-			// });
-			// $('.back').click(function(){
-			// 	$('.card').removeClass('flip');
-			// });
-
-			$('.modal-about').hide();
-			$('.view-info').click(function(){
-				$(this).parent().parent().toggleClass('card-info');
-			});
-			$('.link-about, .modal-about').click(function(){
-				$('.modal-about').slideToggle(300);
-			});
-
-		});
-
-	</script>
-	<style type="text/css">
-.screen {float:left;}
+	<style>
+		.screen {float:left;}
 	</style>
+
 </head>
 <body>
-<div class="screen ready turn">
+
+<div class="screen">
 
 <div class="introduction-logo"><img src="img/logo-super-trunfo.png" alt="Super Trunfo - Política de São Paulo"></div>
 
@@ -192,55 +174,85 @@
 	<div class="ui-turns">
 
 		<section class="score">
-			<h2 class="score-me losing"><span class="user-name">Bernard De Luna</span> (40) <span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span></h2>
+			<h2 class="score-me losing">
+				<span class="user-name">Bernard De Luna</span>
+				<span class="score-number"></span>
+				<span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span>
+			</h2>
 			<span class="score-versus"><i class="ic-versus"></i></span>
-			<h2 class="score-opponent winning"><span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span> (40) <span class="user-name">Bernard De Luna</span></h2>
+			<h2 class="score-opponent winning">
+				<span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span>
+				<span class="score-number"></span>
+				<span class="user-name">Bernard De Luna</span>
+			</h2>
 		</section>
 
 		<section class="cards cards-yourturn cards-deck">
-			<div class="card card-front card-won">
-				<span class="card-number">1A</span>
-				<span class="card-photo"><img src="http://static.eleicoes2012.info/fotos/6b/tr/tripoli-43666.jpg" alt="user" /></span>
-				<span class="card-name">Tripoli 43666 <span class="card-party">Partido: <strong>PV</strong></span> <a href="javascript:void(0);" class="view-info" title="ver info">ver info</a></span>
+			<div class="card card-front">
+				<span class="card-id"></span>
+				<span class="card-photo"></span>
+				<span class="card-name-party">
+					<span class="card-name"></span>
+					<span class="card-number"></span>
+					<span class="card-party">Partido: <strong>PV</strong></span>
+					<a href="javascript:void(0);" class="view-info" title="ver info">ver info</a>
+				</span>
 				<div class="card-data">
-					<div class="card-label"><span class="card-label-item">Qt. de projetos aprovados:</span> <span class="card-label-value">68</span></div>
-					<div class="card-label selected"><span class="card-label-item">Qt. de projetos vetados:</span> <span class="card-label-value">62</span></div>
-					<div class="card-label"><span class="card-label-item">Tem ficha limpa:</span> <span class="card-label-value">Sim</span></div>
-					<div class="card-label last"><span class="card-label-item">Qt. de votos:</span> <span class="card-label-value">189.900</span></div>
+					<div class="card-label numero-obras vence-maior" data-attribute="numero-obras">
+						<span class="card-label-item">Núm. de obras:</span>
+						<span class="card-label-value"></span>
+					</div>
+					<div class="card-label numero-processos vence-menor" data-attribute="numero-processos">
+						<span class="card-label-item">Núm. de processos:</span>
+						<span class="card-label-value"></span>
+					</div>
+					<div class="card-label ficha-limpa vence-boolean" data-attribute="ficha-limpa">
+						<span class="card-label-item">Tem ficha limpa:</span>
+						<span class="card-label-value"></span>
+					</div>
+					<div class="card-label last">
+						<span class="card-label-item">Qt. de votos:</span>
+						<span class="card-label-value"></span>
+					</div>
 				</div>
-				<div class="card-bio">
-					<p><span class="legenda">Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br>
-<span class="legenda">Idade: </span>58 anos (18/09/1954)<br><span class="legenda">Naturalidade: </span>Sao Paulo/SP<br><span class="legenda">Estado Civil: </span>Casado(A)<br><span class="legenda">Ocupação: </span>Vereador<br><span class="legenda">Escolaridade: </span>Ensino Médio Completo<br></p>
-				</div>
+				<div class="card-bio"></div>
 			</div>
 		</section>
 		<section class="cards cards-opponentsturn cards-one">
 			<div class="card card-front">
-				<span class="card-number">1A</span>
-				<span class="card-photo"><img src="img/user-photo.jpg" alt="user" /></span>
-				<span class="card-name">Tripoli 43666 <span class="card-party">Partido: <strong>PV</strong></span> <a href="javascript:void(0);" class="view-info" title="ver info">ver info</a></span>
+				<span class="card-id"></span>
+				<span class="card-photo"></span>
+				<span class="card-name-party">
+					<span class="card-name"></span>
+					<span class="card-number"></span>
+					<span class="card-party">Partido: <strong>PV</strong></span>
+					<a href="javascript:void(0);" class="view-info" title="ver info">ver info</a>
+				</span>
 				<div class="card-data">
-					<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">68</span></div>
-					<div class="card-label selected"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">62</span></div>
-					<div class="card-label"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">40</span></div>
-					<div class="card-label last"><span class="card-label-item">Item da carta:</span> <span class="card-label-value">Sim</span></div>
+					<div class="card-label numero-obras vence-maior" data-attribute="numero-obras">
+						<span class="card-label-item">Item da carta:</span>
+						<span class="card-label-value"></span>
+					</div>
+					<div class="card-label numero-processos vence-menor" data-attribute="numero-processos">
+						<span class="card-label-item">Item da carta:</span>
+						<span class="card-label-value"></span>
+					</div>
+					<div class="card-label ficha-limpa vence-boolean" data-attribute="ficha-limpa">
+						<span class="card-label-item">Item da carta:</span>
+						<span class="card-label-value"></span>
+					</div>
+					<div class="card-label last">
+						<span class="card-label-item">Item da carta:</span>
+						<span class="card-label-value"></span>
+					</div>
 				</div>
-				<div class="card-bio">
-					<p><span class="legenda">Nome: </span>Jose Roberto Nazello de Alvarenga Tripoli<br>
-<span class="legenda">Idade: </span>58 anos (18/09/1954)<br><span class="legenda">Naturalidade: </span>Sao Paulo/SP<br><span class="legenda">Estado Civil: </span>Casado(A)<br><span class="legenda">Ocupação: </span>Vereador<br><span class="legenda">Escolaridade: </span>Ensino Médio Completo<br></p>
-				</div>
+				<div class="card-bio"></div>
 			</div>
 			<div class="card card-back">
 				<figure class="card-logo"></figure>
 			</div>
 		</section>
 
-		<!-- messages -->
-		<!-- <span class="msg msg-won">Você ganhou!</span>
-		<span class="msg msg-draw">Deu empate!</span>
-		<span class="msg msg-lose">Você perdeu!</span> -->
-
-		<!-- / messages -->
 	</div>
 	<!-- / turn -->
 
@@ -256,6 +268,11 @@
 		<p>Qualquer informação, divulgação ou dúvidas sobre o Super Trunfo - Política de São Paulo, entre em contato através do email XXXX.</p>
 	</div>
 	<!-- / modal -->
+
 </div>
+
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/script.js"></script>
+
 </body>
 </html>
