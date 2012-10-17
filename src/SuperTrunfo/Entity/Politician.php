@@ -13,7 +13,7 @@ class Politician
     public $coligacao;
     public $projetosAprovados = '0';
     public $projetosVetados = '0';
-    public $fichaLimpa = 'SIM';
+    public $fichaLimpa = 'sim';
     public $quantidadeVotos;
     public $superTrunfo = false;
     public $bio;
