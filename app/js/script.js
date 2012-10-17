@@ -395,10 +395,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.rodada++;
             // $rodada.html(settings.rodada);
 
-            console.log('\ncomeça nova rodada\n');
+            // console.log('\ncomeça nova rodada\n');
 
-            console.log(listaCandidatosJogador);
-            console.log(listaCandidatosOponente);
+            // console.log(listaCandidatosJogador);
+            // console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
