@@ -60,8 +60,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
             'rodada': 0,
-            'placarJogador': 5,
-            'placarOponente': 5
+            'placarJogador': 18,
+            'placarOponente': 18
         };
 
         // mescla do conteúdo dos dois objetos
@@ -181,7 +181,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         superTrunfo = function() {
 
             // se o jogador estiver com o super trunfo
-            if (cartaAtualJogador.supertrunfo == "true") {
+            if (cartaAtualJogador.superTrunfo) {
 
                 isSuperTrunfo = true;
 
@@ -193,7 +193,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 }
 
             } // se o oponente estiver com o super trunfo
-            else if (cartaAtualOponente.supertrunfo == "true") {
+            else if (cartaAtualOponente.superTrunfo) {
 
                 isSuperTrunfo = true;
 
@@ -463,6 +463,12 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $quantidadeVotosJogador.text(cartaAtualJogador.quantidadeVotos);
             $bioCartaJogador.html(cartaAtualJogador.bio);
 
+            if (cartaAtualJogador.superTrunfo) {
+                $('.cards-yourturn .card-front').addClass('card-supertrunfo');
+            } else {
+                $('.cards-yourturn .card-front').removeClass('card-supertrunfo');
+            }
+
         },
 
         montaCartaOponente = function(i) {
@@ -480,6 +486,12 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $fichaLimpaOponente.text(cartaAtualOponente.fichaLimpa);
             $quantidadeVotosOponente.text(cartaAtualOponente.quantidadeVotos);
             $bioCartaOponente.html(cartaAtualOponente.bio);
+
+            if (cartaAtualOponente.superTrunfo) {
+                $('.cards-opponentsturn .card-front').addClass('card-supertrunfo');
+            } else {
+                $('.cards-opponentsturn .card-front').removeClass('card-supertrunfo');
+            }
 
         },
 
