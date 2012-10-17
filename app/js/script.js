@@ -86,7 +86,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 if ($self.parent().parent().parent().hasClass('jogador')) {
 
                     atributoEscolhido = $self.data('attribute');
-                    console.log(atributoEscolhido);
+                    // console.log(atributoEscolhido);
 
                     opcaoJogador = $self.find('.card-label-value').text();
                     // console.log(opcaoJogador);
@@ -123,9 +123,9 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         venceMaior = function() {
 
-            console.log('vence maior');
-            console.log(opcaoJogador);
-            console.log(opcaoOponente);
+            // console.log('vence maior');
+            // console.log(opcaoJogador);
+            // console.log(opcaoOponente);
 
             if (opcaoJogador > opcaoOponente) {
                 jogadorVenceu();
@@ -139,9 +139,9 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         venceMenor = function() {
 
-            console.log('vence menor');
-            console.log(opcaoJogador);
-            console.log(opcaoOponente);
+            // console.log('vence menor');
+            // console.log(opcaoJogador);
+            // console.log(opcaoOponente);
 
             if (opcaoJogador < opcaoOponente) {
                 jogadorVenceu();
@@ -155,9 +155,9 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         venceBoolean = function() {
 
-            console.log('venceBoolean');
-            console.log(opcaoJogador);
-            console.log(opcaoOponente);
+            // console.log('venceBoolean');
+            // console.log(opcaoJogador);
+            // console.log(opcaoOponente);
 
             if (opcaoJogador == 'sim' && opcaoOponente == 'não') {
                 jogadorVenceu();
@@ -247,10 +247,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             settings.rodada++;
             $rodada.html(settings.rodada);
 
-            console.log('\ncomeça nova rodada\n');
+            // console.log('\ncomeça nova rodada\n');
 
-            console.log(listaCandidatosJogador);
-            console.log(listaCandidatosOponente);
+            // console.log(listaCandidatosJogador);
+            // console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
