@@ -27,17 +27,20 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $partidoJogador = $('.cards-yourturn .card-party strong'),
             $partidoOponente = $('.cards-opponentsturn .card-party strong'),
 
-            $numeroObrasJogador = $('.cards-yourturn .numero-obras .card-label-value'),
-            $numeroObrasOponente = $('.cards-opponentsturn .numero-obras .card-label-value'),
+            $projetosAprovadosJogador = $('.cards-yourturn .projs-aprovados .card-label-value'),
+            $projetosAprovadosOponente = $('.cards-opponentsturn .projs-aprovados .card-label-value'),
 
-            $numeroProcessosJogador = $('.cards-yourturn .numero-processos .card-label-value'),
-            $numeroProcessosOponente = $('.cards-opponentsturn .numero-processos .card-label-value'),
-
-            $bioCartaJogador = $('.cards-yourturn .card-bio'),
-            $bioCartaOponente = $('.cards-opponentsturn .card-bio'),
+            $projetosVetadosJogador = $('.cards-yourturn .projs-vetados .card-label-value'),
+            $projetosVetadosOponente = $('.cards-opponentsturn .projs-vetados .card-label-value'),
 
             $fichaLimpaJogador = $('.cards-yourturn .ficha-limpa .card-label-value'),
             $fichaLimpaOponente = $('.cards-opponentsturn .ficha-limpa .card-label-value'),
+
+            $quantidadeVotosJogador = $('.cards-yourturn .qt-votos .card-label-value'),
+            $quantidadeVotosOponente = $('.cards-opponentsturn .qt-votos .card-label-value'),
+
+            $bioCartaJogador = $('.cards-yourturn .card-bio'),
+            $bioCartaOponente = $('.cards-opponentsturn .card-bio'),
 
             opcaoJogador,
             opcaoOponente,
@@ -336,9 +339,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $numCartaJogador.text(cartaAtualJogador.numero);
             $fotoCartaJogador.html('<img src="' + cartaAtualJogador.foto + '" alt="' + cartaAtualJogador.nome + '" />');
             $partidoJogador.text(cartaAtualJogador.partido);
-            $numeroObrasJogador.text(cartaAtualJogador.numeroDeObras);
-            $numeroProcessosJogador.text(cartaAtualJogador.numeroDeProcessos);
+            $projetosAprovadosJogador.text(cartaAtualJogador.projetosAprovados);
+            $projetosVetadosJogador.text(cartaAtualJogador.projetosVetados);
             $fichaLimpaJogador.text(cartaAtualJogador.fichaLimpa);
+            $quantidadeVotosJogador.text(cartaAtualJogador.quantidadeVotos);
             $bioCartaJogador.html(cartaAtualJogador.bio);
 
         },
@@ -352,9 +356,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $numCartaOponente.text(cartaAtualOponente.numero);
             $fotoCartaOponente.html('<img src="' + cartaAtualOponente.foto + '" alt="' + cartaAtualOponente.nome + '" />');
             $partidoOponente.text(cartaAtualOponente.partido);
-            $numeroObrasOponente.text(cartaAtualOponente.numeroDeObras);
-            $numeroProcessosOponente.text(cartaAtualOponente.numeroDeProcessos);
+            $projetosAprovadosOponente.text(cartaAtualOponente.projetosAprovados);
+            $projetosVetadosOponente.text(cartaAtualOponente.projetosVetados);
             $fichaLimpaOponente.text(cartaAtualOponente.fichaLimpa);
+            $quantidadeVotosOponente.text(cartaAtualOponente.quantidadeVotos);
             $bioCartaOponente.html(cartaAtualOponente.bio);
 
         },
