@@ -132,13 +132,32 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                     }
 
+                    // se o jogador estiver com o super trunfo
                     if (cartaAtualJogador.supertrunfo == "true") {
+
                         isSuperTrunfo = true;
-                        jogadorVenceu();
-                    } else if (cartaAtualOponente.supertrunfo == "true") {
+
+                        // se o oponente estiver com uma carta A
+                        if (cartaAtualOponente.id.indexOf('A') != -1) {
+                            jogadorPerdeu();
+                        } else {
+                            jogadorVenceu();
+                        }
+
+                    } // se o oponente estiver com o super trunfo
+                    else if (cartaAtualOponente.supertrunfo == "true") {
+
                         isSuperTrunfo = true;
-                        jogadorPerdeu();
-                    } else {
+
+                        // se o jogador estiver com uma carta A
+                        if (cartaAtualJogador.id.indexOf('A') != -1) {
+                            jogadorVenceu();
+                        } else {
+                            jogadorPerdeu();
+                        }
+
+                    } // se ninguém estiver com o super trunfo
+                    else {
                         isSuperTrunfo = false;
                     }
 
