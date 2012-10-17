@@ -406,8 +406,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         novoJogo = function() {
 
-            settings.placarJogador = 5;
-            settings.placarOponente = 5;
+            settings.placarJogador = 18;
+            settings.placarOponente = 18;
             atualizaPlacar();
             embaralhaCandidatos(listaCandidatos);
             novaRodada();
