@@ -496,6 +496,7 @@ p {
   border-bottom:1px solid rgba(0,0,0,.3);
   position:relative;
   background:#e7e7e7;
+  color:#2b2b2b;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -504,8 +505,8 @@ p {
 }
 .card-label:hover, .card-label:focus {background-color:#f8f3c7;}
 .card-label.selected {background:#dee528;}
-.card-won .card-label.selected {background:#87c241;}
-.card-lose .card-label.selected {background:#c24141;}
+.card-won .card-label.selected {background:#87c241;color:#fff;}
+.card-lose .card-label.selected {background:#c24141;color:#fff;}
 .card-label.last {border-bottom:none;}
 .card-label-item {
   display: block;
@@ -515,14 +516,12 @@ p {
   text-align: left;
   font-size:1.6em;
   line-height:43px;
-  color:#2b2b2b;
   font-weight: bolder;
 }
 .card-label-value {
   display: block;
   width:40%;
   float:left;
-  color:#2b2b2b;
   font-size:3.6em;
   font-weight: bolder;
   letter-spacing: -.06em;
