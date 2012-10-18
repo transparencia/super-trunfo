@@ -80,10 +80,18 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                 // espera 2s até mostrar a próxima tela
                 setTimeout(function() {
-                    // libera tela de entrada
+
+                    // libera tela de jogo
                     $screen.addClass('ready');
+                    $screen.addClass('turn');
+                    $('.ui-turns').fadeIn();
+
+                    // povoa cartas
+                    novaRodada();
+
                     // libera eventos de clique
                     bind();
+
                 }, 2000);
 
             });
@@ -153,20 +161,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $('.vence-maior').on('click', venceMaior);
             $('.vence-menor').on('click', venceMenor);
             $('.vence-boolean').on('click', venceBoolean);
-
-            // ao clicar no botão de novo jogo
-            $('.btn-new').on('click', function(e) {
-
-                // libera tela de jogo
-                $('.ui-turns').fadeIn();
-                $screen.addClass('turn');
-
-                // povoa cartas
-                novaRodada();
-
-                e.preventDefault();
-
-            });
 
             // ao clicar no botão de informações
             $('.view-info').on('click', function(e) {
