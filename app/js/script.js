@@ -78,11 +78,13 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 listaCandidatos = result.candidatos;
                 embaralhaCandidatos(listaCandidatos);
 
-                // libera tela de entrada
-                $screen.addClass('ready');
-
-                // libera eventos de clique
-                bind();
+                // espera 2s até mostrar a próxima tela
+                setTimeout(function() {
+                    // libera tela de entrada
+                    $screen.addClass('ready');
+                    // libera eventos de clique
+                    bind();
+                }, 2000);
 
             });
 
