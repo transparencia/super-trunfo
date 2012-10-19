@@ -21,7 +21,7 @@
     cards-flip em cards do oponente = classe colocada quando o usuário escolhe o item, fazendo a carta do oponente virar e revelar a marcada
 
 -->
-<html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
+<html lang="en-US">
 <head>
 
     <meta charset="UTF-8">
@@ -43,12 +43,128 @@
     <header class="header" role="header">
         <hgroup class="page-title">
             <h1><img src="img/logo-super-trunfo-small.png" alt="Super Trunfo - Política de São Paulo"></h1>
+            <a class="send-request" href="javascript:void(0);" title="Convidar amigos"><img src="img/btn-send-request.png" alt="Send Request" /></a>
         </hgroup>
         <a href="#" title="Sobre" class="link-about"><i class="ic-about"></i></a>
         <!-- <a href="#" title="Configurações" class="link-admin"><i class="ic-admin"></i></a> -->
     </header>
     <!-- /header -->
+
+    <!-- user -->
+    <section class="user">
+        <span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span>
+        <h2>Olá <span class="user-name">Bernard De Luna</span>, vamos jogar?</h2>
+        <p>você já disputou <strong>300</strong> jogos. Ganhou <strong>247</strong>, perdeu <strong>53</strong> e ocupa a <strong>4°</strong> posição entre seus amigos.</p>
+    </section>
+    <!-- /user -->
+
+    <!-- games -->
+        <!-- your turn -->
+        <section class="games games-yourturn">
+            <hgroup class="section-title">
+                <h2>Sua vez</h2>
+            </hgroup>
+            <ol class="games-list">
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Luciana Silveira <span class="user-ranking">(3°)</span></span>
+                        <span class="score-opponent winning"><i class="ic-card"></i>80</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Igor Silva <span class="user-ranking">(13°)</span></span>
+                        <span class="score-opponent losing"><i class="ic-card"></i>40</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Igor Silva <span class="user-ranking">(13°)</span></span>
+                        <span class="score-opponent losing"><i class="ic-card"></i>40</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Ryan Bell <span class="user-ranking">(5°)</span></span>
+                        <span class="score-opponent drawing"><i class="ic-card"></i>50</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Igor Silva <span class="user-ranking">(13°)</span></span>
+                        <span class="score-opponent losing"><i class="ic-card"></i>40</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Ryan Bell <span class="user-ranking">(5°)</span></span>
+                        <span class="score-opponent drawing"><i class="ic-card"></i>50</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+            </ol>
+            <div class="new-game">
+                <a href="#" class="btn btn-primary btn-new">Criar novo jogo!</a>
+            </div>
+        </section>
+        <!-- /your turn -->
+
+        <!-- opponent's turn -->
+        <section class="games games-opponentsturn">
+            <hgroup class="section-title">
+                <h2>Vez dos seus amigos</h2>
+            </hgroup>
+            <ol class="games-list">
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Alessandra Groehn <span class="user-ranking">(10°)</span></span>
+                        <span class="score-opponent winning"><i class="ic-card"></i>74</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Bruna Figueira <span class="user-ranking">(21°)</span></span>
+                        <span class="score-opponent losing"><i class="ic-card"></i>10</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+                <li class="games-item">
+                    <a class="game" href="#" title="">
+                        <span class="user-img"><img src="img/be.jpeg" alt="photo"></span>
+                        <span class="user-name">Bruna Figueira <span class="user-ranking">(21°)</span></span>
+                        <span class="score-opponent losing"><i class="ic-card"></i>10</span>
+
+                        <i class="ic-arrow"></i>
+                    </a>
+                </li>
+            </ol>
+        </section>
+        <!-- / opponent's turn -->
+    <!-- / games -->
 </div>
+
 
     <!-- turn -->
     <div class="ui-turns">
@@ -61,9 +177,9 @@
             </h2>
             <span class="score-versus"><i class="ic-versus"></i></span>
             <h2 class="score-opponent winning">
-                <span class="user-photo"><img src="img/be.jpeg" alt="Bernard De Luna" /></span>
+                <span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span>
                 <span class="score-number"></span>
-                <span class="user-name">Seu oponente</span>
+                <span class="user-name">Bernard De Luna</span>
             </h2>
         </section>
 
@@ -144,7 +260,7 @@
     <!-- / final -->
 
     <footer class="footer">
-        <p>Esse jogo foi criado por <a href="http://www.facebook.com/bernarddeluna/" title="" target="_top">Bernard De Luna</a>, <a href="http://www.facebook.com/neto.joaobatista" title="" target="_top">João Batista Neto</a> e <a href="http://www.facebook.com/zenorocha" title="" target="_top">Zeno Rocha</a>, utilizando dados abertos cedidos pelo governo brasileiro com o objetivo de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.</p>
+        <p>Esse jogo foi criado por <a target="_top" title="" href="http://www.facebook.com/bernarddeluna/">Bernard De Luna</a>, <a target="_top" title="" href="http://www.facebook.com/neto.joaobatista">João Batista Neto</a> e <a target="_top" title="" href="http://www.facebook.com/zenorocha">Zeno Rocha</a>, utilizando dados abertos cedidos pelo governo brasileiro com o objetivo de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.</p>
     </footer>
 
     <!-- modal -->
@@ -152,7 +268,7 @@
         <h2>Sobre o Super Trunfo</h2>
         <p>Esse jogo foi criado para incentivar a transparência e colaboração em cima dos dados abertos, mostrando o que é possível fazer com as informações cedidas pelo governo brasileiro, seguindo as definições do W3C.</p>
         <p>Desde a Lei da Transparência(131/2009) em 2010, o Brasil vem se destacando quanto a obrigação dos estados a documentarem sua contabilidade na internet, e assim resolvemos criar um jogo famoso que consome através de um webservice os dados abertos do estado de São Paulo.</p>
-        <p>Qualquer informação, divulgação ou dúvidas sobre o Super Trunfo - Política de São Paulo, entre em contato através do email XXXX.</p>
+        <p>Qualquer informação, divulgação ou dúvidas sobre o Super Trunfo - Política de São Paulo, entre em contato através do email <a href="mailto:supertrunfopolitica@gmail.com" title="">supertrunfopolitica@gmail.com</a>.</p>
     </div>
     <!-- / modal -->
 
