@@ -54,8 +54,6 @@ SUPERTRUNFO.APPS.Facebook = {
 			
 			FB.Canvas.setSize({width: 850});
 		});
-		
-		SUPERTRUNFO.APPS.Facebook.sendRequest()
 	}
 };
 
