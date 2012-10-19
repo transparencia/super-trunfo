@@ -40,5 +40,4 @@ SUPERTRUNFO.APPS.Facebook = {
 	}
 };
 
-
-
+SUPERTRUNFO.APPS.Facebook.init();
