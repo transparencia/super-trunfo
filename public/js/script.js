@@ -520,13 +520,4 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         };
     };
-
-    // exemplo de uma instância encapsulada
-    $(function(){
-
-        var jogo = new SUPERTRUNFO.APPS.Jogo();
-        jogo.init();
-
-    });
-
 }(jQuery));
