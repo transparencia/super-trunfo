@@ -277,7 +277,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 // se não for super trunfo
                 if (!isSuperTrunfo) {
 
-                    if (opcaoJogador == 'sim' && opcaoOponente == 'não') {
+                    if (opcaoJogador == 'não' && opcaoOponente == 'sim') {
                         jogadorVenceu();
                     } else if ((opcaoJogador == 'sim' && opcaoOponente == 'sim') || (opcaoJogador == 'não' && opcaoOponente == 'não')) {
                         empate();
