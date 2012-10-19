@@ -30,7 +30,11 @@ SUPERTRUNFO.APPS.Facebook = {
 			xfbml : true
 		});
 		
+		console.log('init');
+		
 		FB.getLoginStatus(function(response) {
+			console.log(response);
+			
 			if (response.status === 'connected') {
 				//TODO fazer o redirect
 			} else if (response.status === 'not_authorized') {
