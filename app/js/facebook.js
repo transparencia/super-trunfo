@@ -7,7 +7,9 @@ SUPERTRUNFO.APPS.Facebook = {
 			message: 'Conheça o Super Trunfo da Política usando dados abertos segundo a Lei no 12.527, de 18 de novembro de 2011.'
 		});
 	},
-	updateGUI: function() {
+	updateGUIAndInit: function() {
+		var jogo = new SUPERTRUNFO.APPS.Jogo();
+
 		FB.api('/me?fields=name,picture', function(response) {
 			var userProfile = function(base) {
 				var img = $(base + ' .user-photo img');
@@ -23,10 +25,11 @@ SUPERTRUNFO.APPS.Facebook = {
 		});
 		
 		$('.send-request').on('click', SUPERTRUNFO.APPS.Facebook.sendRequest);
+		jogo.init();
 	},
 	login: function(response) {
 		if (response.authResponse) {
-			SUPERTRUNFO.APPS.Facebook.updateUser();
+			SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
 		} else {
 			FB.login(SUPERTRUNFO.APPS.Facebook.login);
 		}
@@ -35,7 +38,7 @@ SUPERTRUNFO.APPS.Facebook = {
 		FB.init({
 			appId : '369251863156901',
 			channelUrl : '//neto.my.phpcloud.com/super-trunfo/',
-			rictionlessRequests : true,
+			frictionlessRequests : true,
 			status : true,
 			cookie : true,
 			xfbml : true
@@ -43,10 +46,7 @@ SUPERTRUNFO.APPS.Facebook = {
 		
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
-				var jogo = new SUPERTRUNFO.APPS.Jogo();
-				
-				SUPERTRUNFO.APPS.Facebook.updateGUI();
-				jogo.init();
+				SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
 			} else if (response.status === 'not_authorized') {
 				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			} else {
