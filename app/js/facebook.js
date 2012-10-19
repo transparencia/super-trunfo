@@ -1,23 +1,50 @@
-FB.init({
-	appId : '369251863156901',
-	channelUrl : '//neto.my.phpcloud.com/super-trunfo/',
-	status : true,
-	cookie : true,
-	xfbml : true
-});
+window.SUPERTRUNFO = window.SUPERTRUNFO || {};
+SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
-FB.login(function(response) {
-	if (response.authResponse) {
+SUPERTRUNFO.APPS.Facebook = {
+	updateUser: function() {
 		FB.api('/me?fields=name,picture', function(response) {
-			console.log([response.name, response.picture.data.url]);
-			var img = $('.user .user-photo img');
+			var userProfile = function(base) {
+				var img = $(base + ' .user-photo img');
+				
+				img.attr('alt', response.name);
+				img.attr('src', response.picture.data.url);
+				
+				$(base + ' .user-name').text(response.name);
+			};
 			
-			img.attr('alt', response.name);
-			img.attr('src', response.picture.data.url);
-			
-			$('.user .user-name').text(response.name);
+			userProfile('.user');
+			userProfile('.score-me')
 		});
-	} else {
-		//TODO: usuário não autorizou, o que fazemos?
+	},
+	login: function(response) {
+		if (response.authResponse) {
+			SUPERTRUNFO.APPS.Facebook.updateUser();
+		} else {
+			FB.login(SUPERTRUNFO.APPS.Facebook.login);
+		}
+	},
+	init: function() {
+		FB.init({
+			appId : '369251863156901',
+			channelUrl : '//neto.my.phpcloud.com/super-trunfo/',
+			status : true,
+			cookie : true,
+			xfbml : true
+		});
+		
+		FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+				SUPERTRUNFO.APPS.Facebook.updateUser();
+			} else if (response.status === 'not_authorized') {
+				FB.login(SUPERTRUNFO.APPS.Facebook.login);
+			} else {
+				FB.login(SUPERTRUNFO.APPS.Facebook.login);
+			}
+			
+			FB.Canvas.setSize({width: 850});
+		});
 	}
-});
+};
+
+SUPERTRUNFO.APPS.Facebook.init();
