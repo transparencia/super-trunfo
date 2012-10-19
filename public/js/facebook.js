@@ -6,7 +6,7 @@ SUPERTRUNFO.APPS.Facebook = {
 		callback = callback || function() {};
 		
 		FB.ui({method: 'apprequests',
-			message: 'My Great Request'
+			message: 'Conheça o Super Trunfo da Política usando dados abertos segundo a Lei no 12.527, de 18 de novembro de 2011.'
 		}, callback);
 	},
 	updateUser: function() {
