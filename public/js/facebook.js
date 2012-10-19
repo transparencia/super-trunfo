@@ -8,6 +8,8 @@ SUPERTRUNFO.APPS.Facebook = {
 		});
 	},
 	updateGUI: function() {
+		var jogo = new SUPERTRUNFO.APPS.Jogo();
+
 		FB.api('/me?fields=name,picture', function(response) {
 			var userProfile = function(base) {
 				var img = $(base + ' .user-photo img');
@@ -44,8 +46,6 @@ SUPERTRUNFO.APPS.Facebook = {
 		
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
-				var jogo = new SUPERTRUNFO.APPS.Jogo();
-				
 				SUPERTRUNFO.APPS.Facebook.updateGUI();
 			} else if (response.status === 'not_authorized') {
 				FB.login(SUPERTRUNFO.APPS.Facebook.login);
