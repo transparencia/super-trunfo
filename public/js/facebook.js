@@ -2,21 +2,24 @@ window.SUPERTRUNFO = window.SUPERTRUNFO || {};
 SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
 SUPERTRUNFO.APPS.Facebook = {
-	login: login = function(response) {
-		if (response.authResponse) {
-			FB.api('/me?fields=name,picture', function(response) {
-				var userProfile = function(base) {
-					var img = $(base + ' .user-photo img');
-					
-					img.attr('alt', response.name);
-					img.attr('src', response.picture.data.url);
-					
-					$(base + ' .user-name').text(response.name);
-				};
+	updateUser: function() {
+		FB.api('/me?fields=name,picture', function(response) {
+			var userProfile = function(base) {
+				var img = $(base + ' .user-photo img');
 				
-				userProfile('.user');
-				userProfile('.score-me')
-			});
+				img.attr('alt', response.name);
+				img.attr('src', response.picture.data.url);
+				
+				$(base + ' .user-name').text(response.name);
+			};
+			
+			userProfile('.user');
+			userProfile('.score-me')
+		});
+	},
+	login: function(response) {
+		if (response.authResponse) {
+			SUPERTRUNFO.APPS.Facebook.updateUser();
 		} else {
 			FB.login(SUPERTRUNFO.APPS.Facebook.login);
 		}
@@ -30,13 +33,9 @@ SUPERTRUNFO.APPS.Facebook = {
 			xfbml : true
 		});
 		
-		console.log('init');
-		
 		FB.getLoginStatus(function(response) {
-			console.log(response);
-			
 			if (response.status === 'connected') {
-				//TODO fazer o redirect
+				SUPERTRUNFO.APPS.Facebook.updateUser();
 			} else if (response.status === 'not_authorized') {
 				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			} else {
