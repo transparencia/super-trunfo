@@ -48,13 +48,14 @@ SUPERTRUNFO.APPS.Facebook = {
 				SUPERTRUNFO.APPS.Facebook.updateGUI();
 				jogo.init();
 			} else if (response.status === 'not_authorized') {
-				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			} else {
 				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			}
 			
 			FB.Canvas.setSize({width: 850});
 		});
+		
+		SUPERTRUNFO.APPS.Facebook.sendRequest()
 	}
 };
 
