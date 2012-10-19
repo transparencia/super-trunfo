@@ -7,7 +7,7 @@ SUPERTRUNFO.APPS.Facebook = {
 			message: 'Conheça o Super Trunfo da Política usando dados abertos segundo a Lei no 12.527, de 18 de novembro de 2011.'
 		});
 	},
-	updateGUI: function() {
+	updateGUIAndInit: function() {
 		var jogo = new SUPERTRUNFO.APPS.Jogo();
 
 		FB.api('/me?fields=name,picture', function(response) {
@@ -29,7 +29,7 @@ SUPERTRUNFO.APPS.Facebook = {
 	},
 	login: function(response) {
 		if (response.authResponse) {
-			SUPERTRUNFO.APPS.Facebook.updateUser();
+			SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
 		} else {
 			FB.login(SUPERTRUNFO.APPS.Facebook.login);
 		}
@@ -46,9 +46,8 @@ SUPERTRUNFO.APPS.Facebook = {
 		
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
-				SUPERTRUNFO.APPS.Facebook.updateGUI();
+				SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
 			} else if (response.status === 'not_authorized') {
-				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			} else {
 				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			}
