@@ -35,7 +35,7 @@ SUPERTRUNFO.APPS.Facebook = {
 		FB.init({
 			appId : '369251863156901',
 			channelUrl : '//neto.my.phpcloud.com/super-trunfo/',
-			rictionlessRequests : true,
+			frictionlessRequests : true,
 			status : true,
 			cookie : true,
 			xfbml : true
