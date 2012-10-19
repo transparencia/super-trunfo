@@ -24,6 +24,10 @@ SUPERTRUNFO.APPS.Facebook = {
 	init: function() {
 		FB.init({
 			appId : '369251863156901',
+			channelUrl : '//neto.my.phpcloud.com/super-trunfo/',
+			status : true,
+			cookie : true,
+			xfbml : true
 		});
 		
 		FB.getLoginStatus(function(response) {
