@@ -35,7 +35,10 @@ SUPERTRUNFO.APPS.Facebook = {
 		
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
+				var jogo = new SUPERTRUNFO.APPS.Jogo();
+				
 				SUPERTRUNFO.APPS.Facebook.updateUser();
+				jogo.init();
 			} else if (response.status === 'not_authorized') {
 				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			} else {
