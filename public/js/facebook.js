@@ -17,7 +17,7 @@ FB.login(function(response) {
 				img.attr('alt', response.name);
 				img.attr('src', response.picture.data.url);
 				
-				$(name + ' .user-name').text(response.name);
+				$(base + ' .user-name').text(response.name);
 			};
 			
 			userProfile('.user');
