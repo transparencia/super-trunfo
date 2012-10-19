@@ -48,6 +48,7 @@ SUPERTRUNFO.APPS.Facebook = {
 			if (response.status === 'connected') {
 				SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
 			} else if (response.status === 'not_authorized') {
+				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			} else {
 				FB.login(SUPERTRUNFO.APPS.Facebook.login);
 			}
