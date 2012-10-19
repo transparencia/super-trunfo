@@ -39,8 +39,18 @@ class SuperTrunfo
             else return 1;
         });
 
-        $politicians = array_slice($politicians, 0, 36);
-        $politician = array_shift($politicians);
+        $politicians = array_slice($politicians, 0, 35);
+        $politician = new Politician();
+        $politician->nome = 'Gilberto Kassab';
+        $politician->nomeReal = 'Gilberto Kassab';
+        $politician->partido = 'PSD';
+        $politician->cargo = 'Prefeito';
+        $politician->fichaLimpa = 'sim';
+        $politician->foto = 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Gilberto_Kassab_%282007%29.jpg/250px-Gilberto_Kassab_%282007%29.jpg';
+        $politician->numero = '55';
+        $politician->quantidadeVotos = '3790558';
+        $politician->projetosAprovados = 0;
+        $politician->projetosVetados = 0;
         $offset = 0;
 
         foreach (range(65, 68) as $ord) {
