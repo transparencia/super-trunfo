@@ -6,6 +6,8 @@ FB.init({
 	xfbml : true
 });
 
+FB.Canvas.setSize({width: 850});
+
 FB.login(function(response) {
 	if (response.authResponse) {
 		FB.api('/me?fields=name,picture', function(response) {
