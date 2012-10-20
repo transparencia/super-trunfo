@@ -6,41 +6,48 @@
 namespace iMasters\http;
 
 /**
- * Requisição HTTP com socket. Implementação da interface HTTPRequest para uma
+ * Requisição HTTP com socket.
+ * Implementação da interface HTTPRequest para uma
  * requisição HTTP que utiliza cURL.
  */
-class SocketRequest extends AbstractHTTPRequest {
+class SocketRequest extends AbstractHTTPRequest
+{
     /**
+     *
      * @var resource
      */
     private $handler;
-    
+
     /**
-     * @var	boolean
+     *
+     * @var boolean
      */
     private $openned = false;
 
-    /* (non-PHPdoc)
-	 * @see iMasters\http.HTTPRequest::close()
-	 */
-    public function close() {
+    /*
+     * (non-PHPdoc) @see iMasters\http.HTTPRequest::close()
+     */
+    public function close()
+    {
         if ($this->openned) {
             fclose($this->handler);
         }
-        
+
         $this->openned = false;
     }
 
-    /* (non-PHPdoc)
-	 * @see iMasters\http.HTTPRequest::execute()
-	 */
-    public function execute($path = '/', $method = HTTPRequest::GET) {
+    /*
+     * (non-PHPdoc) @see iMasters\http.HTTPRequest::execute()
+     */
+    public function execute($path = '/', $method = HTTPRequest::GET)
+    {
     }
 
-    /* (non-PHPdoc)
-	 * @see iMasters\http.HTTPRequest::open()
-	 */
-    public function open(HTTPConnection $httpConnection) {
+    /*
+     * (non-PHPdoc) @see iMasters\http.HTTPRequest::open()
+     */
+    public function open(HTTPConnection $httpConnection)
+    {
         $error = null;
         $errno = 0;
         $this->handler = fsockopen($httpConnection->getHost(),
@@ -48,6 +55,5 @@ class SocketRequest extends AbstractHTTPRequest {
                                    $errno,
                                    $error,
                                    $httpConnection->getConnectionTimeout());
-    
     }
 }
