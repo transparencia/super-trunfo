@@ -128,6 +128,18 @@ p {
   text-align:center;
   margin-bottom:60px;
 }
+.score-number {
+  display: inline-block;
+  letter-spacing: -.04em;
+  line-height:1em;
+  text-align:center;
+  border-radius: 4px;
+  padding:7px 5px;
+  margin: 0 10px;
+  background:#dee528;
+  color:#2b2b2b;
+  box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, .6), inset 0 -1px 0 0 rgba(255, 255, 255, .2), inset 0 0 20px 0 rgba(0,0,0,.3);
+}
 .score-me, .score-opponent, .score-versus {
   margin:0;
   width:320px;
@@ -145,6 +157,8 @@ p {
   text-align:center;
 }
 .score-me {text-align:right;}
+.score-me .score-number {margin-left:10px;}
+.score-opponent .score-number {margin-right:10px;}
 .score .user-photo {
   display: inline-block;
   width:32px;
@@ -528,7 +542,7 @@ p {
   display: block;
   width:40%;
   float:left;
-  font-size:3.6em;
+  font-size:3em;
   font-weight: bolder;
   letter-spacing: -.06em;
   text-align: center;
