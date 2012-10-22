@@ -67,7 +67,19 @@ Porque nós considerados que quanto menor o número de projetos vetados melhor.
 
 ## Por que quando eu seleciono o atributo "Tem processos" quem ganha é quem tem o valor "NÃO"?
 
-Porque nós considerados que é melhor aquele que não possui processo judicial do que aquele que tem.
+Antes de mais nada, é importante deixar claro o motivo de termos utilizado "Tem processos" em vez de "Ficha limpa". Segundo a Lei Complementar nº. 135 de 2010, `Ficha limpa` é uma emenda à Lei Complementar nº. 64 de 1990, ou Lei das Condições de Inelegibilidade, que visa impedir a eleição de candidatos condenados por órgão colegiados a cargos políticos.
+
+Ou seja, para um político ser considerado, sedundo a lei, como "ficha suja", ele **precisa** ter sido condenado com um colegiado (com mais do que 1 juiz). Muitos processos ocorrem em instâncias onde apenas 1 juiz julga o caso. Nesses processos, o acusado pode recorrer a uma instância superior, pedindo a revisão do julgamento anterior.
+
+Ter processo pode significar que, por exemplo, na eleição do ano X o candidato não teve suas contas aprovadas pelo TSE. Mesmo que ele tenha recorrido a uma segunda instância, essa ainda não é composta por um colegiado e, dessa forma, segundo os parâmetros da Lei Complementar nº. 135 de 2010, ele **não é** *ficha suja**.
+
+Deixado claro o significado do termo, é importante deixar claro também que, por ter sido julgado em primeira instância e por ter o direito de poder recorrer da decisão em uma instância superior, apenas os candidatos que "perderam" em instâncias superiores são configurados como **Tem Processos**.
+
+Segundo a ministra do Supremo Tribunal Federal Rosa Weber:
+
+> O homem público, ou que pretende ser público, não se encontra no mesmo patamar de obrigações do cidadão comum no trato da coisa pública. O representante do povo, o detentor de mandato eletivo, subordina-se à moralidade, à probidade, à honestidade e à boa-fé, exigências do ordenamento jurídico e que compõem um mínimo ético, condensado pela lei da Ficha Limpa, através de hipóteses concretas e objetivas de inelegibilidade.
+
+Por esse motivo, decidimos qualificar um político que **não tem processos** como sendo **melhor** que um político que tem processos.
 
 ## Por que quando eu seleciono o atributo "Quantidade de votos" quem ganha é quem tem o maior valor?
 
