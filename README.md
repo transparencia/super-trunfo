@@ -4,6 +4,7 @@ Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de 
 
 * [Apresentação do case na Conferência da W3C](http://www.slideshare.net/zenorocha/slides-14815770)
 * [Entrevista de Zeno Rocha para OD4D](http://soundcloud.com/od4d/zeno-rocha)
+* [Jovens criam versão de Super Trunfo para debater política com diversão](http://fernandovieri.com/2012/10/22/jovens-recriam-versao-de-super-trunfo-para-debater-politica-com-diversao-2/)
 
 ## Qual o propósito do projeto?
 
