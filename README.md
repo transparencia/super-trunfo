@@ -1,13 +1,25 @@
 # Super Trunfo
 
-Esse jogo foi criado por [Bernard De Luna](http://github.com/bernarddeluna), [João Batista Neto](http://github.com/netojoaobatista) e [Zeno Rocha](http://github.com/zenorocha), utilizando dados abertos cedidos pelo governo brasileiro com o intuito de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.
+Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.
 
 * [Apresentação do case na Conferência da W3C](http://www.slideshare.net/zenorocha/slides-14815770)
 * [Entrevista de Zeno Rocha para OD4D](http://soundcloud.com/od4d/zeno-rocha)
 
 ## Qual o propósito do projeto?
 
-Nós não queremos de maneira nenhuma classificar ou julgar um candidato X como melhor do que um candidato Y. O que queremos é conscientizar o eleitor sobre os pontos fortes e pontos fracos de cada um dos candidatos.
+Esse jogo foi criado para incentivar a transparência e colaboração em cima dos dados abertos, mostrando o que é possível fazer com as informações cedidas pelo governo brasileiro, seguindo as definições do W3C.
+
+É importante ressaltar que nós não queremos de maneira nenhuma classificar ou julgar um candidato X como melhor do que um candidato Y. O que queremos é conscientizar o eleitor sobre os pontos fortes e pontos fracos de cada um dos candidatos.
+
+Desde a Lei da Transparência(131/2009) em 2010, o Brasil vem se destacando quanto a obrigação dos estados a documentarem sua contabilidade na internet, e assim resolvemos criar um jogo famoso que consome, através de um webservice, os dados abertos do primeiro turno das eleições de 2012.
+
+Qualquer informação, divulgação ou dúvidas sobre o Super Trunfo - Política de São Paulo, entre em contato através do email [supertrunfopolitica@gmail.com](mailto:supertrunfopolitica@gmail.com).
+
+## Quem está por trás disso?
+
+* [Bernard De Luna](http://github.com/bernarddeluna)
+* [João Batista Neto](http://github.com/netojoaobatista)
+* [Zeno Rocha](http://github.com/zenorocha)
 
 ## De onde foram obtidos os dados?
 
