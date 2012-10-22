@@ -6,8 +6,9 @@ use \DOMDocument;
 use \DOMXPath;
 use \IteratorAggregate;
 use SuperTrunfo\URLFetcher;
+use SuperTrunfo\DataAccess\PoliticianDataAccess;
 
-class PoliticianAggregate implements IteratorAggregate
+class PoliticianAggregate implements PoliticianDataAccess
 {
     private $hasNextPage = true;
 

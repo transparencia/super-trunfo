@@ -1,6 +1,8 @@
 <?php
 namespace SuperTrunfo;
 
+use SuperTrunfo\Entity\PoliticianSuperTrunfo;
+
 use \stdClass;
 use \RuntimeException;
 use SuperTrunfo\Entity\Politician;
@@ -40,17 +42,7 @@ class SuperTrunfo
         });
 
         $politicians = array_slice($politicians, 0, 35);
-        $politician = new Politician();
-        $politician->nome = 'Gilberto Kassab';
-        $politician->nomeReal = 'Gilberto Kassab';
-        $politician->partido = 'PSD';
-        $politician->cargo = 'Prefeito';
-        $politician->fichaLimpa = 'sim';
-        $politician->foto = 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Gilberto_Kassab_%282007%29.jpg/250px-Gilberto_Kassab_%282007%29.jpg';
-        $politician->numero = '55';
-        $politician->quantidadeVotos = '3790558';
-        $politician->projetosAprovados = 0;
-        $politician->projetosVetados = 0;
+        $politician = new PoliticianSuperTrunfo();
         $offset = 0;
 
         foreach (range(65, 68) as $ord) {
@@ -62,7 +54,9 @@ class SuperTrunfo
                     $politician->id = '8B';
                     $politician->superTrunfo = true;
 
-                    $politicians = array_merge($part1, array($politician), $part2);
+                    $politicians = array_merge($part1,
+                                               array($politician),
+                                               $part2);
                     ++$offset;
 
                     continue;
@@ -91,8 +85,10 @@ class SuperTrunfo
     public function getPoliticians()
     {
         if ($this->politicians === null) {
-            $politicianAggregate = new PoliticianAggregateDecorator(new PoliticianAggregate());
-            $this->politicians = $politicianAggregate->getPoliticians();
+            $aggregate = new PoliticianAggregate();
+            $decorator = new PoliticianAggregateDecorator($aggregate);
+
+            $this->politicians = $decorator->getPoliticians();
         }
 
         return $this->politicians;
