@@ -584,6 +584,10 @@ p {
   -moz-transform-style: preserve-3d;
   -moz-backface-visibility: hidden;
 
+  transform: rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
   /* -- transition is the magic sauce for animation -- */
   -o-transition: all .4s ease-in-out;
   -ms-transition: all .4s ease-in-out;
@@ -601,6 +605,10 @@ p {
   -moz-transform-style: preserve-3d;
   -moz-backface-visibility: hidden;
 
+  transform: rotateY(-45deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
   /* -- transition is the magic sauce for animation -- */
   -o-transition: all .4s ease-in-out;
   -ms-transition: all .4s ease-in-out;
@@ -611,18 +619,22 @@ p {
 .cards-opponentsturn .card-back {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 .cards-opponentsturn.cards-flip .card-back {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .cards-opponentsturn .card-front {
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
 .cards-opponentsturn.cards-flip .card-front {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 /* =============================================================================
