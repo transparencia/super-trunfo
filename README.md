@@ -11,7 +11,7 @@ Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de 
 ### Imprensa
 
 * [Release completo](https://github.com/transparencia/super-trunfo/blob/dev/release/1.pdf?raw=true)
-* [Release curto](https://github.com/transparencia/super-trunfo/blob/dev/release/2.pdf?raw=true)
+* [Release alternativo](https://github.com/transparencia/super-trunfo/blob/dev/release/2.pdf?raw=true)
 
 
 ## Qual o propósito do projeto?
