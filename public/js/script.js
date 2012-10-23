@@ -167,7 +167,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             $('.link-about, .modal-about').on('click', function(e) {
                 $('.modal-about').slideToggle(300);
-                e.preventDefault();
             });
 
         },
