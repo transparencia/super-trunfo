@@ -1,4 +1,3 @@
-// definindo um namespace para evitar conflito com outros objetos
 window.SUPERTRUNFO = window.SUPERTRUNFO || {};
 SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
@@ -6,7 +5,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
     SUPERTRUNFO.APPS.Jogo = function(options){
 
-        // cache de variáveis privadas
         var $screen = $('.screen'),
 
             $placarJogador = $('.score-me .score-number'),
@@ -67,32 +65,14 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         // mescla do conteúdo dos dois objetos
         var settings = $.extend({}, defaults, options);
 
-        // console.log(options);
-        // console.log(defaults);
-        // console.log(settings);
+        var carregaCandidatos = function(cidadeEscolhida) {
 
-        var carregaCandidatos = function() {
-
-            $.getJSON('data/candidatos.json',function(result){
+            $.getJSON('data/' + cidadeEscolhida + '.json',function(result){
 
                 listaCandidatos = result.candidatos;
                 embaralhaCandidatos(listaCandidatos);
 
-                // espera 2s até mostrar a próxima tela
-                setTimeout(function() {
-
-                    // libera tela de jogo
-                    $screen.addClass('ready');
-                    $screen.addClass('turn');
-                    $('.ui-turns').fadeIn();
-
-                    // povoa cartas
-                    novaRodada();
-
-                    // libera eventos de clique
-                    bind();
-
-                }, 2000);
+                novaRodada();
 
             });
 
@@ -114,8 +94,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // armazena a opção escolhida pelo usuário e sua opção respectiva no oponente
             $('.card-label').on('click', function(e) {
 
-                // console.log(isFeedbackTime);
-
                 // caso não esteja exibindo o resultado da jogada passada
                 if (!isFeedbackTime) {
 
@@ -126,10 +104,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                     if ($self.parent().parent().parent().hasClass('cards-yourturn')) {
 
                         atributoEscolhido = $self.data('attribute');
-                        // console.log('atributoEscolhido: ' + atributoEscolhido);
-
                         opcaoJogador = $self.find('.card-label-value').text();
-                        // console.log('opcaoJogador: ' + opcaoJogador);
 
                         // percorre todos os campos do oponente até encontrar aquele escolhido pelo jogador
                         $('.cards-opponentsturn .card-label').each(function (i, field) {
@@ -137,7 +112,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                             if ($(field).data('attribute') == atributoEscolhido) {
                                 opcaoOponente = $(field).find('.card-label-value').text();
                                 $(field).addClass('selected');
-                                // console.log('opcaoOponente: ' + opcaoOponente);
                             }
 
                         });
@@ -162,13 +136,47 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $('.vence-menor').on('click', venceMenor);
             $('.vence-boolean').on('click', venceBoolean);
 
-            // ao clicar no botão de informações
-            $('.view-info').on('click', function(e) {
-                $(this).parent().parent().toggleClass('card-info');
+            // ao clicar no botão de novo jogo
+            $('#escolha-cidade').on('submit', function(e) {
+
+                var cidadeEscolhida = $(this).find('option:selected').val();
+
+                // libera tela de jogo
+                $('.ui-turns').fadeIn();
+                $screen.addClass('turn');
+
+                // povoa cartas
+                carregaCandidatos(cidadeEscolhida);
+
+                e.preventDefault();
+
+            });
+
+            // ao clicar no botão de visualizar informações do atributo
+            $('.attribute-detail').on('click', function(e) {
+
+                var atributoSelecionado = $(this).parent().parent().data('attribute');
+                $('.modal-' + atributoSelecionado).slideToggle(300);
+
+                e.stopPropagation();
+                e.preventDefault();
+
+            });
+
+            // esconde as modais ao clicar nelas mesmas
+            $('.modal').on('click', function() {
+                $(this).slideToggle(300);
+            });
+
+            // ao clicar no botão de informações do jogo
+            $('.link-about').on('click', function(e) {
+                $('.modal-about').slideToggle(300);
                 e.preventDefault();
             });
-            $('.link-about, .modal-about').on('click', function(e) {
-                $('.modal-about').slideToggle(300);
+
+            // ao clicar no botão de informações da carta
+            $('.view-info').on('click', function(e) {
+                $(this).parent().parent().toggleClass('card-info');
                 e.preventDefault();
             });
 
@@ -209,10 +217,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         venceMaior = function() {
 
-            // console.log('vence maior');
-            // console.log(opcaoJogador);
-            // console.log(opcaoOponente);
-
             // caso não esteja exibindo o resultado da jogada passada
             if (!isFeedbackTime) {
 
@@ -220,13 +224,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 if (!isSuperTrunfo) {
 
                     if (opcaoJogador > opcaoOponente) {
-                        // console.log('opcaoJogador > opcaoOponente');
                         jogadorVenceu();
                     } else if (opcaoJogador == opcaoOponente) {
-                        // console.log('opcaoJogador == opcaoOponente');
                         empate();
                     } else {
-                        // console.log('opcaoJogador < opcaoOponente');
                         jogadorPerdeu();
                     }
 
@@ -238,10 +239,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         venceMenor = function() {
 
-            // console.log('vence menor');
-            // console.log(opcaoJogador);
-            // console.log(opcaoOponente);
-
             // caso não esteja exibindo o resultado da jogada passada
             if (!isFeedbackTime) {
 
@@ -249,13 +246,10 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 if (!isSuperTrunfo) {
 
                     if (opcaoJogador < opcaoOponente) {
-                        // console.log('opcaoJogador < opcaoOponente');
                         jogadorVenceu();
                     } else if (opcaoJogador == opcaoOponente) {
-                        // console.log('opcaoJogador == opcaoOponente');
                         empate();
                     } else {
-                        // console.log('opcaoJogador > opcaoOponente');
                         jogadorPerdeu();
                     }
 
@@ -266,10 +260,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         },
 
         venceBoolean = function() {
-
-            // console.log('venceBoolean');
-            // console.log(opcaoJogador);
-            // console.log(opcaoOponente);
 
             // caso não esteja exibindo o resultado da jogada passada
             if (!isFeedbackTime) {
@@ -371,15 +361,15 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         },
 
         atualizaPlacar = function() {
-            $placarJogador.html('(' + settings.placarJogador + ')');
-            $placarOponente.html('(' + settings.placarOponente + ')');
+            $placarJogador.html(settings.placarJogador);
+            $placarOponente.html(settings.placarOponente);
 
             // fim de jogo
             if (settings.placarJogador == pontuacaoLimite) {
 
                 // exibe mensagem de vitória
                 $('.ui-final').addClass('ui-final-won');
-                $('.final').css("z-index", "10");
+                $('.final').css("display", "block").css("z-index", "10");
 
                 // aguarda 5 segundos até recomeçar o jogo
                 setTimeout(function() {
@@ -390,7 +380,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                 // exibe mensagem de derrota
                 $('.ui-final').addClass('ui-final-lose');
-                $('.final').css("z-index", "10");
+                $('.final').css("display", "block").css("z-index", "10");
 
                 // aguarda 5 segundos até recomeçar o jogo
                 setTimeout(function() {
@@ -407,7 +397,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             atualizaPlacar();
             embaralhaCandidatos(listaCandidatos);
             novaRodada();
-            $('.final').css("z-index", "1");
+
+            $('.final').css("display", "none").css("z-index", "1");
 
         },
 
@@ -434,19 +425,11 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 montaCartaOponente();
             }
 
-            // settings.rodada++;
-            // $rodada.html(settings.rodada);
-
-            // console.log('\ncomeça nova rodada\n');
-
-            // console.log(listaCandidatosJogador);
-            // console.log(listaCandidatosOponente);
         },
 
         montaCartaJogador = function(i) {
 
             cartaAtualJogador = listaCandidatosJogador[0];
-            // console.log(cartaAtualJogador);
 
             $idCartaJogador.text(cartaAtualJogador.id);
             $nomeCartaJogador.text(cartaAtualJogador.nome);
@@ -470,7 +453,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         montaCartaOponente = function(i) {
 
             cartaAtualOponente = listaCandidatosOponente[0];
-            // console.log(cartaAtualOponente);
 
             $idCartaOponente.text(cartaAtualOponente.id);
             $nomeCartaOponente.text(cartaAtualOponente.nome);
@@ -515,7 +497,18 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             init: function(){
                 pontuacaoLimite = settings.placarJogador + settings.placarOponente;
                 atualizaPlacar();
-                carregaCandidatos();
+
+                // espera 2s até mostrar a próxima tela
+                setTimeout(function() {
+
+                    // libera tela de jogo
+                    $screen.addClass('ready');
+
+                    // libera eventos de clique
+                    bind();
+
+                }, 2000);
+
             }
 
         };

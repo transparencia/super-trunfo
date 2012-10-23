@@ -128,6 +128,18 @@ p {
   text-align:center;
   margin-bottom:60px;
 }
+.score-number {
+  display: inline-block;
+  letter-spacing: -.04em;
+  line-height:1em;
+  text-align:center;
+  border-radius: 4px;
+  padding:7px 5px;
+  margin: 0 10px;
+  background:#dee528;
+  color:#2b2b2b;
+  box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, .6), inset 0 -1px 0 0 rgba(255, 255, 255, .2), inset 0 0 20px 0 rgba(0,0,0,.3);
+}
 .score-me, .score-opponent, .score-versus {
   margin:0;
   width:320px;
@@ -145,6 +157,8 @@ p {
   text-align:center;
 }
 .score-me {text-align:right;}
+.score-me .score-number {margin-left:10px;}
+.score-opponent .score-number {margin-right:10px;}
 .score .user-photo {
   display: inline-block;
   width:32px;
@@ -264,7 +278,7 @@ p {
 }
 .modal strong {color:#2b2b2b;}
 
-.modal-about { display: none; }
+.modal { display: none; }
 
 /* =============================================================================
    CARD
@@ -289,16 +303,25 @@ p {
 .card-front {
   background-color:#2b2b2b;
   background-image: -webkit-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: -moz-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: -o-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: -ms-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
 }
 .card-back {
   background-color:#e7e7e7;
   background-image: -webkit-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: -moz-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: -o-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: -ms-linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
+  background-image: linear-gradient(135deg, transparent, rgba(0,0,0,.1) 35%, rgba(0,0,0,.1) 65%, transparent);
 }
 .card-won {
   box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;
   -webkit-animation: card-won .8s linear 0 1 normal forwards;
      -moz-animation: card-won .8s linear 0 1 normal forwards;
        -o-animation: card-won .8s linear 0 1 normal forwards;
+       -ms-animation: card-won .8s linear 0 1 normal forwards;
           animation: card-won .8s linear 0 1 normal forwards;
 }
 @-webkit-keyframes card-won {
@@ -313,6 +336,10 @@ p {
   0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #afff50;}
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;}
 }
+@-ms-keyframes card-won {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #afff50;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;}
+}
 @keyframes card-won {
   0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #afff50;}
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #afff50;}
@@ -322,6 +349,7 @@ p {
   -webkit-animation: card-lose .8s linear 0 1 normal forwards;
      -moz-animation: card-lose .8s linear 0 1 normal forwards;
        -o-animation: card-lose .8s linear 0 1 normal forwards;
+       -ms-animation: card-lose .8s linear 0 1 normal forwards;
           animation: card-lose .8s linear 0 1 normal forwards;
 }
 @-webkit-keyframes card-lose {
@@ -336,6 +364,10 @@ p {
   0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
 }
+@-ms-keyframes card-lose {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
+}
 @keyframes card-lose {
   0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #ff5050;}
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #ff5050;}
@@ -345,6 +377,7 @@ p {
   -webkit-animation: card-draw .8s linear 0 1 normal forwards;
      -moz-animation: card-draw .8s linear 0 1 normal forwards;
        -o-animation: card-draw .8s linear 0 1 normal forwards;
+       -ms-animation: card-draw .8s linear 0 1 normal forwards;
           animation: card-draw .8s linear 0 1 normal forwards;
 }
 @-webkit-keyframes card-draw {
@@ -356,6 +389,10 @@ p {
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #D4C332;}
 }
 @-o-keyframes card-draw {
+  0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #D4C332;}
+  20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #D4C332;}
+}
+@-ms-keyframes card-draw {
   0%, 40%, 80%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 0 0 #D4C332;}
   20%, 60%, 100%   {box-shadow: inset 0 0 0 10px #fff, 2px 2px 2px 0 rgba(0,0,0,.6), 0 0 30px 2px #D4C332;}
 }
@@ -528,12 +565,15 @@ p {
   display: block;
   width:40%;
   float:left;
-  font-size:3.6em;
+  font-size:3em;
   font-weight: bolder;
   letter-spacing: -.06em;
   text-align: center;
   text-transform: uppercase;
   line-height:1.2em;
+}
+.attribute-detail {
+  color: #1F75BD;
 }
 .card-bio {
   height:64px;
@@ -570,6 +610,14 @@ p {
   -moz-transform-style: preserve-3d;
   -moz-backface-visibility: hidden;
 
+  -ms-transform: rotateX(0deg) rotateY(0deg);
+  -ms-transform-style: preserve-3d;
+  -ms-backface-visibility: hidden;
+
+  transform: rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
   /* -- transition is the magic sauce for animation -- */
   -o-transition: all .4s ease-in-out;
   -ms-transition: all .4s ease-in-out;
@@ -587,6 +635,14 @@ p {
   -moz-transform-style: preserve-3d;
   -moz-backface-visibility: hidden;
 
+  -ms-transform: rotateY(-45deg);
+  -ms-transform-style: preserve-3d;
+  -ms-backface-visibility: hidden;
+
+  transform: rotateY(-45deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
   /* -- transition is the magic sauce for animation -- */
   -o-transition: all .4s ease-in-out;
   -ms-transition: all .4s ease-in-out;
@@ -597,18 +653,27 @@ p {
 .cards-opponentsturn .card-back {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 .cards-opponentsturn.cards-flip .card-back {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .cards-opponentsturn .card-front {
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
 .cards-opponentsturn.cards-flip .card-front {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  z-index:4;
 }
 
 /* =============================================================================
@@ -634,8 +699,10 @@ p {
   left:50%;
   margin-left: -156px;
   -webkit-animation: introduction-logo .8s linear 0 1 normal forwards;
-     -moz-animation: introduction-logo .8s linear 0 1 normal forwards;
+     -moz-animation: introduction-logo .8s linear;
+     -moz-animation-fill-mode: forwards;
        -o-animation: introduction-logo .8s linear 0 1 normal forwards;
+       -ms-animation: introduction-logo .8s linear 0 1 normal forwards;
           animation: introduction-logo .8s linear 0 1 normal forwards;
 }
 @-webkit-keyframes introduction-logo {
@@ -668,6 +735,16 @@ p {
     top:35%;
   }
 }
+@-ms-keyframes introduction-logo {
+  0%   {
+    opacity: 0;
+    top:29%;
+  }
+  100% {
+    opacity: 1;
+    top:35%;
+  }
+}
 @keyframes introduction-logo {
   0%   {
     opacity: 0;
@@ -681,8 +758,10 @@ p {
 
 .ready .introduction-logo {
   -webkit-animation: introduction-logo-hide .5s linear 0 1 normal forwards;
-     -moz-animation: introduction-logo-hide .5s linear 0 1 normal forwards;
+     -moz-animation: introduction-logo-hide .5s linear;
+     -moz-animation-fill-mode: forwards;
        -o-animation: introduction-logo-hide .5s linear 0 1 normal forwards;
+       -ms-animation: introduction-logo-hide .5s linear 0 1 normal forwards;
           animation: introduction-logo-hide .5s linear 0 1 normal forwards;
 }
 @-webkit-keyframes introduction-logo-hide {
@@ -709,6 +788,14 @@ p {
     opacity: 0;
   }
 }
+@-ms-keyframes introduction-logo-hide {
+  0%   {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @keyframes introduction-logo-hide {
   0%   {
     opacity: 1;
@@ -728,6 +815,7 @@ p {
   -webkit-animation: ui-games .5s linear .5s 1 normal forwards;
      -moz-animation: ui-games .5s linear .5s 1 normal forwards;
        -o-animation: ui-games .5s linear .5s 1 normal forwards;
+       -ms-animation: ui-games .5s linear .5s 1 normal forwards;
           animation: ui-games .5s linear .5s 1 normal forwards;
 }
 @-webkit-keyframes ui-games {
@@ -751,6 +839,16 @@ p {
   }
 }
 @-o-keyframes ui-games {
+  0%   {
+    opacity: 0;
+    top:-10px;
+  }
+  100% {
+    opacity: 1;
+    top:0;
+  }
+}
+@-ms-keyframes ui-games {
   0%   {
     opacity: 0;
     top:-10px;
@@ -799,18 +897,21 @@ p {
 /* =============================================================================
    FINAL
    ========================================================================== */
+
 .final {
   position: absolute;
   top:15%;
   left:50%;
   margin-left: -212px;
   opacity:0;
+  display: none;
 }
 
 .ui-final-won .final-won, .ui-final-lose .final-lose {
   -webkit-animation: final 5s linear 0 1 normal forwards;
      -moz-animation: final 5s linear 0 1 normal forwards;
        -o-animation: final 5s linear 0 1 normal forwards;
+       -ms-animation: final 5s linear 0 1 normal forwards;
           animation: final 5s linear 0 1 normal forwards;
 }
 
@@ -844,6 +945,16 @@ p {
     top:25%;
   }
 }
+@-ms-keyframes final {
+  0%, 100%   {
+    opacity: 0;
+    top:15%;
+  }
+  12%, 88% {
+    opacity: 1;
+    top:25%;
+  }
+}
 @keyframes final {
   0%, 100%   {
     opacity: 0;
@@ -856,6 +967,40 @@ p {
 }
 
 
+/* =============================================================================
+   FORM
+   ========================================================================== */
+.form label {
+  color:#ccc;
+  font-size:1.4em;
+  line-height:1em;
+  display: block;
+  margin-bottom:3px;
+}
+.form select {
+  font-size:1.4em;
+  line-height:1em;
+  display: block;
+  padding:5px;
+  width: 350px;
+  border-radius:4px;
+}
+.user .btn-new {
+  position:absolute;
+  top: 53px;
+  right: 15px;
+}
+.msg-error {
+  margin-top:10px;
+  padding:10px;
+  display: block;
+  clear:both;
+  background:#ce333e;
+  color:#fff;
+  font-size:14px;
+  border:1px solid #ad2b35;
+  border-radius: 4px;
+}
 /* =============================================================================
    SPRITE
    ========================================================================== */
