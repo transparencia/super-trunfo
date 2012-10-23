@@ -98,13 +98,15 @@ class URLFetcher
                                array $params = array(),
                                $method = HTTPRequest::GET)
     {
-        $response = $this->execute($host, $path, $params, $method);
+        for ($i = 0; $i < 3; ++$i) {
+            $response = $this->execute($host, $path, $params, $method);
 
-        if ($response->getStatusCode() != 200) {
-            throw new RuntimeException(__CLASS____ . ': Falha ao obter dados');
+            if ($response->getStatusCode() == 200) {
+                return $response;
+            }
         }
 
-        return $response;
+        throw new RuntimeException(__CLASS__ . ': Falha ao obter dados');
     }
 
     /**

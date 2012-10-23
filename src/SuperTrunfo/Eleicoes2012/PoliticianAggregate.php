@@ -53,7 +53,11 @@ class PoliticianAggregate implements PoliticianDataAccess
 
         for ($i = 1; $i <= 59 && $this->hasNextPage; ++$i) {
             foreach ($this->getPage($i) as $path) {
-                $politicians[] = $politicianInfo->getInfo($path);
+                $politician = $politicianInfo->getInfo($path);
+
+                if ($politician !== null) {
+                    $politicians[] = $politician;
+                }
             }
         }
 
