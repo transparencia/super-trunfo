@@ -36,12 +36,6 @@ class SuperTrunfo
          * Cartas A com os 9 mais votados
          * Super Trunfo => B8
          **/
-        uasort($politicians, function($a, $b) {
-            if ($a->quantidadeVotos == $b->quantidadeVotos) return 0;
-            else if ($a->quantidadeVotos > $b->quantidadeVotos) return -1;
-            else return 1;
-        });
-
         $politicians = array_slice($politicians, 0, 35);
         $politician = new PoliticianSuperTrunfo();
         $offset = 0;
@@ -89,8 +83,15 @@ class SuperTrunfo
             $aggregate = new PoliticianAggregate();
             $aggregate->setPath($this->path);
             $decorator = new PoliticianAggregateDecorator($aggregate);
+            $politicians = $decorator->getPoliticians();
 
-            $this->politicians = $decorator->getPoliticians();
+            uasort($politicians, function($a, $b) {
+                if ($a->quantidadeVotos == $b->quantidadeVotos) return 0;
+                else if ($a->quantidadeVotos > $b->quantidadeVotos) return -1;
+                else return 1;
+            });
+
+            $this->politicians = $politicians;
         }
 
         return $this->politicians;
