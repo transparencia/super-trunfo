@@ -361,8 +361,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         },
 
         atualizaPlacar = function() {
-            $placarJogador.html('(' + settings.placarJogador + ')');
-            $placarOponente.html('(' + settings.placarOponente + ')');
+            $placarJogador.html(settings.placarJogador);
+            $placarOponente.html(settings.placarOponente);
 
             // fim de jogo
             if (settings.placarJogador == pontuacaoLimite) {
