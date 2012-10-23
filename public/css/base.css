@@ -963,6 +963,40 @@ p {
 
 
 /* =============================================================================
+   FORM
+   ========================================================================== */
+.form label {
+  color:#ccc;
+  font-size:1.4em;
+  line-height:1em;
+  display: block;
+  margin-bottom:3px;
+}
+.form select {
+  font-size:1.4em;
+  line-height:1em;
+  display: block;
+  padding:5px;
+  width: 350px;
+  border-radius:4px;
+}
+.user .btn-new {
+  position:absolute;
+  top: 53px;
+  right: 15px;
+}
+.msg-error {
+  margin-top:10px;
+  padding:10px;
+  display: block;
+  clear:both;
+  background:#ce333e;
+  color:#fff;
+  font-size:14px;
+  border:1px solid #ad2b35;
+  border-radius: 4px;
+}
+/* =============================================================================
    SPRITE
    ========================================================================== */
 .ic-card, .ic-versus, .ic-admin, .ic-arrow, .ic-quit, .ic-about {

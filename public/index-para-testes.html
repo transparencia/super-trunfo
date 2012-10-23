@@ -43,18 +43,18 @@
         <section class="user">
             <span class="user-photo"><img src="img/user-photo.jpg" alt="Bernard De Luna" /></span>
             <h2>Olá <span class="user-name">Bernard De Luna</span>, vamos jogar?</h2>
-            <p>Escolha a cidade</p>
-            <select id="cidades">
-                <option value="Belo Horizonte">Belo Horizonte</option>
-                <option value="São Paulo">São Paulo</option>
-                <option value="Rio de Janeiro">Rio de Janeiro</option>
-            </select>
+            <form action="" class="form">
+                <label for="cidades">Escolha a sua cidade</label>
+                <select id="cidades">
+                    <option value="Belo Horizonte">Belo Horizonte</option>
+                    <option value="São Paulo">São Paulo</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                </select>
+                <input type="submit" class="btn btn-primary btn-new" id="new-game" value="Criar novo jogo!" />
+                <div class="msg-error">Você precisa selecionar uma cidade para criar um novo jogo.</div>
+            </form>
         </section>
         <!-- /user -->
-
-        <div class="new-game">
-            <a href="#" class="btn btn-primary btn-new">Criar novo jogo!</a>
-        </div>
 
     </header>
     <!-- /header -->
