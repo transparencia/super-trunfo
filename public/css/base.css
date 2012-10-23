@@ -278,7 +278,7 @@ p {
 }
 .modal strong {color:#2b2b2b;}
 
-.modal-about { display: none; }
+.modal { display: none; }
 
 /* =============================================================================
    CARD
@@ -553,9 +553,10 @@ p {
 .card-label.last {border-bottom:none;}
 .card-label-item {
   display: block;
-  width:56%;
+  /*width:56%;*/
+  width:64%;
   float:left;
-  margin-right: 4%;
+  /*margin-right: 4%;*/
   text-align: left;
   font-size:1.6em;
   line-height:43px;
@@ -563,7 +564,7 @@ p {
 }
 .card-label-value {
   display: block;
-  width:40%;
+  width:36%;
   float:left;
   font-size:3em;
   font-weight: bolder;

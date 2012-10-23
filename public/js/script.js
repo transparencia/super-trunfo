@@ -152,14 +152,28 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             });
 
-            // ao clicar no botão de informações
-            $('.view-info').on('click', function(e) {
-                $(this).parent().parent().toggleClass('card-info');
+            // ao clicar no botão de visualizar informações do atributo
+            $('.attribute-detail').on('click', function(e) {
+                var atributoSelecionado = $(this).parent().parent().data('attribute');
+                $('.modal-' + atributoSelecionado).slideToggle(300);
                 e.preventDefault();
             });
 
-            $('.link-about, .modal-about').on('click', function(e) {
+            // esconde as modais ao clicar nelas mesmas
+            $('.modal').on('click', function() {
+                $(this).slideToggle(300);
+            });
+
+            // ao clicar no botão de informações do jogo
+            $('.link-about').on('click', function(e) {
                 $('.modal-about').slideToggle(300);
+                e.preventDefault();
+            });
+
+            // ao clicar no botão de informações da carta
+            $('.view-info').on('click', function(e) {
+                $(this).parent().parent().toggleClass('card-info');
+                e.preventDefault();
             });
 
         },
