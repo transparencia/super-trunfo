@@ -12,6 +12,7 @@ use SuperTrunfo\Excelencias\PoliticianAggregateDecorator;
 class SuperTrunfo
 {
     private $politicians;
+    private $path;
 
     public function __construct()
     {
@@ -86,6 +87,7 @@ class SuperTrunfo
     {
         if ($this->politicians === null) {
             $aggregate = new PoliticianAggregate();
+            $aggregate->setPath($this->path);
             $decorator = new PoliticianAggregateDecorator($aggregate);
 
             $this->politicians = $decorator->getPoliticians();
@@ -96,7 +98,7 @@ class SuperTrunfo
 
     public function saveAllPoliticiansTo($path)
     {
-        $path = $this->getRealPath($path, 'candidatos.full.json');
+        $path = $this->getRealPath($path, $this->path . '.full.json');
         $politicians = $this->getPoliticians();
 
         file_put_contents($path, json_encode($politicians));
@@ -104,10 +106,15 @@ class SuperTrunfo
 
     public function saveCardsTo($path)
     {
-        $path = $this->getRealPath($path, 'candidatos.json');
+        $path = $this->getRealPath($path, $this->path . '.json');
         $politicians = new stdClass();
         $politicians->candidatos = $this->getCards();
 
         file_put_contents($path, json_encode($politicians));
+    }
+
+    public function setPath($path)
+    {
+        $this->path = $path;
     }
 }
