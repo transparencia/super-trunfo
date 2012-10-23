@@ -154,9 +154,13 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             // ao clicar no botão de visualizar informações do atributo
             $('.attribute-detail').on('click', function(e) {
+
                 var atributoSelecionado = $(this).parent().parent().data('attribute');
                 $('.modal-' + atributoSelecionado).slideToggle(300);
+
+                e.stopPropagation();
                 e.preventDefault();
+
             });
 
             // esconde as modais ao clicar nelas mesmas

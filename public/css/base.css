@@ -553,10 +553,9 @@ p {
 .card-label.last {border-bottom:none;}
 .card-label-item {
   display: block;
-  /*width:56%;*/
-  width:64%;
+  width:56%;
   float:left;
-  /*margin-right: 4%;*/
+  margin-right: 4%;
   text-align: left;
   font-size:1.6em;
   line-height:43px;
@@ -564,7 +563,7 @@ p {
 }
 .card-label-value {
   display: block;
-  width:36%;
+  width:40%;
   float:left;
   font-size:3em;
   font-weight: bolder;
@@ -572,6 +571,9 @@ p {
   text-align: center;
   text-transform: uppercase;
   line-height:1.2em;
+}
+.attribute-detail {
+  color: #1F75BD;
 }
 .card-bio {
   height:64px;
