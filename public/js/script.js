@@ -65,23 +65,14 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
         // mescla do conteúdo dos dois objetos
         var settings = $.extend({}, defaults, options);
 
-        var carregaCandidatos = function() {
+        var carregaCandidatos = function(cidadeEscolhida) {
 
-            $.getJSON('data/candidatos.json',function(result){
+            $.getJSON('data/' + cidadeEscolhida + '.json',function(result){
 
                 listaCandidatos = result.candidatos;
                 embaralhaCandidatos(listaCandidatos);
 
-                // espera 2s até mostrar a próxima tela
-                setTimeout(function() {
-
-                    // libera tela de jogo
-                    $screen.addClass('ready');
-
-                    // libera eventos de clique
-                    bind();
-
-                }, 2000);
+                novaRodada();
 
             });
 
@@ -146,14 +137,16 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $('.vence-boolean').on('click', venceBoolean);
 
             // ao clicar no botão de novo jogo
-            $('.btn-new').on('click', function(e) {
+            $('#escolha-cidade').on('submit', function(e) {
+
+                var cidadeEscolhida = $(this).find('option:selected').val();
 
                 // libera tela de jogo
                 $('.ui-turns').fadeIn();
                 $screen.addClass('turn');
 
                 // povoa cartas
-                novaRodada();
+                carregaCandidatos(cidadeEscolhida);
 
                 e.preventDefault();
 
@@ -486,7 +479,18 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             init: function(){
                 pontuacaoLimite = settings.placarJogador + settings.placarOponente;
                 atualizaPlacar();
-                carregaCandidatos();
+
+                // espera 2s até mostrar a próxima tela
+                setTimeout(function() {
+
+                    // libera tela de jogo
+                    $screen.addClass('ready');
+
+                    // libera eventos de clique
+                    bind();
+
+                }, 2000);
+
             }
 
         };
