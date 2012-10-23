@@ -8,10 +8,13 @@ namespace iMasters\http;
 /**
  * Interface para definição de um autenticador HTTP.
  */
-interface HTTPAuthenticator {
-	/**
-	 * Autentica uma requisição HTTP.
-	 * @param	HTTPRequest $httpRequest
-	 */
-	public function authenticate(HTTPRequest $httpRequest);
+interface HTTPAuthenticator
+{
+
+    /**
+     * Autentica uma requisição HTTP.
+     *
+     * @param HTTPRequest $httpRequest
+     */
+    public function authenticate(HTTPRequest $httpRequest);
 }

@@ -1,6 +1,8 @@
 <?php
 namespace SuperTrunfo;
 
+use SuperTrunfo\Entity\PoliticianSuperTrunfo;
+
 use \stdClass;
 use \RuntimeException;
 use SuperTrunfo\Entity\Politician;
@@ -39,8 +41,8 @@ class SuperTrunfo
             else return 1;
         });
 
-        $politicians = array_slice($politicians, 0, 36);
-        $politician = array_shift($politicians);
+        $politicians = array_slice($politicians, 0, 35);
+        $politician = new PoliticianSuperTrunfo();
         $offset = 0;
 
         foreach (range(65, 68) as $ord) {
@@ -52,7 +54,9 @@ class SuperTrunfo
                     $politician->id = '8B';
                     $politician->superTrunfo = true;
 
-                    $politicians = array_merge($part1, array($politician), $part2);
+                    $politicians = array_merge($part1,
+                                               array($politician),
+                                               $part2);
                     ++$offset;
 
                     continue;
@@ -81,8 +85,10 @@ class SuperTrunfo
     public function getPoliticians()
     {
         if ($this->politicians === null) {
-            $politicianAggregate = new PoliticianAggregateDecorator(new PoliticianAggregate());
-            $this->politicians = $politicianAggregate->getPoliticians();
+            $aggregate = new PoliticianAggregate();
+            $decorator = new PoliticianAggregateDecorator($aggregate);
+
+            $this->politicians = $decorator->getPoliticians();
         }
 
         return $this->politicians;
