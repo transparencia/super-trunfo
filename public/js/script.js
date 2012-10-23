@@ -77,11 +77,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                     // libera tela de jogo
                     $screen.addClass('ready');
-                    $screen.addClass('turn');
-                    $('.ui-turns').fadeIn();
-
-                    // povoa cartas
-                    novaRodada();
 
                     // libera eventos de clique
                     bind();
@@ -150,11 +145,26 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $('.vence-menor').on('click', venceMenor);
             $('.vence-boolean').on('click', venceBoolean);
 
+            // ao clicar no botão de novo jogo
+            $('.btn-new').on('click', function(e) {
+
+                // libera tela de jogo
+                $('.ui-turns').fadeIn();
+                $screen.addClass('turn');
+
+                // povoa cartas
+                novaRodada();
+
+                e.preventDefault();
+
+            });
+
             // ao clicar no botão de informações
             $('.view-info').on('click', function(e) {
                 $(this).parent().parent().toggleClass('card-info');
                 e.preventDefault();
             });
+
             $('.link-about, .modal-about').on('click', function(e) {
                 $('.modal-about').slideToggle(300);
                 e.preventDefault();
@@ -349,7 +359,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                 // exibe mensagem de vitória
                 $('.ui-final').addClass('ui-final-won');
-                $('.final').css("z-index", "10");
+                $('.final').css("display", "block").css("z-index", "10");
 
                 // aguarda 5 segundos até recomeçar o jogo
                 setTimeout(function() {
@@ -360,7 +370,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                 // exibe mensagem de derrota
                 $('.ui-final').addClass('ui-final-lose');
-                $('.final').css("z-index", "10");
+                $('.final').css("display", "block").css("z-index", "10");
 
                 // aguarda 5 segundos até recomeçar o jogo
                 setTimeout(function() {
@@ -377,7 +387,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             atualizaPlacar();
             embaralhaCandidatos(listaCandidatos);
             novaRodada();
-            $('.final').css("z-index", "1");
+
+            $('.final').css("display", "none").css("z-index", "1");
 
         },
 
