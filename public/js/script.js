@@ -52,8 +52,11 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             cartaAtualJogador,
             cartaAtualOponente,
 
+            modalSelecionada,
+
             isFeedbackTime,
-            isSuperTrunfo;
+            isSuperTrunfo,
+            isModalAberta = false;
 
         // define valores padrão caso não receba nenhum valor como parâmetro
         var defaults = {
@@ -155,8 +158,15 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             // ao clicar no botão de visualizar informações do atributo
             $('.attribute-detail').on('click', function(e) {
 
-                var atributoSelecionado = $(this).parent().parent().data('attribute');
-                $('.modal-' + atributoSelecionado).slideToggle(300);
+                if (!isModalAberta) {
+                    isModalAberta = true;
+                    modalSelecionada = $(this).parent().parent().data('attribute');
+                    $('.modal-' + modalSelecionada).slideToggle(300);
+
+                } else {
+                    isModalAberta = false;
+                    $('.modal-' + modalSelecionada).slideToggle(300);
+                }
 
                 e.stopPropagation();
                 e.preventDefault();
@@ -165,13 +175,24 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             // esconde as modais ao clicar nelas mesmas
             $('.modal').on('click', function() {
+                isModalAberta = false;
                 $(this).slideToggle(300);
             });
 
             // ao clicar no botão de informações do jogo
             $('.link-about').on('click', function(e) {
-                $('.modal-about').slideToggle(300);
+
+                if (!isModalAberta) {
+                    isModalAberta = true;
+                    modalSelecionada = "about";
+                    $('.modal-about').slideToggle(300);
+                } else {
+                    isModalAberta = false;
+                    $('.modal-' + modalSelecionada).slideToggle(300);
+                }
+
                 e.preventDefault();
+
             });
 
             // ao clicar no botão de informações da carta
