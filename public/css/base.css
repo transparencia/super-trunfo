@@ -894,12 +894,14 @@ p {
 /* =============================================================================
    FINAL
    ========================================================================== */
+
 .final {
   position: absolute;
   top:15%;
   left:50%;
   margin-left: -212px;
   opacity:0;
+  display: none;
 }
 
 .ui-final-won .final-won, .ui-final-lose .final-lose {
