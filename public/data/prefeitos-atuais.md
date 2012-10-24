@@ -10,6 +10,10 @@
 
 ----
 
+Fonte da quantidade de votos: http://pt.wikipedia.org/wiki/Elei%C3%A7%C3%B5es_municipais_no_Brasil_em_2008
+
+----
+
 # São Paulo
 ## Gilberto Kassab
 ### Candidato? Não.
@@ -34,7 +38,7 @@ Estado Civil: Não encontrado
 Ocupação: Prefeito
 Escolaridade: Não encontrado
 
-*Fonte: http://pt.wikipedia.org/wiki/Gilberto_Kassab*
+*Fonte geral: http://pt.wikipedia.org/wiki/Gilberto_Kassab*
 
 ---
 
@@ -62,7 +66,7 @@ Estado Civil: Não encontrado
 Ocupação: Prefeito
 Escolaridade: Não encontrado
 
-*Fonte: http://pt.wikipedia.org/wiki/Luizianne_Lins*
+*Fonte geral: http://pt.wikipedia.org/wiki/Luizianne_Lins*
 
 ---
 
@@ -75,20 +79,20 @@ Escolaridade: Não encontrado
 Nome:
 Foto:
 Número: -
-Partido: 
+Partido:
 Projetos aprovados: 0
 Projetos vetados: 0
-Escolaridade: 
+Escolaridade:
 Quantidade de votos: -
 
 *Verso*
 
-Nome: 
+Nome:
 Idade:
-Naturalidade: 
-Estado Civil: 
+Naturalidade:
+Estado Civil:
 Ocupação: Prefeito
-Escolaridade: 
+Escolaridade:
 
 *Fonte: http://pt.wikipedia.org/wiki/Marcio_Lacerda*
 
@@ -118,7 +122,8 @@ Estado Civil: Não encontrado
 Ocupação: Prefeito
 Escolaridade: Não encontrado
 
-*Fonte: http://pt.wikipedia.org/wiki/Luciano_Agra*
+*Fonte geral: http://pt.wikipedia.org/wiki/Luciano_Agra*
+*Fonte votos: http://www.pbagora.com.br/conteudo.php?id=20121010145954&cat=politica&keys=-nota-bira-comemora-reeleicao-avalia-desempenho-psb-declara-voto-luciano*
 
 ---
 
@@ -159,20 +164,20 @@ Escolaridade: Não encontrado
 Nome:
 Foto:
 Número: -
-Partido: 
+Partido:
 Projetos aprovados: 0
 Projetos vetados: 0
-Escolaridade: 
+Escolaridade:
 Quantidade de votos: -
 
 *Verso*
 
-Nome: 
+Nome:
 Idade:
-Naturalidade: 
-Estado Civil: 
+Naturalidade:
+Estado Civil:
 Ocupação: Prefeito
-Escolaridade: 
+Escolaridade:
 
 *Fonte: http://pt.wikipedia.org/wiki/Eduardo_Paes*
 
@@ -187,20 +192,20 @@ Escolaridade:
 Nome:
 Foto:
 Número: -
-Partido: 
+Partido:
 Projetos aprovados: 0
 Projetos vetados: 0
-Escolaridade: 
+Escolaridade:
 Quantidade de votos: -
 
 *Verso*
 
-Nome: 
+Nome:
 Idade:
-Naturalidade: 
-Estado Civil: 
+Naturalidade:
+Estado Civil:
 Ocupação: Prefeito
-Escolaridade: 
+Escolaridade:
 
 *Fonte: http://pt.wikipedia.org/wiki/Jos%C3%A9_Fortunati*
 
