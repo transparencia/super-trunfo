@@ -203,3 +203,33 @@ Ocupação: Prefeito
 Escolaridade: 
 
 *Fonte: http://pt.wikipedia.org/wiki/Jos%C3%A9_Fortunati*
+
+---
+
+# Florianópolis
+## Dário Berger
+### Candidato? Não.
+
+*Frente*
+
+Nome: Dário Berger
+Foto: http://www.diarinho.com.br/arquivos/personalidades/XJ7MS4XJ.jpg
+Número: -
+Partido: PMDB
+Projetos aprovados: 0
+Projetos vetados: 0
+Escolaridade: Não encontrado
+Quantidade de votos: -
+
+*Verso*
+
+Nome: Dário Elias Berger
+Idade: 55 anos (07/12/1956)
+Naturalidade: Bom Retiro/SC
+Estado Civil: Não encontrado
+Ocupação: Prefeito
+Escolaridade: Não encontrado
+
+*Fonte: http://pt.wikipedia.org/wiki/D%C3%A1rio_Elias_Berger*
+
+---
