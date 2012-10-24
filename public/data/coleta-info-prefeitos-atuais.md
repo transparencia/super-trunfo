@@ -147,3 +147,31 @@ Ocupação: Prefeito
 Escolaridade: Não encontrado
 
 *Fonte: http://pt.wikipedia.org/wiki/Jo%C3%A3o_da_Costa_Bezerra_Filho*
+
+---
+
+# Rio de Janeiro
+## Eduardo Paes
+### Candidato? Sim.
+
+*Frente*
+
+Nome:
+Foto:
+Número: -
+Partido: 
+Projetos aprovados: 0
+Projetos vetados: 0
+Escolaridade: 
+Quantidade de votos: -
+
+*Verso*
+
+Nome: 
+Idade:
+Naturalidade: 
+Estado Civil: 
+Ocupação: Prefeito
+Escolaridade: 
+
+*Fonte: http://pt.wikipedia.org/wiki/Eduardo_Paes*
