@@ -461,7 +461,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             cartaAtualJogador = listaCandidatosJogador[0];
 
             $idCartaJogador.text(cartaAtualJogador.id);
-            $nomeCartaJogador.text(cartaAtualJogador.nome);
+            $nomeCartaJogador.text(cartaAtualJogador.nome).textFit({minFontSize: 17});
             $numCartaJogador.text(cartaAtualJogador.numero);
             $fotoCartaJogador.html('<img src="' + cartaAtualJogador.foto + '" alt="' + cartaAtualJogador.nome + '" />');
             $partidoJogador.text(cartaAtualJogador.partido);
@@ -484,7 +484,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             cartaAtualOponente = listaCandidatosOponente[0];
 
             $idCartaOponente.text(cartaAtualOponente.id);
-            $nomeCartaOponente.text(cartaAtualOponente.nome);
+            $nomeCartaOponente.text(cartaAtualOponente.nome).textFit({minFontSize: 17});
             $numCartaOponente.text(cartaAtualOponente.numero);
             $fotoCartaOponente.html('<img src="' + cartaAtualOponente.foto + '" alt="' + cartaAtualOponente.nome + '" />');
             $partidoOponente.text(cartaAtualOponente.partido);
