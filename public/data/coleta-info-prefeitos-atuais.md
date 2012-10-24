@@ -36,3 +36,30 @@ Escolaridade: Não encontrado
 
 *Fonte: http://pt.wikipedia.org/wiki/Gilberto_Kassab*
 
+---
+
+# Fortaleza
+## Luizianne Lins
+### Candidato? Não.
+
+*Frente*
+
+Nome: Luizianne Lins
+Foto: http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Luizianne_Lins.jpg/210px-Luizianne_Lins.jpg
+Número: -
+Partido: PT
+Projetos aprovados: 0
+Projetos vetados: 0
+Escolaridade: Não encontrado
+Quantidade de votos: -
+
+*Verso*
+
+Nome: Luizianne Lins
+Idade: 43 anos (18/11/1968)
+Naturalidade: Fortaleza/CE
+Estado Civil: Não encontrado
+Ocupação: Prefeito
+Escolaridade: Não encontrado
+
+*Fonte: http://pt.wikipedia.org/wiki/Luizianne_Lins*
