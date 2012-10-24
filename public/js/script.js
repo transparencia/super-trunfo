@@ -31,8 +31,8 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $projetosVetadosJogador = $('.cards-yourturn [data-attribute="projs-vetados"] .card-label-value'),
             $projetosVetadosOponente = $('.cards-opponentsturn [data-attribute="projs-vetados"] .card-label-value'),
 
-            $fichaLimpaJogador = $('.cards-yourturn [data-attribute="ficha-limpa"] .card-label-value'),
-            $fichaLimpaOponente = $('.cards-opponentsturn [data-attribute="ficha-limpa"] .card-label-value'),
+            $escolaridadeJogador = $('.cards-yourturn [data-attribute="escolaridade"] .card-label-value'),
+            $escolaridadeOponente = $('.cards-opponentsturn [data-attribute="escolaridade"] .card-label-value'),
 
             $quantidadeVotosJogador = $('.cards-yourturn [data-attribute="qt-votos"] .card-label-value'),
             $quantidadeVotosOponente = $('.cards-opponentsturn [data-attribute="qt-votos"] .card-label-value'),
@@ -119,11 +119,18 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
                         });
 
-                        // se for um número, converter para base numérica
-                        if ($self.hasClass('vence-boolean') == false){
+                        // se for escolaridade, substituir o texto para número
+                        if (atributoEscolhido == "escolaridade") {
+                            opcaoJogador = escolaridade(opcaoJogador);
+                            opcaoOponente = escolaridade(opcaoOponente);
+                        } // se for um número, converter para base numérica
+                        else {
                             opcaoJogador = parseInt(opcaoJogador, 10);
                             opcaoOponente = parseInt(opcaoOponente, 10);
                         }
+
+                        console.log(opcaoJogador);
+                        console.log(opcaoOponente);
 
                     }
 
@@ -137,7 +144,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             $('.vence-maior').on('click', venceMaior);
             $('.vence-menor').on('click', venceMenor);
-            $('.vence-boolean').on('click', venceBoolean);
 
             // ao clicar no botão de novo jogo
             $('#escolha-cidade').on('submit', function(e) {
@@ -201,6 +207,30 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                 e.preventDefault();
             });
 
+        },
+
+        escolaridade = function(opcao) {
+
+            if (opcao == "Fundamental Incompleto") { opcao = 0; }
+            else if (opcao == "Fundamental Completo") { opcao = 1; }
+            else if (opcao == "Médio Incompleto") { opcao = 2; }
+            else if (opcao == "Médio Completo") { opcao = 3; }
+            else if (opcao == "Superior Incompleto") { opcao = 4; }
+            else if (opcao == "Superior Completo") { opcao = 5; }
+            else if (opcao == "Licenciatura Incompleta") { opcao = 6; }
+            else if (opcao == "Licenciatura Completa") { opcao = 7; }
+            else if (opcao == "Pós-graduação Incompleta") { opcao = 8; }
+            else if (opcao == "Pós-graduação Completa") { opcao = 9; }
+            else if (opcao == "Mestrado Incompleto") { opcao = 10; }
+            else if (opcao == "Mestrado Completo") { opcao = 11; }
+            else if (opcao == "Doutorado Incompleto") { opcao = 12; }
+            else if (opcao == "Doutorado Completo") { opcao = 13; }
+            else if (opcao == "Pós-doutorado Incompleto") { opcao = 14; }
+            else if (opcao == "Pós-doutorado Completo") { opcao = 15; }
+            else if (opcao == "Auto-docência Incompleta") { opcao = 16; }
+            else if (opcao == "Auto-docência Completa") { opcao = 17; }
+
+            return opcao;
         },
 
         superTrunfo = function() {
@@ -269,28 +299,6 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
                     if (opcaoJogador < opcaoOponente) {
                         jogadorVenceu();
                     } else if (opcaoJogador == opcaoOponente) {
-                        empate();
-                    } else {
-                        jogadorPerdeu();
-                    }
-
-                }
-
-            }
-
-        },
-
-        venceBoolean = function() {
-
-            // caso não esteja exibindo o resultado da jogada passada
-            if (!isFeedbackTime) {
-
-                // se não for super trunfo
-                if (!isSuperTrunfo) {
-
-                    if (opcaoJogador == 'não' && opcaoOponente == 'sim') {
-                        jogadorVenceu();
-                    } else if ((opcaoJogador == 'sim' && opcaoOponente == 'sim') || (opcaoJogador == 'não' && opcaoOponente == 'não')) {
                         empate();
                     } else {
                         jogadorPerdeu();
@@ -459,7 +467,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $partidoJogador.text(cartaAtualJogador.partido);
             $projetosAprovadosJogador.text(cartaAtualJogador.projetosAprovados);
             $projetosVetadosJogador.text(cartaAtualJogador.projetosVetados);
-            $fichaLimpaJogador.text(cartaAtualJogador.fichaLimpa);
+            // $escolaridadeJogador.text(cartaAtualJogador.escolaridade);
             $quantidadeVotosJogador.text(cartaAtualJogador.quantidadeVotos);
             $bioCartaJogador.html(cartaAtualJogador.bio);
 
@@ -482,7 +490,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $partidoOponente.text(cartaAtualOponente.partido);
             $projetosAprovadosOponente.text(cartaAtualOponente.projetosAprovados);
             $projetosVetadosOponente.text(cartaAtualOponente.projetosVetados);
-            $fichaLimpaOponente.text(cartaAtualOponente.fichaLimpa);
+            // $escolaridadeOponente.text(cartaAtualOponente.escolaridade);
             $quantidadeVotosOponente.text(cartaAtualOponente.quantidadeVotos);
             $bioCartaOponente.html(cartaAtualOponente.bio);
 

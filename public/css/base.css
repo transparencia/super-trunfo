@@ -572,6 +572,9 @@ p {
   text-transform: uppercase;
   line-height:1.2em;
 }
+.card-label-escolaridade {
+  font-size: 1.4em;
+}
 .attribute-detail {
   color: #1F75BD;
 }
