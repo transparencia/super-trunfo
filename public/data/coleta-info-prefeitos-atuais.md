@@ -121,3 +121,29 @@ Escolaridade: Não encontrado
 *Fonte: http://pt.wikipedia.org/wiki/Luciano_Agra*
 
 ---
+
+# Recife
+## João da Costa Bezerra
+### Candidato? Não.
+
+*Frente*
+
+Nome: João da Costa Bezerra
+Foto: http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Jo%C3%A3o_da_Costa.jpeg/200px-Jo%C3%A3o_da_Costa.jpeg
+Número: -
+Partido: PT
+Projetos aprovados: 0
+Projetos vetados: 0
+Escolaridade: Não encontrado
+Quantidade de votos: -
+
+*Verso*
+
+Nome: João da Costa Bezerra
+Idade: 51 anos (06/11/1960)
+Naturalidade: Angelim/PE
+Estado Civil: Não encontrado
+Ocupação: Prefeito
+Escolaridade: Não encontrado
+
+*Fonte: http://pt.wikipedia.org/wiki/Jo%C3%A3o_da_Costa_Bezerra_Filho*
