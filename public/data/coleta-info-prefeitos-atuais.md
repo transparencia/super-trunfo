@@ -175,3 +175,31 @@ Ocupação: Prefeito
 Escolaridade: 
 
 *Fonte: http://pt.wikipedia.org/wiki/Eduardo_Paes*
+
+---
+
+# Porto Alegre
+## José Fortunati
+### Candidato? Sim.
+
+*Frente*
+
+Nome:
+Foto:
+Número: -
+Partido: 
+Projetos aprovados: 0
+Projetos vetados: 0
+Escolaridade: 
+Quantidade de votos: -
+
+*Verso*
+
+Nome: 
+Idade:
+Naturalidade: 
+Estado Civil: 
+Ocupação: Prefeito
+Escolaridade: 
+
+*Fonte: http://pt.wikipedia.org/wiki/Jos%C3%A9_Fortunati*
