@@ -652,6 +652,7 @@ p {
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   transform: rotateY(0deg);
+  z-index: 1;
 }
 .cards-opponentsturn.cards-flip .card-back {
   -webkit-transform: rotateY(180deg);
@@ -665,6 +666,7 @@ p {
   -moz-transform: rotateY(-180deg);
   -ms-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
+  z-index: 0;
 }
 .cards-opponentsturn.cards-flip .card-front {
   -webkit-transform: rotateY(0deg);
