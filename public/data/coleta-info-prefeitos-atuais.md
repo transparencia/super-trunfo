@@ -63,3 +63,31 @@ Ocupação: Prefeito
 Escolaridade: Não encontrado
 
 *Fonte: http://pt.wikipedia.org/wiki/Luizianne_Lins*
+
+---
+
+# Belo Horizonte
+## Marcio Lacerda
+### Candidato? Sim.
+
+*Frente*
+
+Nome:
+Foto:
+Número: -
+Partido: 
+Projetos aprovados: 0
+Projetos vetados: 0
+Escolaridade: 
+Quantidade de votos: -
+
+*Verso*
+
+Nome: 
+Idade:
+Naturalidade: 
+Estado Civil: 
+Ocupação: Prefeito
+Escolaridade: 
+
+*Fonte: http://pt.wikipedia.org/wiki/Marcio_Lacerda*
