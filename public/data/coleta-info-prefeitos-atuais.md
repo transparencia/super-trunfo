@@ -91,3 +91,33 @@ Ocupação: Prefeito
 Escolaridade: 
 
 *Fonte: http://pt.wikipedia.org/wiki/Marcio_Lacerda*
+
+---
+
+# João Pessoa
+## Luciano Agra
+### Candidato? Não.
+
+*Frente*
+
+Nome: Luciano Agra
+Foto: http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/LucianoAgra.jpg/200px-LucianoAgra.jpg
+Número: -
+Partido: PSB
+Projetos aprovados: 0
+Projetos vetados: 0
+Escolaridade: Não encontrado
+Quantidade de votos: -
+
+*Verso*
+
+Nome: Luciano Agra
+Idade: 59 anos (25/11/1952)
+Naturalidade: Campina Grande/PB
+Estado Civil: Não encontrado
+Ocupação: Prefeito
+Escolaridade: Não encontrado
+
+*Fonte: http://pt.wikipedia.org/wiki/Luciano_Agra*
+
+---
