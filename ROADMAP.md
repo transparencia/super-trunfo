@@ -1,4 +1,5 @@
 # Roadmap
+## Milestone: [Diferentes cidades](https://github.com/transparencia/super-trunfo/issues?milestone=1&state=open)
 
 *Quinta - Dia 25*
 
