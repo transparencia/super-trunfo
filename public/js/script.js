@@ -213,20 +213,21 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             if (opcao == "Não informado") { opcao = -1; }
             else if (opcao == "Analfabeto") { opcao = 0; }
-            else if (opcao == "Fundamental Incompleto") { opcao = 1; }
-            else if (opcao == "Fundamental Completo") { opcao = 2; }
-            else if (opcao == "Médio Incompleto") { opcao = 3; }
-            else if (opcao == "Médio Completo") { opcao = 4; }
-            else if (opcao == "Superior Incompleto") { opcao = 5; }
-            else if (opcao == "Superior Completo") { opcao = 6; }
-            else if (opcao == "Pós Graduado Incompleto") { opcao = 7; }
-            else if (opcao == "Pós Graduado Completa") { opcao = 8; }
-            else if (opcao == "Mestrado Incompleto") { opcao = 9; }
-            else if (opcao == "Mestrado Completo") { opcao = 10; }
-            else if (opcao == "Doutorado Incompleto") { opcao = 11; }
-            else if (opcao == "Doutorado Completo") { opcao = 12; }
-            else if (opcao == "PhD Incompleto") { opcao = 13; }
-            else if (opcao == "PhD Completo") { opcao = 14; }
+            else if (opcao == "Lê e Escreve") { opcao = 1; }
+            else if (opcao == "Fundamental Incompleto") { opcao = 2; }
+            else if (opcao == "Fundamental Completo") { opcao = 3; }
+            else if (opcao == "Médio Incompleto") { opcao = 4; }
+            else if (opcao == "Médio Completo") { opcao = 5; }
+            else if (opcao == "Superior Incompleto") { opcao = 6; }
+            else if (opcao == "Superior Completo") { opcao = 7; }
+            else if (opcao == "Pós Graduado Incompleto") { opcao = 8; }
+            else if (opcao == "Pós Graduado Completa") { opcao = 9; }
+            else if (opcao == "Mestrado Incompleto") { opcao = 10; }
+            else if (opcao == "Mestrado Completo") { opcao = 11; }
+            else if (opcao == "Doutorado Incompleto") { opcao = 12; }
+            else if (opcao == "Doutorado Completo") { opcao = 13; }
+            else if (opcao == "PhD Incompleto") { opcao = 14; }
+            else if (opcao == "PhD Completo") { opcao = 15; }
 
             return opcao;
         },
