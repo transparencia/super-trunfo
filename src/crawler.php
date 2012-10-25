@@ -11,7 +11,9 @@ $states = array(
     'Pernambuco' => array('path' => 'candidatos-recife-pe'),
     'Rio de Janeiro' => array('path' => 'candidatos-rio-de-janeiro-rj'),
     'Santa Catarina' => array('path' => 'candidatos-florianopolis-sc'),	
-    'São Paulo' => array('path' => 'candidatos-sao-paulo-sp')
+    'São Paulo' => array('path' => 'candidatos-sao-paulo-sp'),
+	'Rio Grande do Sul' => array('path' => 'candidatos-porto-alegre-rs'),
+	'Minas Gerais' => array('path' => 'candidatos-belo-horizonte-mg')
 );
 
 $states['São Paulo']['Super Trunfo'] = new Politician();
@@ -84,6 +86,30 @@ $states['Santa Catarina']['Super Trunfo']->quantidadeVotos = 129969;
 $states['Santa Catarina']['Super Trunfo']->superTrunfo = true;
 $states['Santa Catarina']['Super Trunfo']->escolaridade = 'Não informado';
 $states['Santa Catarina']['Super Trunfo']->resultado = 'ELEITO';
+
+$states['Rio Grande do Sul']['Super Trunfo'] = new Politician();
+$states['Rio Grande do Sul']['Super Trunfo']->nome = 'Fortunati';
+$states['Rio Grande do Sul']['Super Trunfo']->nomeReal = 'José Alberto Reus Fortunati';
+$states['Rio Grande do Sul']['Super Trunfo']->cargo = 'Prefeito';
+$states['Rio Grande do Sul']['Super Trunfo']->foto = 'http://static.eleicoes2012.info/fotos/7f/fo/fortunati.jpg';
+$states['Rio Grande do Sul']['Super Trunfo']->partido = 'PDT';
+$states['Rio Grande do Sul']['Super Trunfo']->temProcessos = 'não';
+$states['Rio Grande do Sul']['Super Trunfo']->quantidadeVotos = 517969;
+$states['Rio Grande do Sul']['Super Trunfo']->superTrunfo = true;
+$states['Rio Grande do Sul']['Super Trunfo']->bio = '<p><span class="legenda">Nome:</span> Jos&eacute; Alberto Reus Fortunati<br><span class="legenda">Idade:</span> 56 anos (24/10/1955)<br><span class="legenda">Naturalidade:</span> Flores da Cunha/RS<br><span class="legenda">Estado Civil:</span> Casado(A)<br><span class="legenda">Ocupa&ccedil;&atilde;o:</span> Prefeito<br><span class="legenda">Escolaridade:</span> Superior Completo<br></p>';
+$states['Rio Grande do Sul']['Super Trunfo']->resultado = 'ELEITO';
+
+$states['Minas Gerais']['Super Trunfo'] = new Politician();
+$states['Minas Gerais']['Super Trunfo']->nome = 'Marcio Lacerda';
+$states['Minas Gerais']['Super Trunfo']->nomeReal = 'Marcio Araujo de Lacerda';
+$states['Minas Gerais']['Super Trunfo']->cargo = 'Prefeito';
+$states['Minas Gerais']['Super Trunfo']->foto = 'http://static.eleicoes2012.info/fotos/ca/ma/marcio-lacerda-psb-40.jpg';
+$states['Minas Gerais']['Super Trunfo']->partido = 'PSB';
+$states['Minas Gerais']['Super Trunfo']->temProcessos = 'sim';
+$states['Minas Gerais']['Super Trunfo']->quantidadeVotos = 676215;
+$states['Minas Gerais']['Super Trunfo']->superTrunfo = true;
+$states['Minas Gerais']['Super Trunfo']->bio = '<p><span class="legenda">Nome:</span> Marcio Araujo de Lacerda<br><span class="legenda">Idade:</span> 66 anos (22/01/1946)<br><span class="legenda">Naturalidade:</span> Leopoldina/MG<br><span class="legenda">Estado Civil:</span> Casado(A)<br><span class="legenda">Ocupa&ccedil;&atilde;o:</span> Prefeito<br><span class="legenda">Escolaridade:</span> Superior Completo<br></p>';
+$states['Minas Gerais']['Super Trunfo']->resultado = 'ELEITO';
 
 foreach ($states as $state => $item) {
 	printf("\nPath: %s\n", $item['path']);
