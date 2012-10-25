@@ -27,9 +27,9 @@
     <meta charset="UTF-8">
     <title>Super Trunfo da Política</title>
 
-    <link rel="stylesheet" href="css/reset.css?v=2.1" />
-    <link rel="stylesheet" href="css/base.css?v=2.1" />
-    <link rel="stylesheet" href="css/theme.css?v=2.1" />
+    <link rel="stylesheet" href="css/reset.css?v=3" />
+    <link rel="stylesheet" href="css/base.css?v=3" />
+    <link rel="stylesheet" href="css/theme.css?v=3" />
 
     <meta property="fb:admins" content="100000496633251" />
     <meta property="fb:admins" content="100001594277746" />
@@ -70,24 +70,24 @@
                 <select id="cidades">
                     <!-- <option value="candidatos-aracaju-se">Aracajú</option>
                     <option value="candidatos-belem-pa">Belém</option>
-                    <option value="candidatos-belo-horizonte-mg">Belo Horizonte</option>
-                    <option value="candidatos-boa-vista-rr">Boa Vista</option>
+                    <option value="candidatos-belo-horizonte-mg">Belo Horizonte</option> -->
+                    <!-- <option value="candidatos-boa-vista-rr">Boa Vista</option>
                     <option value="candidatos-campo-grande-ms">Campo Grande</option>
                     <option value="candidatos-cuiaba-mt">Cuiabá</option>
-                    <option value="candidatos-curitiba-pr">Curitiba</option>
+                    <option value="candidatos-curitiba-pr">Curitiba</option> -->
                     <option value="candidatos-florianopolis-sc">Florianópolis</option>
                     <option value="candidatos-fortaleza-ce">Fortaleza</option>
-                    <option value="candidatos-goiania-go">Goiânia</option>
+                    <!-- <option value="candidatos-goiania-go">Goiânia</option> -->
                     <option value="candidatos-joao-pessoa-pb">João Pessoa</option>
-                    <option value="candidatos-macapa-ap">Macapá</option>
+                    <!-- <option value="candidatos-macapa-ap">Macapá</option>
                     <option value="candidatos-maceio-al">Maceio</option>
                     <option value="candidatos-manaus-am">Manaus</option>
                     <option value="candidatos-natal-rn">Natal</option>
                     <option value="candidatos-palmas-to">Palmas</option>
-                    <option value="candidatos-porto-alegre-rs">Porto Alegre</option>
-                    <option value="candidatos-porto-velho-ro">Porto Velho</option>
+                    <option value="candidatos-porto-alegre-rs">Porto Alegre</option> -->
+                    <!-- <option value="candidatos-porto-velho-ro">Porto Velho</option> -->
                     <option value="candidatos-recife-pe">Recife</option>
-                    <option value="candidatos-rio-branco-ac">Rio Branco</option> -->
+                    <!-- <option value="candidatos-rio-branco-ac">Rio Branco</option> -->
                     <option value="candidatos-rio-de-janeiro-rj">Rio de Janeiro</option>
                     <!-- <option value="candidatos-salvador-ba">Salvador</option>
                     <option value="candidatos-sao-luis-ma">São Luís</option> -->
@@ -141,9 +141,9 @@
                         <span class="card-label-item">Projs. vetados <a class="attribute-detail" href="#">[?]</a></span>
                         <span class="card-label-value"></span>
                     </div>
-                    <div class="card-label vence-boolean" data-attribute="ficha-limpa">
-                        <span class="card-label-item">Tem processos <a class="attribute-detail" href="#">[?]</a></span>
-                        <span class="card-label-value"></span>
+                    <div class="card-label vence-maior" data-attribute="escolaridade">
+                        <span class="card-label-item">Escolaridade <a class="attribute-detail" href="#">[?]</a></span>
+                        <span class="card-label-value card-label-escolaridade">Superior Incompleto</span>
                     </div>
                     <div class="card-label vence-maior last" data-attribute="qt-votos">
                         <span class="card-label-item">Qt. de votos <a class="attribute-detail" href="#">[?]</a></span>
@@ -172,9 +172,9 @@
                         <span class="card-label-item">Projetos vetados:</span>
                         <span class="card-label-value"></span>
                     </div>
-                    <div class="card-label vence-boolean" data-attribute="ficha-limpa">
-                        <span class="card-label-item">Tem processos:</span>
-                        <span class="card-label-value"></span>
+                    <div class="card-label vence-maior" data-attribute="escolaridade">
+                        <span class="card-label-item">Escolaridade:</span>
+                        <span class="card-label-value card-label-escolaridade">Fundamental Incompleto</span>
                     </div>
                     <div class="card-label vence-maior last" data-attribute="qt-votos">
                         <span class="card-label-item">Qt. de votos:</span>
@@ -217,6 +217,7 @@
         <h2>O que significa "Projetos aprovados"?</h2>
         <p>Projetos aprovados são proposições feitas no ano de 2012 pelos políticos que, após
         apresentação em sessão, foram aprovados pela casa virando lei no município.</p>
+        <p>O game considera que quanto <strong>maior</strong> o número de projetos aprovados <strong>melhor</strong>.</p>
     </div>
     <!-- / modal -->
 
@@ -224,27 +225,25 @@
     <div class="modal modal-projs-vetados">
         <h2>O que significa "Projetos vetados"?</h2>
         <p>Projetos vetados são proposições feitas no ano de 2012 pelos políticos que, após
-        apresentação em sessão, não teve votos suficientes para virar lei.</p>
+        apresentação em sessão, não tiveram votos suficientes para virar lei.</p>
+        <p>O game considera que quanto <strong>menor</strong> o número de projetos vetados <strong>melhor</strong>.</p>
     </div>
     <!-- / modal -->
 
     <!-- modal -->
-    <div class="modal modal-ficha-limpa">
-        <h2>O que significa "Tem processos"?</h2>
-        <p>Ter processo significa ter sido julgado em primeira instância e por ter o direito de poder recorrer da decisão em uma instância superior, apenas os candidatos que "perderam" em instâncias superiores são configurados como "Tem Processos".</p>
-        <p>Segundo a ministra do Supremo Tribunal Federal Rosa Weber:</p>
-        <p>O homem público, ou que pretende ser público, não se encontra no mesmo patamar de obrigações do cidadão comum no trato da coisa pública. O representante do povo, o detentor de mandato eletivo, subordina-se à moralidade, à probidade, à honestidade e à boa-fé, exigências do ordenamento jurídico e que compõem um mínimo ético, condensado pela lei da Ficha Limpa, através de hipóteses concretas e objetivas de inelegibilidade.</p>
-        <p>Por esse motivo, decidimos qualificar que não ter processos é melhor do que ter processos.</p>
+    <div class="modal modal-escolaridade">
+        <h2>O que significa "Escolaridade"?</h2>
+        <p>Escolaridade é o nível de ensino que o candidato possui.</p>
+        <p>O game considera que quanto <strong>maior</strong> o nível de escolaridade <strong>melhor</strong>.</p>
     </div>
     <!-- / modal -->
 
     <!-- modal -->
     <div class="modal modal-qt-votos">
         <h2>O que significa "Quantidade de votos"?</h2>
-        <p>O campo quantidade de votos contém todos os votos válidos, feitos
-        pelo povo, na última eleição. Esse número não contempla votos nulos ou
-        em branco, nem os votos feitos para o partido ao qual o candidato é
-        afiliado. Apenas votos diretos para o candidato são computados.</p>
+        <p>Quantidade de votos é o número de votos que os candidatos na eleição de 2012 obtiveram.</p>
+        <p>Para algumas cartas Super Trunfo que não são candidatos na eleição de 2012, são pegos os votos que os mesmos obtiveram na eleição de 2008.</p>
+        <p>O game considera que quanto <strong>maior</strong> o número de votos <strong>melhor</strong>.</p>
     </div>
     <!-- / modal -->
 
@@ -253,7 +252,8 @@
 
 <script src="//connect.facebook.net/pt_BR/all.js"></script>
 <script src="js/jquery-1.8.2.min.js"></script>
-<script src="js/script.js?v=2.1"></script>
-<script src="js/facebook.js?v=2.1"></script>
+<script src="js/jquery.textfit.js"></script>
+<script src="js/script.js?v=3"></script>
+<script src="js/facebook.js?v=3"></script>
 </body>
 </html>

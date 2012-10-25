@@ -8,7 +8,7 @@ use \IteratorAggregate;
 use SuperTrunfo\URLFetcher;
 use SuperTrunfo\DataAccess\PoliticianDataAccess;
 
-class PoliticianAggregate implements PoliticianDataAccess
+class PoliticianAggregate implements \IteratorAggregate
 {
     private $hasNextPage = true;
     private $path;

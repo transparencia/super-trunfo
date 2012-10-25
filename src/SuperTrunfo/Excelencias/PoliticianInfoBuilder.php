@@ -1,9 +1,9 @@
 <?php
 namespace SuperTrunfo\Excelencias;
 
-use SuperTrunfo\Entity\Politician;
-
+use \DOMXPath;
 use \DOMDocument;
+use SuperTrunfo\Entity\Politician;
 
 class PoliticianInfoBuilder
 {
@@ -17,65 +17,72 @@ class PoliticianInfoBuilder
     {
         $this->dom = $dom;
     }
-
+    
     public function build(Politician $politician)
+    {
+    	$this->buildProjects($politician);
+    	$this->buildProcesses($politician);
+    }
+    
+    public function buildProcesses(Politician $politician)
+    {
+    	$dom = $this->dom;
+    	
+    	$xpath = new DOMXPath($dom);
+    	
+    	$processesElement = $xpath->query('.//div[@id="contem_boxes"]/div[@id="contem_titulo"][text()="Ocorrências na Justiça e Tribunais de Contas"]/..')->item(0);
+    	
+    	if ($processesElement !== null) {
+	    	$politician->temProcessos = $processesElement->getElementsByTagName('a')->length > 0;
+    	}
+    }
+
+    public function buildProjects(Politician $politician)
     {
         $dom = $this->dom;
 
-        $processosNode = $dom->getElementsByTagName('processos')->item(0);
+        $xpath = new DOMXPath($dom);
 
-        if ($processosNode !== null) {
-            $processos = preg_replace('/\\n|\\r|\\t|\s*/', null, $processosNode->nodeValue);
-            $politician->fichaLimpa = empty($processos) ? 'sim': 'não';
+        $materiasElement = $xpath->query('.//div[@id="contem_boxes"]/div[@id="contem_titulo"][text()="Matérias legislativas"]/..')->item(0);
+        
+        if ($materiasElement) {
+        	$i = 0;
+        	$j = 0;
+        	$totalOffset = null;
+        	$lastRow = null;
+        	
+        	foreach ($materiasElement->getElementsByTagName('tr') as $tr) {
+        		$j = 0;
+        		
+        		foreach ($tr->getElementsByTagName('td') as $td) {
+        			if ($i == 0) {
+        				if ($td->nodeValue == 'Total') {
+        					$totalOffset = $j;
+        					continue;
+        				}
+        			} else {
+        				if ($j == 0) {
+        					if ($td->nodeValue == 'Sem relevância' || $td->nodeValue == 'Outras') {
+        						$lastRow = $td->nodeValue;
+        					} else {
+        						$lastRow = null;
+        					}
+        				}
+        				
+        				if ($j == $totalOffset) {
+        					if ($lastRow == 'Sem relevância') {
+        						$politician->projetosAprovados = (int) $td->nodeValue;
+        					} else if ($lastRow == 'Outras') {
+        						$politician->projetosVetados = (int) $td->nodeValue;
+        					}
+        				}
+        			}
+        			
+        			$j++;
+        		}
+        		
+        		++$i;
+        	}
         }
-
-        $aprovados = 0;
-        $vetados = 0;
-        $materiasLegislativasNode = $dom->getElementsByTagName('materiasLegislativas')->item(0);
-
-        if ($materiasLegislativasNode !== null) {
-            foreach ($materiasLegislativasNode->childNodes as $node) {
-                switch ($node->nodeName) {
-                    case 'outras':
-                        $aprovados += (int) $node->nodeValue;
-                        break;
-                    case 'irrelevantes':
-                        $vetados += (int) $node->nodeValue;
-                        break;
-                }
-            }
-        }
-
-        $politician->projetosAprovados = $aprovados;
-        $politician->projetosVetados = $vetados;
-
-        $assiduidadeNode = $dom->getElementsByTagName('assiduidade')->item(0);
-
-        if ($assiduidadeNode !== null) {
-            $presencas = 0;
-            $sessoes = 0;
-            $faltas = 0;
-            $presencasNode = $assiduidadeNode->childNodes->item(0);
-            $sessoesNode = $assiduidadeNode->childNodes->item(1);
-            $faltasNode = $assiduidadeNode->childNodes->item(2);
-
-            if ($presencasNode !== null) {
-                $presencas = (int) $presencasNode->nodeValue;
-            }
-
-            if ($sessoesNode !== null) {
-                $sessoes = (int) $sessoesNode->nodeValue;
-            }
-
-            if ($faltasNode !== null) {
-                $faltas = (int) $faltasNode->nodeValue;
-            }
-
-            if ($sessoes > 0) {
-                $politician->presencas = $presencas * 100 / $sessoes;
-                $politician->faltas = $faltas * 100 / $sessoes;
-            }
-        }
-
     }
 }
