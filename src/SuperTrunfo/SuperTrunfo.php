@@ -30,7 +30,7 @@ class SuperTrunfo
     public function getCards()
     {
         $politicians = $this->getPoliticians();
-
+        
         /**
          * 35 candidatos + prefeito atual => 36 total
          * 4 grupos => A, B, C e D
@@ -39,17 +39,21 @@ class SuperTrunfo
          * Super Trunfo => B8
          **/
         $politicians = array_slice($politicians, 0, 36);
+        $superTrunfoExists = false;
         
         for ($i = 0, $t = count($politicians); $i < $t; ++$i) {
         	if ($this->superTrunfo->nomeReal == $politicians[$i]->nomeReal) {
-        		unset($politicians[$i]);
+        		$superTrunfoExists = true;
+        		$politicians[$i] = null;
         		
-        		$politicians = array_filter($politicians);
+        		$politicians = array_values(array_filter($politicians));
         		break;
         	}
         }
-        
-        $politicians = array_slice($politicians, 0, 35);
+
+        if (!$superTrunfoExists) {
+        	$politicians = array_slice($politicians, 0, 35, true);
+        }
         
         $politician = $this->superTrunfo;
         $offset = 0;
@@ -69,6 +73,12 @@ class SuperTrunfo
                     ++$offset;
 
                     continue;
+                }
+                
+                if (!isset($politicians[$offset])) {
+                	file_put_contents('data', print_r($politicians, true));
+                	var_dump($offset);
+                	die;
                 }
 
                 $politicians[$offset++]->id = $i . chr($ord);
