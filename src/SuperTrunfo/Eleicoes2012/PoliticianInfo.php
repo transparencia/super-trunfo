@@ -33,15 +33,35 @@ class PoliticianInfo
         if ($imgElement !== null) {
             $politician->foto = $imgElement->getAttribute('src');
         }
-
+        
         $nomeElement = $xpath->query('.//h1[@id="nomeCandidato"]')->item(0);
 
         if ($nomeElement !== null) {
             $politician->nome = $nomeElement->nodeValue;
             $paragraphs = $xpath->query('.//div[@id="content"]/p');
-
+            
+            $bioNode = $paragraphs->item(1);
+            $lastSpan = null;
+            $found = false;
+            
+            foreach ($bioNode->childNodes as $node) {
+            	if ($node->nodeName == 'span') {
+            		$lastSpan = trim($node->nodeValue);
+            	}
+            	
+            	if ($node->nodeName == '#text' && $lastSpan == 'Escolaridade:') {
+	            	$politician->escolaridade = trim(preg_replace('/ensino/i', null, $node->nodeValue));
+	            	$found = true;
+	            	break;
+            	}
+            }
+            
+            if (!$found) {
+            	$politician->escolaridade = 'Não informado';
+            }
+            
             $politician->nomeReal = trim($xpath->query('.//span[contains(text(), "Nome")]/following-sibling::text()', $paragraphs->item(1))->item(0)->nodeValue);
-            $politician->bio = $this->getInnerHTML($paragraphs->item(1));
+            $politician->bio = $this->getInnerHTML($bioNode);
             $politician->resultado = preg_replace('/(ELEITO|SUPLENTE|NÃO ELEITO).*/', '$1', $xpath->query('.//*[starts-with(., "Res")]/following-sibling::*', $paragraphs->item(2))->item(0)->firstChild->nodeValue);
             $politician->quantidadeVotos = (int) preg_replace(array('/Votação:\s*/', '/\s*votos?/i', '/\./'), null, $xpath->query('.//*[contains(text(), "Vot")]', $paragraphs->item(2))->item(0)->nodeValue);
             $politician->cargo = trim($xpath->query('.//span[contains(text(), "Cargo")]/following-sibling::text()', $paragraphs->item(2))->item(0)->nodeValue);

@@ -70,7 +70,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         var carregaCandidatos = function(cidadeEscolhida) {
 
-            $.getJSON('data/' + cidadeEscolhida + '.json',function(result){
+            $.getJSON('data/' + cidadeEscolhida + '.json?v=3',function(result){
 
                 listaCandidatos = result.candidatos;
                 embaralhaCandidatos(listaCandidatos);
@@ -453,7 +453,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             }
 
         },
-
+        
         montaCartaJogador = function(i) {
 
             cartaAtualJogador = listaCandidatosJogador[0];
@@ -465,7 +465,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $partidoJogador.text(cartaAtualJogador.partido);
             $projetosAprovadosJogador.text(cartaAtualJogador.projetosAprovados);
             $projetosVetadosJogador.text(cartaAtualJogador.projetosVetados);
-            // $escolaridadeJogador.text(cartaAtualJogador.escolaridade);
+            $escolaridadeJogador.text(cartaAtualJogador.escolaridade);
             $quantidadeVotosJogador.text(cartaAtualJogador.quantidadeVotos);
             $bioCartaJogador.html(cartaAtualJogador.bio);
 
@@ -488,7 +488,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             $partidoOponente.text(cartaAtualOponente.partido);
             $projetosAprovadosOponente.text(cartaAtualOponente.projetosAprovados);
             $projetosVetadosOponente.text(cartaAtualOponente.projetosVetados);
-            // $escolaridadeOponente.text(cartaAtualOponente.escolaridade);
+            $escolaridadeOponente.text(cartaAtualOponente.escolaridade);
             $quantidadeVotosOponente.text(cartaAtualOponente.quantidadeVotos);
             $bioCartaOponente.html(cartaAtualOponente.bio);
 

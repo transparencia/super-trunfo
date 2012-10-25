@@ -13,10 +13,12 @@ class SuperTrunfo
 {
     private $politicians;
     private $path;
+    private $superTrunfo;
 
-    public function __construct()
+    public function __construct(Politician $superTrunfo)
     {
         libxml_use_internal_errors(true);
+        $this->superTrunfo = $superTrunfo;
     }
 
     public function __destruct()
@@ -36,8 +38,20 @@ class SuperTrunfo
          * Cartas A com os 9 mais votados
          * Super Trunfo => B8
          **/
+        $politicians = array_slice($politicians, 0, 36);
+        
+        for ($i = 0, $t = count($politicians); $i < $t; ++$i) {
+        	if ($this->superTrunfo->nomeReal == $politicians[$i]->nomeReal) {
+        		unset($politicians[$i]);
+        		
+        		$politicians = array_filter($politicians);
+        		break;
+        	}
+        }
+        
         $politicians = array_slice($politicians, 0, 35);
-        $politician = new PoliticianSuperTrunfo();
+        
+        $politician = $this->superTrunfo;
         $offset = 0;
 
         foreach (range(65, 68) as $ord) {
@@ -59,6 +73,11 @@ class SuperTrunfo
 
                 $politicians[$offset++]->id = $i . chr($ord);
             }
+        }
+        
+        if (count($politicians) != 36) {
+        	var_dump($politicians, count($politicians));
+	        die;
         }
 
         return $politicians;

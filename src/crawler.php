@@ -1,40 +1,95 @@
 <?php
+use SuperTrunfo\Entity\Politician;
+
 require 'bootstrap.php';
 
 use SuperTrunfo\SuperTrunfo;
 
 $states = array(
-    'Acre' => 'candidatos-rio-branco-ac',
-    'Alagoas' => 'candidatos-maceio-al',
-    'Amazonas' => 'candidatos-manaus-am',
-    'Amapá' => 'candidatos-macapa-ap',
-    'Bahia' => 'candidatos-salvador-ba',
-    'Ceará' => 'candidatos-fortaleza-ce',
-    'Espírito Santo' => 'candidatos-vitoria-es',
-    'Goiás' => 'candidatos-goiania-go',
-    'Maranhão' => 'candidatos-sao-luis-ma',
-    'Minas Gerais' => 'candidatos-belo-horizonte-mg',
-    'Mato Grosso' => 'candidatos-cuiaba-mt',
-    'Mato Grosso do Sul' => 'candidatos-campo-grande-ms',
-    'Pará' => 'candidatos-belem-pa',
-    'Paraíba' => 'candidatos-joao-pessoa-pb',
-    'Paraná' => 'candidatos-curitiba-pr',
-    'Pernambuco' => 'candidatos-recife-pe',
-    'Piauí' => 'candidatos-teresina-pi',
-    'Rio de Janeiro' => 'candidatos-rio-de-janeiro-rj',
-    'Rio Grande do Norte' => 'candidatos-natal-rn',
-    'Rondônia' => 'candidatos-porto-velho-ro',
-    'Roraima' => 'candidatos-boa-vista-rr',
-    'Rio Grande do Sul' => 'candidatos-porto-alegre-rs',
-    'Santa Catarina' => 'candidatos-florianopolis-sc',
-    'São Paulo' => 'candidatos-sao-paulo-sp',
-    'Sergipe' => 'candidatos-aracaju-se',
-    'Tocantins' => 'candidatos-palmas-to'
+    'Ceará' => array('path' => 'candidatos-fortaleza-ce'),
+    'Paraíba' => array('path' => 'candidatos-joao-pessoa-pb'),
+    'Pernambuco' => array('path' => 'candidatos-recife-pe'),
+    'Rio de Janeiro' => array('path' => 'candidatos-rio-de-janeiro-rj'),
+    'Santa Catarina' => array('path' => 'candidatos-florianopolis-sc'),	
+    'São Paulo' => array('path' => 'candidatos-sao-paulo-sp')
 );
 
-foreach ($states as $state => $path) {
-    $superTrunfo = new SuperTrunfo();
-    $superTrunfo->setPath($path);
+$states['São Paulo']['Super Trunfo'] = new Politician();
+$states['São Paulo']['Super Trunfo']->nome= 'Gilberto Kassab';
+$states['São Paulo']['Super Trunfo']->nomeReal = 'Gilberto Kassab';
+$states['São Paulo']['Super Trunfo']->cargo = 'Prefeito';
+$states['São Paulo']['Super Trunfo']->foto = 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Gilberto_Kassab_%282007%29.jpg/250px-Gilberto_Kassab_%282007%29.jpg';
+$states['São Paulo']['Super Trunfo']->partido = 'PSD';
+$states['São Paulo']['Super Trunfo']->quantidadeVotos = 3790558;
+$states['São Paulo']['Super Trunfo']->superTrunfo = true;
+$states['São Paulo']['Super Trunfo']->escolaridade = 'Não informado';
+$states['São Paulo']['Super Trunfo']->resultado = 'ELEITO';
+
+$states['Ceará']['Super Trunfo'] = new Politician();
+$states['Ceará']['Super Trunfo']->nome = 'Luizianne Lins';
+$states['Ceará']['Super Trunfo']->nomeReal = 'Luizianne Lins';
+$states['Ceará']['Super Trunfo']->cargo = 'Prefeito';
+$states['Ceará']['Super Trunfo']->foto = 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Luizianne_Lins.jpg/210px-Luizianne_Lins.jpg';
+$states['Ceará']['Super Trunfo']->partido = 'PT';
+$states['Ceará']['Super Trunfo']->quantidadeVotos = 593778;
+$states['Ceará']['Super Trunfo']->superTrunfo = true;
+$states['Ceará']['Super Trunfo']->escolaridade = 'Não informado';
+$states['Ceará']['Super Trunfo']->resultado = 'ELEITO';
+
+$states['Paraíba']['Super Trunfo'] = new Politician();
+$states['Paraíba']['Super Trunfo']->nome = 'Luciano Agra';
+$states['Paraíba']['Super Trunfo']->nomeReal = 'Luciano Agra';
+$states['Paraíba']['Super Trunfo']->cargo = 'Prefeito';
+$states['Paraíba']['Super Trunfo']->foto = 'http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/LucianoAgra.jpg/200px-LucianoAgra.jpg';
+$states['Paraíba']['Super Trunfo']->partido = 'PSB';
+$states['Paraíba']['Super Trunfo']->temProcessos = 'não';
+$states['Paraíba']['Super Trunfo']->quantidadeVotos = 262041;
+$states['Paraíba']['Super Trunfo']->superTrunfo = true;
+$states['Paraíba']['Super Trunfo']->escolaridade = 'Não informado';
+$states['Paraíba']['Super Trunfo']->resultado = 'ELEITO';
+
+$states['Pernambuco']['Super Trunfo'] = new Politician();
+$states['Pernambuco']['Super Trunfo']->id = '8B';
+$states['Pernambuco']['Super Trunfo']->nome = 'João da Costa Bezerra';
+$states['Pernambuco']['Super Trunfo']->nomeReal = 'João da Costa Bezerra';
+$states['Pernambuco']['Super Trunfo']->cargo = 'Prefeito';
+$states['Pernambuco']['Super Trunfo']->foto = 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Jo%C3%A3o_da_Costa.jpeg/200px-Jo%C3%A3o_da_Costa.jpeg';
+$states['Pernambuco']['Super Trunfo']->partido = 'PT';
+$states['Pernambuco']['Super Trunfo']->temProcessos = 'não';
+$states['Pernambuco']['Super Trunfo']->quantidadeVotos = 432707;
+$states['Pernambuco']['Super Trunfo']->superTrunfo = true;
+$states['Pernambuco']['Super Trunfo']->escolaridade = 'Não informado';
+$states['Pernambuco']['Super Trunfo']->resultado = 'ELEITO';
+
+$states['Rio de Janeiro']['Super Trunfo'] = new Politician();
+$states['Rio de Janeiro']['Super Trunfo']->nome = 'Eduardo Paes';
+$states['Rio de Janeiro']['Super Trunfo']->nomeReal = 'Eduardo da Costa Paes';
+$states['Rio de Janeiro']['Super Trunfo']->cargo = 'Prefeito';
+$states['Rio de Janeiro']['Super Trunfo']->foto = 'http://static.eleicoes2012.info/fotos/5c/ed/eduardo-paes.jpg';
+$states['Rio de Janeiro']['Super Trunfo']->partido = 'PMDB';
+$states['Rio de Janeiro']['Super Trunfo']->temProcessos = 'não';
+$states['Rio de Janeiro']['Super Trunfo']->quantidadeVotos = 2097733;
+$states['Rio de Janeiro']['Super Trunfo']->superTrunfo = true;
+$states['Rio de Janeiro']['Super Trunfo']->bio = '<p><span class=\'legenda\'>Nome:</span> Eduardo da Costa Paes<br><span class=\'legenda\'>Idade:</span> 42 anos (14/11/1969)<br><span class=\'legenda\'>Naturalidade:</span> Rio de Janeiro/RJ<br><span class=\'legenda\'>Estado Civil:</span> Casado(A)<br><span class=\'legenda\'>Ocupa&ccedil;&atilde;o:</span> Prefeito<br><span class=\'legenda\'>Escolaridade:</span> Superior Completo<br></p>\n';
+$states['Rio de Janeiro']['Super Trunfo']->resultado = 'ELEITO';
+
+$states['Santa Catarina']['Super Trunfo'] = new Politician();
+$states['Santa Catarina']['Super Trunfo']->nome = 'Dário Berger';
+$states['Santa Catarina']['Super Trunfo']->nomeReal = 'Dário Berger';
+$states['Santa Catarina']['Super Trunfo']->cargo = 'Prefeito';
+$states['Santa Catarina']['Super Trunfo']->foto = 'http://cl.ly/image/1e0H0M0K1Q0q/XJ7MS4XJ.jpg';
+$states['Santa Catarina']['Super Trunfo']->partido = 'PMDB';
+$states['Santa Catarina']['Super Trunfo']->temProcessos = 'não';
+$states['Santa Catarina']['Super Trunfo']->quantidadeVotos = 129969;
+$states['Santa Catarina']['Super Trunfo']->superTrunfo = true;
+$states['Santa Catarina']['Super Trunfo']->escolaridade = 'Não informado';
+$states['Santa Catarina']['Super Trunfo']->resultado = 'ELEITO';
+
+foreach ($states as $state => $item) {
+	printf("\nPath: %s\n", $item['path']);
+	
+    $superTrunfo = new SuperTrunfo($item['Super Trunfo']);
+    $superTrunfo->setPath($item['path']);
     $superTrunfo->saveAllPoliticiansTo('../public/data');
     $superTrunfo->saveCardsTo('../public/data');
 }
