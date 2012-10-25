@@ -453,14 +453,20 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             }
 
         },
-        
+
         montaCartaJogador = function(i) {
 
             cartaAtualJogador = listaCandidatosJogador[0];
 
             $idCartaJogador.text(cartaAtualJogador.id);
             $nomeCartaJogador.text(cartaAtualJogador.nome).textFit({minFontSize: 17});
-            $numCartaJogador.text(cartaAtualJogador.numero);
+
+            if (cartaAtualJogador.numero != null) {
+                $numCartaJogador.text(cartaAtualJogador.numero);
+            } else {
+                $numCartaJogador.text("");
+            }
+
             $fotoCartaJogador.html('<img src="' + cartaAtualJogador.foto + '" alt="' + cartaAtualJogador.nome + '" />');
             $partidoJogador.text(cartaAtualJogador.partido);
             $projetosAprovadosJogador.text(cartaAtualJogador.projetosAprovados);
@@ -483,7 +489,13 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
             $idCartaOponente.text(cartaAtualOponente.id);
             $nomeCartaOponente.text(cartaAtualOponente.nome).textFit({minFontSize: 17});
-            $numCartaOponente.text(cartaAtualOponente.numero);
+
+            if (cartaAtualOponente.numero != null) {
+                $numCartaOponente.text(cartaAtualOponente.numero);
+            } else {
+                $numCartaOponente.text("");
+            }
+
             $fotoCartaOponente.html('<img src="' + cartaAtualOponente.foto + '" alt="' + cartaAtualOponente.nome + '" />');
             $partidoOponente.text(cartaAtualOponente.partido);
             $projetosAprovadosOponente.text(cartaAtualOponente.projetosAprovados);
