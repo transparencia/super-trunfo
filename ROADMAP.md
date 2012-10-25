@@ -7,6 +7,6 @@
 4. [Adicionar no JSON das cidades os candidatos atuais (#34)](https://github.com/transparencia/super-trunfo/issues/34)
 5. [Trocar leitura dos dados de XML para dados exibidos na marcação (#35)](https://github.com/transparencia/super-trunfo/issues/35)
 
-*Segunda - Dia 29*
+*Terça - Dia 30*
 
 3. [Localização do baralho via Facebook (#3)](https://github.com/transparencia/super-trunfo/issues/3)
