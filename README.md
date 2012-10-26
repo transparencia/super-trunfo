@@ -1,6 +1,8 @@
 # Super Trunfo
 
-Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.
+Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa. 
+
+[Roadmap do projeto.](https://github.com/transparencia/super-trunfo/wiki/Roadmap)
 
 ### Na mídia
 
@@ -8,7 +10,7 @@ Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de 
 * [Entrevista de Zeno Rocha para OD4D](http://soundcloud.com/od4d/zeno-rocha)
 * [Jovens criam versão de Super Trunfo para debater política com diversão](http://fernandovieri.com/2012/10/22/jovens-recriam-versao-de-super-trunfo-para-debater-politica-com-diversao-2/)
 
-### Imprensa
+### Para imprensa
 
 * [Release completo](https://github.com/transparencia/super-trunfo/blob/dev/release/1.pdf?raw=true)
 * [Release alternativo](https://github.com/transparencia/super-trunfo/blob/dev/release/2.pdf?raw=true)
