@@ -1,0 +1,109 @@
+// São Paulo
+{
+    "id": "8B",
+    "nome": "Gilberto Kassab",
+    "nomeReal": "Gilberto Kassab",
+    "numero": "",
+    "cargo": "Prefeito",
+    "foto": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Gilberto_Kassab_%282007%29.jpg/250px-Gilberto_Kassab_%282007%29.jpg",
+    "partido": "PSD",
+    "coligacao": "",
+    "projetosAprovados": "0",
+    "projetosVetados": "0",
+    "temProcessos": "não",
+    "quantidadeVotos": 3790558,
+    "superTrunfo": true,
+    "escolaridade": "Não informado",
+    "bio": "",
+    "resultado": "ELEITO",
+    "presencas": 0,
+    "faltas": null
+}
+
+// Fortaleza
+{
+    "id": "8B",
+    "nome": "Luizianne Lins",
+    "nomeReal": "Luizianne Lins",
+    "numero": "",
+    "cargo": "Prefeito",
+    "foto": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Luizianne_Lins.jpg/210px-Luizianne_Lins.jpg",
+    "partido": "PT",
+    "coligacao": "",
+    "projetosAprovados": "0",
+    "projetosVetados": "0",
+    "temProcessos": "não",
+    "quantidadeVotos": 593778,
+    "superTrunfo": true,
+    "escolaridade": "Não informado",
+    "bio": "",
+    "resultado": "ELEITO",
+    "presencas": 0,
+    "faltas": null
+}
+
+// João Pessoa
+{
+    "id": "8B",
+    "nome": "Luciano Agra",
+    "nomeReal": "Luciano Agra",
+    "numero": "",
+    "cargo": "Prefeito",
+    "foto": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/LucianoAgra.jpg/200px-LucianoAgra.jpg",
+    "partido": "PSB",
+    "coligacao": "",
+    "projetosAprovados": "0",
+    "projetosVetados": "0",
+    "temProcessos": "não",
+    "quantidadeVotos": 262041,
+    "superTrunfo": true,
+    "escolaridade": "Não informado",
+    "bio": "",
+    "resultado": "ELEITO",
+    "presencas": 0,
+    "faltas": null
+}
+
+// Recife
+{
+    "id": "8B",
+    "nome": "João da Costa Bezerra",
+    "nomeReal": "João da Costa Bezerra",
+    "numero": "",
+    "cargo": "Prefeito",
+    "foto": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Jo%C3%A3o_da_Costa.jpeg/200px-Jo%C3%A3o_da_Costa.jpeg",
+    "partido": "PT",
+    "coligacao": "",
+    "projetosAprovados": "0",
+    "projetosVetados": "0",
+    "temProcessos": "não",
+    "quantidadeVotos": 432707,
+    "superTrunfo": true,
+    "escolaridade": "Não informado",
+    "bio": "",
+    "resultado": "ELEITO",
+    "presencas": 0,
+    "faltas": null
+}
+
+// Florianópolis
+{
+    "id": "8B",
+    "nome": "Dário Berger",
+    "nomeReal": "Dário Berger",
+    "numero": "",
+    "cargo": "Prefeito",
+    "foto": "http://cl.ly/image/1e0H0M0K1Q0q/XJ7MS4XJ.jpg",
+    "partido": "PMDB",
+    "coligacao": "",
+    "projetosAprovados": "0",
+    "projetosVetados": "0",
+    "temProcessos": "não",
+    "quantidadeVotos": 129969,
+    "superTrunfo": true,
+    "escolaridade": "Não informado",
+    "bio": "",
+    "resultado": "ELEITO",
+    "presencas": 0,
+    "faltas": null
+}

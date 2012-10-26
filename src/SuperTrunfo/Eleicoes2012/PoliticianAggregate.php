@@ -8,16 +8,17 @@ use \IteratorAggregate;
 use SuperTrunfo\URLFetcher;
 use SuperTrunfo\DataAccess\PoliticianDataAccess;
 
-class PoliticianAggregate implements PoliticianDataAccess
+class PoliticianAggregate implements \IteratorAggregate
 {
     private $hasNextPage = true;
+    private $path;
 
     private function getPageContents($page)
     {
         $fetcher = new URLFetcher();
 
         return $fetcher->fetch('www.eleicoes2012.info',
-                               '/candidatos-sao-paulo-sp/alf/' . $page . '/');
+                               $this->path . '/alf/' . $page . '/');
     }
 
     private function getPage($page)
@@ -52,7 +53,11 @@ class PoliticianAggregate implements PoliticianDataAccess
 
         for ($i = 1; $i <= 59 && $this->hasNextPage; ++$i) {
             foreach ($this->getPage($i) as $path) {
-                $politicians[] = $politicianInfo->getInfo($path);
+                $politician = $politicianInfo->getInfo($path);
+
+                if ($politician !== null) {
+                    $politicians[] = $politician;
+                }
             }
         }
 
@@ -62,5 +67,10 @@ class PoliticianAggregate implements PoliticianDataAccess
     public function getIterator()
     {
         return new ArrayIterator($this->getPoliticians());
+    }
+
+    public function setPath($path)
+    {
+        $this->path = $path;
     }
 }

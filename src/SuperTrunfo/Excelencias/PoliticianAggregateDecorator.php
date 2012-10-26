@@ -39,26 +39,37 @@ class PoliticianAggregateDecorator extends PoliticianAggregate
 
     private function search($name)
     {
-        $urlFetcher = new URLFetcher();
-        $content = $urlFetcher->fetch('www.excelencias.org.br', '/@busca.php', array(
-            'nome' => $name
-        ));
+        try {
+            $urlFetcher = new URLFetcher();
+            $content = $urlFetcher->fetch('www.excelencias.org.br', '/@busca.php', array(
+                'nome' => $name
+            ));
 
-        if (!preg_match('/Nenhum parlamentar encontrado/i', $content)) {
-            $matches = array();
+            if (!preg_match('/Nenhum parlamentar encontrado/i', $content)) {
+                $matches = array();
+                
+                if (preg_match('/\<a class\="listapar" href\="([^"]+)"/', $content, $matches)) {
+                	$url = parse_url($matches[1]);
+                	$params = array();
+                	$parts = explode('&amp;', $url['query']);
+                	$parts[0] = explode('=', $parts[0]);
+                	$parts[1] = explode('=', $parts[1]);
+                	
+                	foreach ($parts as $part) {
+                		$params[$part[0]] = $part[1];
+                	}
+                	
+                    $content = $urlFetcher->fetchXML('www.excelencias.org.br', $url['path'], $params);
+                    
+                    $dom = new DOMDocument();
+                    $dom->preserveWhiteSpace = false;
+                    $dom->formatOutput = false;
+                    $dom->loadHTML($content);
 
-            if (preg_match('/\<a class\="listapar" href\="@candidato.php\?id=(\d+).*/', $content, $matches)) {
-                $content = $urlFetcher->fetchXML('www.excelencias.org.br', '/candidato/@candidato_direta.php', array(
-                    'id' => $matches[1]
-                ));
-
-                $dom = new DOMDocument();
-                $dom->preserveWhiteSpace = false;
-                $dom->formatOutput = false;
-                $dom->loadXML($content);
-
-                return $dom;
+                    return $dom;
+                }
             }
+        } catch (\Exception $e) {
         }
     }
 }

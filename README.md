@@ -2,9 +2,17 @@
 
 Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.
 
+### Na mídia
+
 * [Apresentação do case na Conferência da W3C](http://www.slideshare.net/zenorocha/slides-14815770)
 * [Entrevista de Zeno Rocha para OD4D](http://soundcloud.com/od4d/zeno-rocha)
 * [Jovens criam versão de Super Trunfo para debater política com diversão](http://fernandovieri.com/2012/10/22/jovens-recriam-versao-de-super-trunfo-para-debater-politica-com-diversao-2/)
+
+### Imprensa
+
+* [Release completo](https://github.com/transparencia/super-trunfo/blob/dev/release/1.pdf?raw=true)
+* [Release alternativo](https://github.com/transparencia/super-trunfo/blob/dev/release/2.pdf?raw=true)
+
 
 ## Qual o propósito do projeto?
 
@@ -58,33 +66,31 @@ Para garantir uma jogabilidade agradável não foi possível incluir todos os ca
 
 Esse foi o objetivo para o lançamento do jogo, agora estamos trabalhando para que você possa jogar com candidatos de qualquer cidade do país.
 
-## Por que quando eu seleciono o atributo "Projetos aprovados" quem ganha é quem tem o maior valor?
+## O que são "Projetos aprovados"?
 
-Porque nós consideramos que quanto maior o número de projetos aprovados melhor.
+Projetos aprovados são proposições feitas no ano de 2012 pelos políticos que, após apresentação em sessão, foram aprovados pela casa virando lei no município.
 
-## Por que quando eu seleciono o atributo "Projetos vetados" quem ganha é quem tem o menor valor?
+O game considera que quanto **maior** o número de projetos aprovados **melhor**.
 
-Porque nós considerados que quanto menor o número de projetos vetados melhor.
+## O que são "Projetos vetados"?
 
-## Por que quando eu seleciono o atributo "Tem processos" quem ganha é quem tem o valor "NÃO"?
+Projetos vetados são proposições feitas no ano de 2012 pelos políticos que, após apresentação em sessão, não tiveram votos suficientes para virar lei.
 
-Antes de mais nada, é importante deixar claro o motivo de termos utilizado "Tem processos" em vez de "Ficha limpa". Segundo a Lei Complementar nº. 135 de 2010, `Ficha limpa` é uma emenda à Lei Complementar nº. 64 de 1990, ou Lei das Condições de Inelegibilidade, que visa impedir a eleição de candidatos condenados por órgão colegiados a cargos políticos.
+O game considera que quanto **menor** o número de projetos vetados **melhor**.
 
-Ou seja, para um político ser considerado, sedundo a lei, como "ficha suja", ele **precisa** ter sido condenado com um colegiado (com mais do que 1 juiz). Muitos processos ocorrem em instâncias onde apenas 1 juiz julga o caso. Nesses processos, o acusado pode recorrer a uma instância superior, pedindo a revisão do julgamento anterior.
+## O que é "Escolaridade"?
 
-Ter processo pode significar que, por exemplo, na eleição do ano X o candidato não teve suas contas aprovadas pelo TSE. Mesmo que ele tenha recorrido a uma segunda instância, essa ainda não é composta por um colegiado e, dessa forma, segundo os parâmetros da Lei Complementar nº. 135 de 2010, ele **não é** *ficha suja**.
+Escolaridade é o nível de ensino que o candidato possui. 
 
-Deixado claro o significado do termo, é importante deixar claro também que, por ter sido julgado em primeira instância e por ter o direito de poder recorrer da decisão em uma instância superior, apenas os candidatos que "perderam" em instâncias superiores são configurados como **Tem Processos**.
+O game considera que quanto **maior** o nível de escolaridade **melhor**.
 
-Segundo a ministra do Supremo Tribunal Federal Rosa Weber:
+## O que é "Quantidade de votos"?
 
-> O homem público, ou que pretende ser público, não se encontra no mesmo patamar de obrigações do cidadão comum no trato da coisa pública. O representante do povo, o detentor de mandato eletivo, subordina-se à moralidade, à probidade, à honestidade e à boa-fé, exigências do ordenamento jurídico e que compõem um mínimo ético, condensado pela lei da Ficha Limpa, através de hipóteses concretas e objetivas de inelegibilidade.
+Quantidade de votos é o número de votos que os candidatos na eleição de 2012 obtiveram. 
 
-Por esse motivo, decidimos qualificar um político que **não tem processos** como sendo **melhor** que um político que tem processos.
+Para algumas cartas Super Trunfo que não são candidatos na eleição de 2012, são pegos os votos que os mesmos obtiveram na eleição de 2008.
 
-## Por que quando eu seleciono o atributo "Quantidade de votos" quem ganha é quem tem o maior valor?
-
-Porque nós consideramos que quanto maior o número de votos, mais popular é o candidato.
+O game considera que quanto **maior** o número de votos **melhor**.
 
 ## Vocês tem direito de imagem dos políticos?
 

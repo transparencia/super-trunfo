@@ -12,10 +12,13 @@ use SuperTrunfo\Excelencias\PoliticianAggregateDecorator;
 class SuperTrunfo
 {
     private $politicians;
+    private $path;
+    private $superTrunfo;
 
-    public function __construct()
+    public function __construct(Politician $superTrunfo)
     {
         libxml_use_internal_errors(true);
+        $this->superTrunfo = $superTrunfo;
     }
 
     public function __destruct()
@@ -27,7 +30,7 @@ class SuperTrunfo
     public function getCards()
     {
         $politicians = $this->getPoliticians();
-
+        
         /**
          * 35 candidatos + prefeito atual => 36 total
          * 4 grupos => A, B, C e D
@@ -35,14 +38,24 @@ class SuperTrunfo
          * Cartas A com os 9 mais votados
          * Super Trunfo => B8
          **/
-        uasort($politicians, function($a, $b) {
-            if ($a->quantidadeVotos == $b->quantidadeVotos) return 0;
-            else if ($a->quantidadeVotos > $b->quantidadeVotos) return -1;
-            else return 1;
-        });
+        $politicians = array_slice($politicians, 0, 36);
+        $superTrunfoExists = false;
+        
+        for ($i = 0, $t = count($politicians); $i < $t; ++$i) {
+        	if ($this->superTrunfo->nomeReal == $politicians[$i]->nomeReal) {
+        		$superTrunfoExists = true;
+        		$politicians[$i] = null;
+        		
+        		$politicians = array_values(array_filter($politicians));
+        		break;
+        	}
+        }
 
-        $politicians = array_slice($politicians, 0, 35);
-        $politician = new PoliticianSuperTrunfo();
+        if (!$superTrunfoExists) {
+        	$politicians = array_slice($politicians, 0, 35, true);
+        }
+        
+        $politician = $this->superTrunfo;
         $offset = 0;
 
         foreach (range(65, 68) as $ord) {
@@ -61,9 +74,20 @@ class SuperTrunfo
 
                     continue;
                 }
+                
+                if (!isset($politicians[$offset])) {
+                	file_put_contents('data', print_r($politicians, true));
+                	var_dump($offset);
+                	die;
+                }
 
                 $politicians[$offset++]->id = $i . chr($ord);
             }
+        }
+        
+        if (count($politicians) != 36) {
+        	var_dump($politicians, count($politicians));
+	        die;
         }
 
         return $politicians;
@@ -86,9 +110,17 @@ class SuperTrunfo
     {
         if ($this->politicians === null) {
             $aggregate = new PoliticianAggregate();
+            $aggregate->setPath($this->path);
             $decorator = new PoliticianAggregateDecorator($aggregate);
+            $politicians = $decorator->getPoliticians();
 
-            $this->politicians = $decorator->getPoliticians();
+            uasort($politicians, function($a, $b) {
+                if ($a->quantidadeVotos == $b->quantidadeVotos) return 0;
+                else if ($a->quantidadeVotos > $b->quantidadeVotos) return -1;
+                else return 1;
+            });
+
+            $this->politicians = $politicians;
         }
 
         return $this->politicians;
@@ -96,7 +128,7 @@ class SuperTrunfo
 
     public function saveAllPoliticiansTo($path)
     {
-        $path = $this->getRealPath($path, 'candidatos.full.json');
+        $path = $this->getRealPath($path, $this->path . '.full.json');
         $politicians = $this->getPoliticians();
 
         file_put_contents($path, json_encode($politicians));
@@ -104,10 +136,15 @@ class SuperTrunfo
 
     public function saveCardsTo($path)
     {
-        $path = $this->getRealPath($path, 'candidatos.json');
+        $path = $this->getRealPath($path, $this->path . '.json');
         $politicians = new stdClass();
         $politicians->candidatos = $this->getCards();
 
         file_put_contents($path, json_encode($politicians));
+    }
+
+    public function setPath($path)
+    {
+        $this->path = $path;
     }
 }

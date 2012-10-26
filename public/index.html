@@ -25,40 +25,82 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Super Trunfo da Política de São Paulo</title>
+    <title>Super Trunfo da Política</title>
 
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/theme.css" />
-    
+    <link rel="stylesheet" href="css/reset.css?v=3" />
+    <link rel="stylesheet" href="css/base.css?v=3" />
+    <link rel="stylesheet" href="css/theme.css?v=3" />
+
     <meta property="fb:admins" content="100000496633251" />
     <meta property="fb:admins" content="100001594277746" />
     <meta property="fb:admins" content="1021864713" />
     <meta property='fb:app_id' content='369251863156901'/>
     <meta property='og:locale' content='pt_br'/>
     <meta property='og:title' content='Super Trunfo'/>
-    <meta property='og:description' content='Desde a Lei da Transparência(131/2009) em 2010, o Brasil vem se destacando quanto a obrigação dos estados a documentarem sua contabilidade na internet, e assim resolvemos criar um jogo famoso que consome através de um webservice os dados abertos do estado de São Paulo.'/>
+    <meta property='og:description' content='Desde a Lei da Transparência(131/2009) em 2010, o Brasil vem se destacando quanto a obrigação dos estados a documentarem sua contabilidade na internet, e assim resolvemos criar um jogo famoso que consome, através de um webservice, os dados abertos do primeiro turno da eleição de 2012.'/>
     <meta property='og:url' content='http://neto.my.phpcloud.com/super-trunfo/'/>
     <meta property='og:site_name' content='Super Trunfo da Política'/>
     <meta property='og:type' content='game'/>
-    <meta property='og:image' content='http://neto.my.phpcloud.com/super-trunfo/img/screen-05.jpg'/>
+    <meta property='og:image' content='//neto.my.phpcloud.com/super-trunfo/img/screen-04.jpg'/>
 </head>
 <body>
 
 <div class="screen">
 
-<div class="introduction-logo"><img src="img/logo-super-trunfo.png" alt="Super Trunfo - Política de São Paulo"></div>
+<div class="introduction-logo"><img src="img/logo-super-trunfo.png" alt="Super Trunfo da Política"></div>
 
 
 <div class="ui-games">
     <!-- header -->
     <header class="header" role="header">
         <hgroup class="page-title">
-            <h1><img src="img/logo-super-trunfo-small.png" alt="Super Trunfo - Política de São Paulo"></h1>
+            <h1><img src="img/logo-super-trunfo-small.png" alt="Super Trunfo da Política"></h1>
             <a class="send-request" href="javascript:void(0);" title="Convidar amigos"><img src="img/btn-send-request.png" alt="Send Request" /></a>
         </hgroup>
+
         <a href="#" title="Sobre" class="link-about"><i class="ic-about"></i></a>
         <!-- <a href="#" title="Configurações" class="link-admin"><i class="ic-admin"></i></a> -->
+
+        <!-- user -->
+        <section class="user">
+            <span class="user-photo"><img src="img/be.jpeg" alt="Foto do jogador" /></span>
+            <h2>Olá <span class="user-name"></span>, vamos jogar?</h2>
+            <form action="" class="form" id="escolha-cidade">
+                <label for="cidades">Escolha a sua cidade</label>
+                <select id="cidades">
+                    <!-- <option value="candidatos-aracaju-se">Aracajú</option>
+                    <option value="candidatos-belem-pa">Belém</option> -->
+                    <option value="candidatos-belo-horizonte-mg">Belo Horizonte</option>
+                    <!-- <option value="candidatos-boa-vista-rr">Boa Vista</option>
+                    <option value="candidatos-campo-grande-ms">Campo Grande</option>
+                    <option value="candidatos-cuiaba-mt">Cuiabá</option>
+                    <option value="candidatos-curitiba-pr">Curitiba</option> -->
+                    <option value="candidatos-florianopolis-sc">Florianópolis</option>
+                    <option value="candidatos-fortaleza-ce">Fortaleza</option>
+                    <!-- <option value="candidatos-goiania-go">Goiânia</option> -->
+                    <option value="candidatos-joao-pessoa-pb">João Pessoa</option>
+                    <!-- <option value="candidatos-macapa-ap">Macapá</option>
+                    <option value="candidatos-maceio-al">Maceio</option>
+                    <option value="candidatos-manaus-am">Manaus</option>
+                    <option value="candidatos-natal-rn">Natal</option>
+                    <option value="candidatos-palmas-to">Palmas</option> -->
+                    <option value="candidatos-porto-alegre-rs">Porto Alegre</option>
+                    <!-- <option value="candidatos-porto-velho-ro">Porto Velho</option> -->
+                    <option value="candidatos-recife-pe">Recife</option>
+                    <!-- <option value="candidatos-rio-branco-ac">Rio Branco</option> -->
+                    <option value="candidatos-rio-de-janeiro-rj">Rio de Janeiro</option>
+                    <!-- <option value="candidatos-salvador-ba">Salvador</option>
+                    <option value="candidatos-sao-luis-ma">São Luís</option> -->
+                    <option value="candidatos-sao-paulo-sp">São Paulo</option>
+                    <!-- <option value="candidatos-teresina-pi">Teresina</option>
+                    <option value="candidatos-vitoria-es">Vitória</option> -->
+                </select>
+                <input type="submit" class="btn btn-primary btn-new" id="new-game" value="Criar novo jogo!" />
+                <!-- <div class="msg-error">Você precisa selecionar uma cidade para criar um novo jogo.</div> -->
+            </form>
+        </section>
+        <!-- /user -->
+
     </header>
     <!-- /header -->
 </div>
@@ -92,19 +134,19 @@
                 </span>
                 <div class="card-data">
                     <div class="card-label vence-maior" data-attribute="projs-aprovados">
-                        <span class="card-label-item">Projetos aprovados:</span>
+                        <span class="card-label-item">Projs. aprovados <a class="attribute-detail" href="#">[?]</a></span>
                         <span class="card-label-value"></span>
                     </div>
                     <div class="card-label vence-menor" data-attribute="projs-vetados">
-                        <span class="card-label-item">Projetos vetados:</span>
+                        <span class="card-label-item">Projs. vetados <a class="attribute-detail" href="#">[?]</a></span>
                         <span class="card-label-value"></span>
                     </div>
-                    <div class="card-label vence-boolean" data-attribute="ficha-limpa">
-                        <span class="card-label-item">Tem processos:</span>
-                        <span class="card-label-value"></span>
+                    <div class="card-label vence-maior" data-attribute="escolaridade">
+                        <span class="card-label-item">Escolaridade <a class="attribute-detail" href="#">[?]</a></span>
+                        <span class="card-label-value card-label-escolaridade">Superior Incompleto</span>
                     </div>
                     <div class="card-label vence-maior last" data-attribute="qt-votos">
-                        <span class="card-label-item">Qt. de votos:</span>
+                        <span class="card-label-item">Qt. de votos <a class="attribute-detail" href="#">[?]</a></span>
                         <span class="card-label-value"></span>
                     </div>
                 </div>
@@ -130,9 +172,9 @@
                         <span class="card-label-item">Projetos vetados:</span>
                         <span class="card-label-value"></span>
                     </div>
-                    <div class="card-label vence-boolean" data-attribute="ficha-limpa">
-                        <span class="card-label-item">Tem processos:</span>
-                        <span class="card-label-value"></span>
+                    <div class="card-label vence-maior" data-attribute="escolaridade">
+                        <span class="card-label-item">Escolaridade:</span>
+                        <span class="card-label-value card-label-escolaridade">Fundamental Incompleto</span>
                     </div>
                     <div class="card-label vence-maior last" data-attribute="qt-votos">
                         <span class="card-label-item">Qt. de votos:</span>
@@ -157,15 +199,51 @@
     <!-- / final -->
 
     <footer class="footer">
-        <p>Esse jogo foi criado por <a href="http://www.facebook.com/bernarddeluna/" title="" target="_top">Bernard De Luna</a>, <a href="http://www.facebook.com/neto.joaobatista" title="" target="_top">João Batista Neto</a> e <a href="http://www.facebook.com/zenorocha" title="" target="_top">Zeno Rocha</a>, utilizando dados abertos cedidos pelo governo brasileiro com o objetivo de compartilhar o conhecimento da nossa política de uma forma mais divertida e interativa.</p>
+        <p>Esse jogo foi criado por <a href="http://www.facebook.com/bernarddeluna/" title="Bernard De Luna - Facebook" target="_blank">Bernard De Luna</a>, <a href="http://www.facebook.com/neto.joaobatista" title="João Batista Neto - Facebook" target="_blank">João Batista Neto</a> e <a href="http://www.facebook.com/zenorocha" title="Zeno Rocha - Facebook" target="_blank">Zeno Rocha</a>, utilizando dados abertos cedidos pelo governo brasileiro com o objetivo de compartilhar o conhecimento da nossa política de uma forma<br>mais divertida e interativa. Todo <a href="https://github.com/transparencia/super-trunfo">código-fonte</a> está aberto para contribuições.</p>
     </footer>
 
     <!-- modal -->
     <div class="modal modal-about">
         <h2>Sobre o Super Trunfo</h2>
         <p>Esse jogo foi criado para incentivar a transparência e colaboração em cima dos dados abertos, mostrando o que é possível fazer com as informações cedidas pelo governo brasileiro, seguindo as definições do W3C.</p>
-        <p>Desde a Lei da Transparência(131/2009) em 2010, o Brasil vem se destacando quanto a obrigação dos estados a documentarem sua contabilidade na internet, e assim resolvemos criar um jogo famoso que consome através de um webservice os dados abertos do estado de São Paulo.</p>
-        <p>Qualquer informação, divulgação ou dúvidas sobre o Super Trunfo - Política de São Paulo, entre em contato através do email <a href="mailto:supertrunfopolitica@gmail.com" title="">supertrunfopolitica@gmail.com</a>.</p>
+        <p>Desde a Lei da Transparência(131/2009) em 2010, o Brasil vem se destacando quanto a obrigação dos estados a documentarem sua contabilidade na internet, e assim resolvemos criar um jogo famoso que consome, através de um webservice, os dados abertos do primeiro turno da eleição de 2012.</p>
+        <p>Qualquer informação, divulgação ou dúvidas sobre o Super Trunfo da Política, consulte o <a href="https://github.com/transparencia/super-trunfo/blob/dev/README.md" title="FAQ" target="_blank">FAQ</a> ou entre em contato através do email <a href="mailto:supertrunfopolitica@gmail.com" title="Email" target="_blank">supertrunfopolitica@gmail.com</a>.</p>
+        <p>Se você é desenvolvedor e gostaria de contribuir com o projeto, acesse: <a href="https://github.com/transparencia/super-trunfo" title="Github" target="_blank">github.com/transparencia/super-trunfo</a></p>
+    </div>
+    <!-- / modal -->
+
+    <!-- modal -->
+    <div class="modal modal-projs-aprovados">
+        <h2>O que significa "Projetos aprovados"?</h2>
+        <p>Projetos aprovados são proposições feitas no ano de 2012 pelos políticos que, após
+        apresentação em sessão, foram aprovados pela casa virando lei no município.</p>
+        <p>O game considera que quanto <strong>maior</strong> o número de projetos aprovados <strong>melhor</strong>.</p>
+    </div>
+    <!-- / modal -->
+
+    <!-- modal -->
+    <div class="modal modal-projs-vetados">
+        <h2>O que significa "Projetos vetados"?</h2>
+        <p>Projetos vetados são proposições feitas no ano de 2012 pelos políticos que, após
+        apresentação em sessão, não tiveram votos suficientes para virar lei.</p>
+        <p>O game considera que quanto <strong>menor</strong> o número de projetos vetados <strong>melhor</strong>.</p>
+    </div>
+    <!-- / modal -->
+
+    <!-- modal -->
+    <div class="modal modal-escolaridade">
+        <h2>O que significa "Escolaridade"?</h2>
+        <p>Escolaridade é o nível de ensino que o candidato possui.</p>
+        <p>O game considera que quanto <strong>maior</strong> o nível de escolaridade <strong>melhor</strong>.</p>
+    </div>
+    <!-- / modal -->
+
+    <!-- modal -->
+    <div class="modal modal-qt-votos">
+        <h2>O que significa "Quantidade de votos"?</h2>
+        <p>Quantidade de votos é o número de votos que os candidatos na eleição de 2012 obtiveram.</p>
+        <p>Para algumas cartas Super Trunfo que não são candidatos na eleição de 2012, são pegos os votos que os mesmos obtiveram na eleição de 2008.</p>
+        <p>O game considera que quanto <strong>maior</strong> o número de votos <strong>melhor</strong>.</p>
     </div>
     <!-- / modal -->
 
@@ -174,8 +252,9 @@
 
 <script src="//connect.facebook.net/pt_BR/all.js"></script>
 <script src="js/jquery-1.8.2.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/facebook.js"></script>
-
+<script src="js/jquery.textfit.js"></script>
+<script src="js/script.js?v=5"></script>
+<script src="js/facebook.js?v=3"></script>
+<!-- <script src="js/local.js"></script> -->
 </body>
 </html>
