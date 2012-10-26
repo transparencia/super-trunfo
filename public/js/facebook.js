@@ -31,6 +31,46 @@ SUPERTRUNFO.APPS.Facebook = {
 							$(this).attr('selected', 'selected');
 						}
 					});
+
+
+					var data = {
+					  "id": "100003087709183", 
+					  "friends": {
+					    "data": [
+					      {
+					        "name": "Ariane Brandão", 
+					        "id": "521354854"
+					      }, 
+					      {
+					        "name": "Betina Koelln", 
+					        "id": "540972023"
+					      }, 
+					      {
+					        "name": "Paulo Fernandes", 
+					        "id": "553958901"
+					      }, 
+					      {
+					        "name": "Robson Chimin", 
+					        "id": "562114716"
+					      }, 
+					      {
+					        "name": "Anderson Agustoni", 
+					        "id": "591306748"
+					      },
+					      {
+					        "name": "Robson Chimin", 
+					        "id": "562114716"
+					      }, 
+					      {
+					        "name": "Anderson Agustoni", 
+					        "id": "591306748"
+					      }
+					    ]
+					  }
+					};
+
+
+					SUPERTRUNFO.APPS.Facebook.friends(data);
 				});
 				
 				$(base + ' .user-name').text(response.name);
@@ -42,6 +82,30 @@ SUPERTRUNFO.APPS.Facebook = {
 		
 		$('.send-request').on('click', SUPERTRUNFO.APPS.Facebook.sendRequest);
 		jogo.init();
+	},
+	
+	friends: function(response) {
+		var items = '',
+		list = response.friends.data,
+		$gamesList = $('.games-list');
+
+
+		$(list).each(function(v){
+		  var $this = $(this)[0];
+
+		   items += 
+		   '<li class="games-item">'+
+		        '<a class="game" href="#" title="">'+
+		            '<span class="user-img"><img src="img/be.jpeg" alt="photo"></span>'+
+		            '<span class="user-name" data-id="' + $this.id + '">' + $this.name + ' <span class="user-ranking">(3°)</span></span>'+
+		            '<span class="score-opponent winning"><i class="ic-card"></i>80</span>'+
+
+		            '<i class="ic-arrow"></i>'+
+		        '</a>'+
+		    '</li>';
+		});
+
+		$gamesList.empty().append(items);
 	},
 
 	login: function(response) {

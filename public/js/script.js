@@ -94,6 +94,33 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
 
         bind = function() {
 
+            // escolhendo o oponente
+            $('.games-item').on('click', function(e) {
+                var $this = $(this);
+
+
+                alert( $this.find('.user-name').attr('data-id') );
+
+
+                //$('.games-yourturn').fadeOut();
+                //$('.ui-turns').fadeIn();
+
+
+                novoJogo();
+
+
+                e.preventDefault();
+            });
+
+
+            // inicia uma nova partida
+            $('.new-game').on('click', function(e) {
+
+
+
+                e.preventDefault();
+            });
+
             // armazena a opção escolhida pelo usuário e sua opção respectiva no oponente
             $('.card-label').on('click', function(e) {
 
