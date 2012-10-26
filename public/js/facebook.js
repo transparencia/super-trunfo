@@ -14,7 +14,7 @@ SUPERTRUNFO.APPS.Facebook = {
 	updateGUIAndInit: function() {
 		var jogo = new SUPERTRUNFO.APPS.Jogo();
 		
-		FB.api('/me?fields=name,picture,location', function(response) {
+		FB.api('/me?fields=id,name,picture,friends,location', function(response) {
 			var userProfile = function(base) {
 				var img = $(base + ' .user-photo img');
 				
@@ -45,13 +45,7 @@ SUPERTRUNFO.APPS.Facebook = {
 	},
 
 	login: function(response) {
-
-		if (response.authResponse) {
-			SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
-		} else {
-			FB.login(SUPERTRUNFO.APPS.Facebook.login);
-		}
-
+		SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
 	},
 
 	init: function() {
@@ -65,12 +59,8 @@ SUPERTRUNFO.APPS.Facebook = {
 		});
 
 		FB.getLoginStatus(function(response) {
-			if (response.status === 'connected') {
-				SUPERTRUNFO.APPS.Facebook.updateGUIAndInit();
-			} else if (response.status === 'not_authorized') {
-				FB.login(SUPERTRUNFO.APPS.Facebook.login);
-			} else {
-				FB.login(SUPERTRUNFO.APPS.Facebook.login);
+			if (response.status.toString().indexOf("connected") == -1 || response.status.toString().indexOf("not_authorized") >= 0) {
+				FB.login(SUPERTRUNFO.APPS.Facebook.login, {scope: 'read_friendlists, manage_notifications, publish_stream'});
 			}
 
 			FB.Canvas.setSize({width: 850});
