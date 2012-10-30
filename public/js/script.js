@@ -384,7 +384,7 @@ SUPERTRUNFO.APPS = SUPERTRUNFO.APPS || {};
             setTimeout(function() {
                 atualizaPlacar();
                 novaRodada(result);
-            }, 3000);
+            }, 6000);
 
         },
 
