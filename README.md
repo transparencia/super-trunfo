@@ -18,6 +18,12 @@ Jogo que utiliza dados abertos cedidos pelo governo brasileiro com o intuito de 
 * [Release alternativo](https://github.com/transparencia/super-trunfo/blob/dev/release/2.pdf?raw=true)
 
 
+## Como rodar o projeto localmente?
+
+1. Vá até o arquivo `public/index.html`
+2. Remova o script `<script src="js/facebook.js"></script>`
+3. Adicione o script `<script src="js/local.js"></script>`
+
 ## Qual o propósito do projeto?
 
 Esse jogo foi criado para incentivar a transparência e colaboração em cima dos dados abertos, mostrando o que é possível fazer com as informações cedidas pelo governo brasileiro, seguindo as definições do W3C.
