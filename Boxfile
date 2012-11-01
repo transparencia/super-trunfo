@@ -1,0 +1,12 @@
+global:
+  env:
+    - APP_NAME: super-trunfo
+
+web1:
+  name: app
+  document_root: public
+  php_version: 5.3.10
+  php_extensions:
+    - apc
+    - timezonedb
+    - mbstring
